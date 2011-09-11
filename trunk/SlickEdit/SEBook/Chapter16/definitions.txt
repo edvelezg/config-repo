@@ -1,0 +1,19 @@
+# $Id:definitions.txt 1422 2007-07-26 09:59:20Z jhurst $
+# John Hurst (jbhurst@attglobal.net)
+# 2007-05-31
+
+# Definitions: define emulation name per SlickEdit "def" file
+
+bbedit        BBEdit (Mac)
+brief         Brief
+codewarrior   CodeWarrior
+codewright    CodeWright
+emacs         Epsilon
+gnu           GNU Emacs
+ispf          ISPF
+slick         SlickEdit
+vcpp          Visual C++ 6
+vi            Vim
+vsnet         Visual Studio
+win           CUA
+xcode         Xcode

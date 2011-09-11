@@ -1,0 +1,8 @@
+as assert boolean break case catch class
+continue def default do else extends false
+finally for if implements import in int
+instanceof interface new package private
+property return static switch this throw throws
+true try void while boolean int char null long
+float double short
+

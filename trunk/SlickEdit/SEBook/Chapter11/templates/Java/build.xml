@@ -1,0 +1,99 @@
+<!--
+  $$Id$
+  $copyright$
+  $username$
+  $localdate$
+-->
+
+<project name="$projectname$" basedir="." default="compile-java" >
+
+  <tstamp>
+    <format property="build.date" pattern="yyyy-MM-dd HH:mm:ss"/>
+  </tstamp>
+
+  <!-- Properties: local properties override common properties -->
+  <property file="build.local.properties"/>
+  <property file="build.number.properties"/>
+  <property file="build.properties"/>
+
+  <path id="classpath.lib">
+    <fileset dir="${lib}"/>
+  </path>
+  <path id="classpath.test">
+    <fileset dir="${lib.test}"/>
+  </path>
+
+  <target name="clean" description="Clean temporary/generated files and directories">
+    <delete dir="${build}"/>
+  </target>
+
+  <target name="prepare" description="Create directory structure for build">
+    <mkdir dir="${build}"/>
+    <mkdir dir="${build.classes}"/>
+  </target>
+
+  <target name="compile-java" depends="prepare" description="Compile prod code" >
+    <javac srcdir="${src.java}"
+           destdir="${build.classes}"
+           debug="${compile.debug}"
+           optimize="${compile.optimize}"
+           source="${compile.source}"
+           target="${compile.target}">
+      <compilerarg value="${compile.xlint}"/>
+      <classpath refid="classpath.lib"/>
+    </javac>
+    <copy todir="${build.classes}">
+      <fileset dir="${src.java}" excludes="**/*.java"/>
+    </copy>
+  </target>
+
+  <target name="compile-test" depends="prepare,compile-java" description="Compile test code">
+    <javac srcdir="${src.test}"
+           destdir="${build.classes}"
+           debug="${compile.debug}"
+           optimize="${compile.optimize}"
+           source="${compile.source}"
+           target="${compile.target}">
+      <compilerarg value="${compile.xlint}"/>
+      <classpath refid="classpath.lib"/>
+      <classpath refid="classpath.test"/>
+    </javac>
+    <copy todir="${build.classes}">
+      <fileset dir="${src.test}" excludes="**/*.java"/>
+    </copy>
+  </target>
+
+  <target name="compile" depends="compile-java,compile-test" description="Compile all code"/>
+
+  <target name="javadoc" depends="prepare" description="Create javadocs" >
+    <javadoc destdir="${build.javadoc}" breakiterator="yes" >
+      <packageset dir="${src.java}" defaultexcludes="yes" />
+    </javadoc>
+  </target>
+
+  <target name="test" depends="compile"
+          description="Run all tests">
+    <delete dir="${test.xml.dir}"/>
+    <mkdir dir="${test.xml.dir}"/>
+    <junit
+      errorProperty="test.failed"
+      failureProperty="test.failed"
+      printsummary="${test.printsummary}"
+      haltonfailure="${test.haltonfailure}"
+      fork="${test.fork}"
+      reloading="false"
+      dir="."
+      showoutput="${test.showoutput}">
+      <classpath path="${build.classes}"/>
+      <classpath refid="classpath.lib"/>
+      <classpath refid="classpath.test"/>
+      <formatter type="brief" usefile="false"/>
+      <formatter type="xml"/>
+      <test name="AllTests"
+            todir="${test.xml.dir}" />
+    </junit>
+    <fail message="Tests failed!  Check test reports." if="test.failed"/>
+  </target>
+
+</project>
+
