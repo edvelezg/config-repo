@@ -1,0 +1,12 @@
+
+This is a file used to demonstrate 3 way merging.
+
+This is the line in the diff1 file.
+
+Here is line 1 of 3.
+This line is added in diff1.
+Here is line 2 of 3.
+Here is line 3 of 3.
+
+Here is line 2 to be deleted.
+
