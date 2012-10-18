@@ -1,7 +1,6 @@
 #include "slick.sh"
 
-//
-// FIle:       aligneq.e
+// File:       aligneq.e
 // Author:     Joseph Van Valen
 //
 // Description:
@@ -25,10 +24,10 @@
 // since these are the keys of habit for these functions. (I moved complete_prev             
 // and complete_next to <alt [> and <alt ]> respectively)                                    
 //                                                                                           
-// I hope you find these useful                                                              
-                                                                                             
+// I hope you find these useful
+
 static int gMaxEqCol;                                                                        
-                                                                                             
+
 /**                                                                                          
  * A selection filter that determines the column of the right most equal sign.               
  *                                                                                           
@@ -128,10 +127,19 @@ static _str align_ba_filter(s)
 _command void align_equals() name_info(','VSARG2_MARK|VSARG2_REQUIRES_EDITORCTL)
 {
 
-   if ( _select_type() != "LINE" && _select_type() != "BLOCK" ) {
-      message("A LINE or BLOCK selection is required for this function");
-      return;
+   if (_select_type() == "") {
+      select_paragraph()
+//    message("A selection is required for this function");
+//    return;
+   } else if (_select_type() != "LINE" && _select_type() != "BLOCK") {
+      // Convert it into a LINE selection
+      _select_type('', 'T', 'LINE');
    }
+
+// if ( _select_type() != "LINE" && _select_type() != "BLOCK" ) {
+//    message("A LINE or BLOCK selection is required for this function");
+//    return;
+// }
 
    gMaxEqCol = 0;
    filter_selection(find_max_eq_filter);
@@ -282,6 +290,3 @@ _command void slide_out_prompt() name_info(','VSARG2_MARK|VSARG2_REQUIRES_EDITOR
    filter_selection(slide_out_filter);
    _free_selection("");
 }
-
-
-
