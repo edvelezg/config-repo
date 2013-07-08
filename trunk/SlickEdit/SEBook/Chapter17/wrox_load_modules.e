@@ -24,12 +24,12 @@
  * Slick-C batch macro.
  */
 defmain() {
-  load("../Chapter02/wrox_emulation.e");
-  load("../Chapter06/wrox_next_prev_word.e");
-  load("../Chapter09/wrox_comments.e");
-  load("../Chapter10/wrox_align.e");
+  load("..\\Chapter02\\wrox_emulation.e");
+  load("..\\Chapter06\\wrox_next_prev_word.e");
+  load("..\\Chapter09\\wrox_comments.e");
+  load("..\\Chapter10\\wrox_align.e");
 //load("../Chapter10/wrox_benchmark.e");
-  load("../Chapter10/wrox_repeat.e");
+//load("../Chapter10/wrox_repeat.e");
 //load("../Chapter10/wrox_start_of_next_line.e");
 //load("../Chapter11/wrox_aliases.e");
 //load("../Chapter11/wrox_dates.e");
