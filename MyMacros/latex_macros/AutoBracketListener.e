@@ -68,7 +68,7 @@ static _str g_AutoBracketInterfaces:[] = {
    "java"            => "se.lang.generic.GenericAutoBracket",
    "js"              => "se.lang.generic.GenericAutoBracket",
    "jsl"             => "se.lang.generic.GenericAutoBracket",
-   
+
    "powershell"      => "se.lang.generic.GenericAutoBracket",
    "tcl"             => "se.lang.generic.GenericAutoBracket",
    "vera"            => "se.lang.generic.GenericAutoBracket",
@@ -112,6 +112,12 @@ class AutoBracketListener {
       }
       if (opts & AUTO_BRACKET_ENABLE) {
          switch (key) {
+         case '$':
+            if (p_LangId == 'tex') {
+               close_ch = '$';
+               keyEnabled = true;
+            }
+            break;
          case '(':
             close_ch = ')';
             keyEnabled = (opts & AUTO_BRACKET_PAREN) ? true : false;
@@ -253,6 +259,10 @@ class AutoBracketListener {
          keyarray[2] = '<';
          keyarray[3] = '"';
          keyarray[4] = "'";
+
+         if (p_LangId == 'tex') {
+            keyarray[5] = "$";
+         }
 
          // add custom keys
          ab := getInterface(p_LangId);
