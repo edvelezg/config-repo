@@ -1,6 +1,6 @@
 #include "slick.sh"
 
-_command void beautify_bash() {
+_command void beautify_ruby() {
 
    if (_select_type() == "") {
       select_all()
@@ -8,7 +8,7 @@ _command void beautify_bash() {
       // Convert it into a LINE selection
       _select_type('', 'T', 'LINE');
    }
-   _str out = filter_command("ruby beautify_bash.rb -");
+   _str out = filter_command("rbeautify");
 
 }
 
