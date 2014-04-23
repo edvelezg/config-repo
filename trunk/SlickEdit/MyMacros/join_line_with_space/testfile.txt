@@ -1,0 +1,9 @@
+Overly long unformatted statements present fellow editors a dilemma: spend excessive time
+parsing out what a writer means or being mildly rude in not actually reading what is
+written.  It is more collegial and collaborative to take an extra few moments to distill
+one's thoughts into bite size pieces.  Traditionally, the phrase too long; didn't read
+(abbreviated tl;dr or simply tldr) has been used on the Internet as a reply to an
+excessively long statement.  It indicates that the reader did not actually read the
+statement due to its undue length.[2] This essay especially considers the term as used in
+Wikipedia discussions, and examines methods of fixing the problem when found in article
+content.
