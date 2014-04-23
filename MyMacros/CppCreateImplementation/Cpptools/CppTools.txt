@@ -1,0 +1,82 @@
+//This macro has been posted for other SlickEdit users to use and explore.
+//Depending on the version of SlickEdit that you are running, this macro may or may not load.
+//Please note that these macros are NOT supported by SlickEdit and is not responsible for user submitted macros.
+
+***************************************
+Gary's C/C++ programmer's tools
+***************************************
+
+CppCreateImplementation
+-----------------------
+
+
+This command will create implementation stub functions for all the member 
+functions of the class the cursor is positioned within. You'll be prompted to 
+place the cursor in the file you want to implementation to in a press the 
+spacebar. You can create the file with the file new if you need to
+
+Given this:
+
+class CTest
+    {
+public:
+    CTest();
+    ~CTest();
+    
+    bool WriteData(BYTE* pBuffer, size_t bytes);
+    bool ReadData(BYTE* pBuffer, size_t bytes);
+    
+private:
+    BYTE* m_pInternal;
+    };
+    
+the command will generate:
+
+CTest::CTest()
+    {
+    }
+    
+ 
+CTest::~CTest()
+    {
+    }
+
+bool CTest:WriteData(BYTE* pBuffer, size_t bytes)
+    {
+    return ;
+    }
+    
+bool CTest:ReadData(BYTE* pBuffer, size_t bytes)
+    {
+    return ;
+    }
+
+    
+CppGetterSetter
+---------------
+
+This command will generate a Getter/Setter pair for the C++ data member the 
+cursor is on when the command is run
+
+Using the class above, if the cursor is on the BYTE* m_pInternal;
+the command will generate 
+
+BYTE* CTest::get_pInternal()
+     {
+     return m_pInternal;
+     }
+     
+void CTest::set_pInternal(BYTE* new_pInternal)
+     {
+     m_pInternal = new_pInternal;
+     }
+     
+You will be prompt to move the cursor to the location you want the prototypes at 
+and where you want the implementation at
+
+
+ToggleHeaderImplementation
+--------------------------
+
+This will toggle between the implementation and the include file
+(This is a pretty dumb macro and pretty much uses the base filename) 
