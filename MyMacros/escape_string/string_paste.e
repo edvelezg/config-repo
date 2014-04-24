@@ -128,6 +128,7 @@ escape_string(_str text, boolean do_esc)
     case 'c':
     case 'js':
     case 'java':
+    case 'ruby':
     case 'e':
     case 'as':
         return (c_escape(text, do_esc));
@@ -135,7 +136,7 @@ escape_string(_str text, boolean do_esc)
     case 'xml':
         return (xml_escape(text, do_esc));
     default:
-        return (text);
+        return (c_escape(text, do_esc));
     }
 }
 
