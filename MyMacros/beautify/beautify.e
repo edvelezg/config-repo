@@ -1,6 +1,6 @@
 #include "slick.sh"
 
-_command void beautify_ruby() {
+_command void ruby_beautify() {
 
    if (_select_type() == "") {
       select_all()
@@ -12,7 +12,7 @@ _command void beautify_ruby() {
 
 }
 
-_command void beautify_bash() {
+_command void bash_beautify() {
 
    if (_select_type() == "") {
       select_all()
