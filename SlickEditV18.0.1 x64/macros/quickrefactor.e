@@ -3894,7 +3894,7 @@ static _str get_printf_type(_str var_type)
       } else if(_c_builtin_assignment_compatible("double", var_type, false)) { 
          type_string = "%lf";
       } else if(_c_builtin_assignment_compatible("long", var_type, false)) { 
-         type_string = "%l";
+         type_string = "%ld";
       } else if(_c_builtin_assignment_compatible("unsigned int", var_type, false)) { 
          type_string = "%u";
       } else if(_c_builtin_assignment_compatible("unsigned long", var_type, false)) { 
