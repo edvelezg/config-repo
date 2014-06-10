@@ -4220,8 +4220,16 @@ int _c_generate_debug(VS_TAG_BROWSE_INFO &cm, _str prefix)
       line := indent :+ '_debug.printf("' :+ cm.member_name :+ '(';
       if(function_info.arguments._length() != 0) {
          for(i:=0; i < function_info.arguments._length(); i++) {
-            strappend(line, function_info.arguments[i].ParamName'=');
-            strappend(line, get_printf_type(function_info.arguments[i].ParamType));
+            say(function_info.arguments[i].ParamType);
+            if (function_info.arguments[i].ParamType == "osp_cppUtil::String&" || function_info.arguments[i].ParamType == "osp_dataSource::String&") {
+               strappend(line, function_info.arguments[i].ParamName'=');
+               strappend(line, '%s');
+            }
+            else {
+               strappend(line, function_info.arguments[i].ParamName'=');
+               strappend(line, get_printf_type(function_info.arguments[i].ParamType));
+            }
+
             if(i < function_info.arguments._length()-1) {
                strappend(line, ", ");
             }
@@ -4231,10 +4239,18 @@ int _c_generate_debug(VS_TAG_BROWSE_INFO &cm, _str prefix)
       for(i:=0; i < function_info.arguments._length(); i++) {
          //RH - added to handle parameters passed by references
          if(pos('&', function_info.arguments[i].ParamType) > 0){
-            strappend(line, ', ' :+ '&' :+ function_info.arguments[i].ParamName);
+            if (function_info.arguments[i].ParamType == "osp_cppUtil::String&" || function_info.arguments[i].ParamType == "osp_dataSource::String&") {
+               strappend(line, ', ' :+ function_info.arguments[i].ParamName :+ '.value()');
+            } else {
+               strappend(line, ', ' :+ '&' :+ function_info.arguments[i].ParamName);
+            }
          }
          else {
-            strappend(line, ', ' :+ function_info.arguments[i].ParamName);
+            if (function_info.arguments[i].ParamType == "osp_cppUtil::String" || function_info.arguments[i].ParamType == "osp_dataSource::String") {
+               strappend(line, ', ' :+ function_info.arguments[i].ParamName :+ '.value()');
+            } else {
+               strappend(line, ', ' :+ function_info.arguments[i].ParamName);
+            }
          }
       }
       strappend(line, ");");
@@ -4251,6 +4267,14 @@ int _c_generate_debug(VS_TAG_BROWSE_INFO &cm, _str prefix)
 
       // If a struct then print out all the members
       if(get_var_def(cm, var_def) == 0 && (var_def.type_name == 'struct' || var_def.type_name == 'class')) {
+
+         if (cm.return_type == "osp_cppUtil::String" || cm.return_type == "osp_dataSource::String") {
+            line := indent :+ '_debug.printf("' :+ var_access :+ '=';
+            strappend(line, '%s' :+ '\n", ' :+ var_access :+ '.value());');
+            insert_line(line);
+            return 0;
+         }
+
          VS_TAG_BROWSE_INFO member_list[];
          struct VS_TAG_RETURN_TYPE visited:[];
          get_class_members(var_def, VS_TAGFILTER_VAR, VS_TAGCONTEXT_ACCESS_public, member_list, visited); 
