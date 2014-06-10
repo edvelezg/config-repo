@@ -52,12 +52,12 @@ _command void k_context_menu (boolean force_rbutton = false) name_info (','VSARG
    else
    {
       while ( test_event('R') != '' ) get_event('R');
-      context_menu();
+      context_menu(x,y);
    }
 }
 
 // key binding defintion
-#define K_CONTEXT_MENU_KEY  'A-S-+' // Alt-Shift-<+>
+#define K_CONTEXT_MENU_KEY  'A-S-A' // Alt-Shift-<A>
 
 defeventtab default_keys;
 def  K_CONTEXT_MENU_KEY  = k_context_menu;
