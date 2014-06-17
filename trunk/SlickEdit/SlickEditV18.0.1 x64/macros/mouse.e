@@ -2693,7 +2693,9 @@ _command mou_click_menu() name_info(','VSARG2_TEXT_BOX|VSARG2_MARK|VSARG2_READ_O
 {
    _mou_menu('CHAR');
 }
-static void _mou_menu(_str mark_type)
+
+// HS2-ADD: mx,my opt. args
+static void _mou_menu(_str mark_type, int mx = MAXINT, int my = MAXINT)
 {
    gInMouseMoveHandler=true;
    if (command_state()) {
@@ -2701,8 +2703,9 @@ static void _mou_menu(_str mark_type)
       gInMouseMoveHandler=false;
       return;
    }
-   int mx=mou_last_x();
-   int my=mou_last_y();
+   // HS2-CHG: use mouse pos by default if mx,my aren't specified by caller
+   if (mx == MAXINT) mx=mou_last_x();
+   if (my == MAXINT) my=mou_last_y();
    int status;
    if (select_active2() && def_mouse_menu_style==MM_MARK_FIRST) {
       int mark_id=_duplicate_selection();
@@ -2729,7 +2732,7 @@ static void _mou_menu(_str mark_type)
          return;
       }
    }else{
-      _mou_mode_menu();
+      _mou_mode_menu(mx, my);
       gInMouseMoveHandler=false;
       return;
    }
@@ -2745,8 +2748,8 @@ static void _mou_menu(_str mark_type)
 
 static get_menu_name()
 {
-   _str mode_name=p_mode_name;
-   mode_name=stranslate(mode_name'_menu','__',' -');
+   _str mode_name= '';  // HS2-ADD: robustness if not an editor control ie. p_mode_name isn't available             
+   if (_isEditorCtl(false)) mode_name=stranslate(p_mode_name'_menu','__',' -');  
    int index=find_index(mode_name,oi2type(OBJECT_TYPE)|IGNORECASE_TYPE);
    if (!index) {
       index=find_index('_'mode_name,oi2type(OI_MENU)|IGNORECASE_TYPE);
@@ -2767,8 +2770,8 @@ static get_menu_name()
    if (menu_name!='') {
       return(menu_name);
    }
-   _str lang=p_LangId;
-
+   _str lang='';        // HS2-ADD: robustness if not an editor control ie. p_LangId isn't available 
+   if (_isEditorCtl(false)) lang=p_LangId;
    if (select_active2()) {
       sel_menu_name := LanguageSettings.getMenuIfSelection(lang);
       if (sel_menu_name=='') {
@@ -2784,9 +2787,12 @@ static get_menu_name()
    }
 }
 
-_command void context_menu() name_info(','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_ICON|VSARG2_NOEXIT_SCROLL)
+// HS2-ADD: x,y opt. args
+_command void context_menu(int x = MAXINT, int y = MAXINT) name_info(','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_ICON|VSARG2_NOEXIT_SCROLL)
 {
-   _mou_mode_menu(p_client_width intdiv 2,p_client_height intdiv 2);
+   if (x == MAXINT) x = p_client_width intdiv 2;
+   if (y == MAXINT) x = p_client_height intdiv 2;
+   _mou_mode_menu(x,y);
 }
 void _on_popup2_misc(_str menu_name,int menu_handle)
 {
