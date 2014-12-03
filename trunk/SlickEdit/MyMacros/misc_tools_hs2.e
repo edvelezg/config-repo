@@ -1,9 +1,16 @@
-// Misc (maybe helpful) macros - © by HS2 - 2006
-// Major parts snipped from Slick sources - 'Use the source, Luke !'
-
+////////////////////////////////////////////////////////////////////////////////////////////////
+// Misc (maybe helpful) macros - © by HS2 - 2006-2014
+// Major parts snipped from Slick sources - 'Use the source, Luke !' ;)
 // formatting: TAB=3 (SPACEs only)
+////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include 'slick.sh'
+#pragma option(strict,on)
+#region Imports
+#include "slick.sh"
+#include "search.sh"
+#import  "search.e"
+#import  "mouse.e"
+#endregion
 
 static _str c_hier[] =
 {
@@ -260,13 +267,11 @@ _command _str cur_word_sel () name_info (','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDI
 _command int fw,find_word_sel (_str opt = 'c') name_info (','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_MARK)
 {
    int status = 0;
+   int sopts  = _default_option ('s');
 
-   _str search_options = make_search_options ((_default_option ('s') |
-                                               VSSEARCHFLAG_HIDDEN_TEXT |
-                                               VSSEARCHFLAG_NOSAVE_TEXT |
-                                               VSSEARCHFLAG_MARK |
-                                               VSSEARCHFLAG_FINDHILIGHT |
-                                               VSSEARCHFLAG_GO), 1);
+//   sopts |= VSSEARCHFLAG_HIDDEN_TEXT | VSSEARCHFLAG_NOSAVE_TEXT | VSSEARCHFLAG_MARK | VSSEARCHFLAG_FINDHILIGHT | VSSEARCHFLAG_GO;
+
+   _str search_options = make_search_options( sopts, true );
 
    // HS2: NO reg.exp.s (append to override _default_option())
    search_options = search_options :+ 'N';
@@ -318,104 +323,90 @@ _command int fww,find_word_sel_wkspace () name_info (','VSARG2_READ_ONLY|VSARG2_
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// bind these macros to some keyboard shortcuts and leave the mouse where it is...
 // Note: Only selected (most often used) p_object-s curr. supported.
-_command void k_context_menu () name_info (','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_ICON|VSARG2_NOEXIT_SCROLL)
+
+#if 0 // HS2-NOT: k_context_menu needs this patch in mouse.e
+// HS2-CHG: override stock macro mouse.e::context_menu() with this enhanced, but compatible version: x,y opt. args
+_command void context_menu(int x = MAXINT, int y = MAXINT) name_info(','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_ICON|VSARG2_NOEXIT_SCROLL)
 {
-   // Put the menu right on the current cursor location:
-   int x=0, y=0;
+   if (x == MAXINT) x = p_client_width  intdiv 2;
+   if (y == MAXINT) y = p_client_height intdiv 2;
+   _mou_mode_menu(x,y);
+}
+#endif
 
-   // message ( "p_object = " p_object) ;
+/**
+ * shows context menu @ text cursor position or curr. selected item
+ * key binding is hardwired for now - see below
+ *
+ * @param force_rbutton needed for tagwin/tagrefs edit control (see below)
+ */
+_command void k_context_menu(boolean force_rbutton = false) name_info(','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_ICON|VSARG2_NOEXIT_SCROLL|VSARG2_TEXT_BOX|VSARG2_CMDLINE)
+{
+   // Put the menu right on the current mouse pointer location:
+   int x = MAXINT, y = MAXINT;
 
-   if ( p_object == OI_TREE_VIEW )
+   if ( _isEditorCtl() )
    {
-      int h = 0, w = 0;
-      int i = _TreeCurIndex();
-
-      if ( i >= 0 ) _TreeGetCurCoord(i, x, y, w, h);
-      {
-         // Just to be safe. Round twips to nearest pixel.
-         _lxy2dxy(SM_TWIP,x,y);
-         x = p_client_width;
-         _map_xy (p_window_id,0,x,y);
-      }
+      x = p_cursor_x + p_font_width;
+      y = p_cursor_y + p_font_height;
    }
-   else if ( (p_object == OI_FORM) || (p_object == OI_EDITOR) )
+   else if ( (p_object == OI_TREE_VIEW) || (p_object == OI_TEXT_BOX) || (p_object == OI_COMBO_BOX) )
    {
-      _map_xy (p_window_id,0,x,y);
-      x+=p_cursor_x + p_font_width;
-      y+=p_cursor_y + p_font_height;
-   }
-   else if ( (p_object == OI_TEXT_BOX) || (p_object == OI_COMBO_BOX) )
-   {
-      // Just to be safe. Round twips to nearest pixel.
-      _lxy2dxy(SM_TWIP,x,y);
-      int fw = (p_object == OI_COMBO_BOX) ? p_cb_text_box.p_font_width     : p_font_width;
-      int fh = (p_object == OI_COMBO_BOX) ? p_cb_text_box.p_font_height : p_font_height;
-      x  += (p_sel_start + p_sel_length + 1) * fw;
-      y  += fh;
-      // x = p_client_width;
-      _map_xy (p_window_id,0,x,y);
-   }
-   else return;
-
-   // we need to capture and flush MOUSE_MOVEs ...
-   mou_mode(1)
-   mou_capture();
-   mou_set_xy ( x, y );
-   while ( test_event ('R') != '' ) get_event ( 'R' );
-   mou_release()
-
-   if ( p_object == OI_TREE_VIEW )
-   {
-      call_event(p_window_id,RBUTTON_UP);
+      x = p_client_width;
+      y = (p_object == OI_TREE_VIEW) ? (_TreeCurLineNumber() - _TreeScroll()) * p_line_height : p_client_height;
    }
    else
    {
-      // ... and we need to force MM_TRACK_MOUSE instead of MM_MARK_FIRST - otherwise a mark created and extended
-      typeless sav_mouse_menu_style=def_mouse_menu_style;
-      def_mouse_menu_style = 1; // MM_TRACK_MOUSE see mouse.e
-      mou_click_menu_block ();
-      def_mouse_menu_style = sav_mouse_menu_style;
+      return;
+   }
+
+   force_rbutton = force_rbutton || !_isEditorCtl();
+   if ( force_rbutton )
+   {
+      _map_xy(p_window_id,0,x,y);
+      // we need to capture and flush MOUSE_MOVEs ...
+      mou_mode(1);
+      mou_capture();
+      mou_set_xy( x, y );
+      while ( test_event('R') != '' ) get_event('R');
+      mou_release();
+
+      call_event(p_window_id, RBUTTON_UP);
+   }
+   else
+   {
+      while ( test_event('R') != '' ) get_event('R');
+      context_menu(x,y);
    }
 }
 
-_command void k_config_menu ()
+
+// key binding defintion for 'k-context-menu'
+#define K_CONTEXT_MENU_KEY  'A-S-+' // Alt-Shift-<+> - change here if needed
+
+defeventtab default_keys;
+def  K_CONTEXT_MENU_KEY  = k_context_menu;
+
+// install add. event handlers
+// @see projutil.e
+defeventtab _toolbar_etab2;
+void _toolbar_etab2.K_CONTEXT_MENU_KEY()
 {
-   if ( p_window_id==VSWID_HIDDEN ) p_window_id=_mdi;
-   _macro_delete_line ();
+   k_context_menu();
+}
 
-   // Find the submenu with caption matching submenu_pos
-   int menu_handle=find_index ("_mdi_menu",oi2type (OI_MENU));
-   int tools_index=_menu_find_caption (menu_handle,"Tools");
-   if ( tools_index )
-   {
-      int config_index=_menu_find_caption (tools_index,"Options");
-      if ( config_index )
-      {
-         menu_handle=p_active_form._menu_load (config_index,'P');
-
-         // Put the menu right on the current cursor location:
-         int x=0, y=0;
-         _map_xy (p_window_id,0,x,y);
-         x+=p_cursor_x + p_font_width;
-         y+=p_cursor_y + p_font_height;
-         int flags=VPM_LEFTALIGN|VPM_LEFTBUTTON;
-
-         if ( !(_default_option (VSOPTION_APIFLAGS) & VSAPIFLAG_CONFIGURABLE_VCPP_SETUP) )
-         {
-            int status=_menu_find (menu_handle, "show -modal -mdi _vchack_form", found_mh, found_mp,'M');
-            if ( !status ) _menu_delete (found_mh,found_mp);
-         }
-#if __OS390__ || __TESTS390__
-         s390addOptimization2 (menu_handle);
-#endif
-         if ( _DataSetSupport () ) s390addJobcard2 (menu_handle);
-
-         _menu_show (menu_handle,flags,x,y);
-         _menu_destroy (menu_handle);
-      }
-   }
+// @see tbtagrefs.e
+defeventtab _tbtagrefs_form;
+void ctlrefedit.K_CONTEXT_MENU_KEY ()
+{
+   k_context_menu(true);
+}
+// @see tagwin.e
+defeventtab _tbtagwin_form;
+void edit1.K_CONTEXT_MENU_KEY ()
+{
+   k_context_menu(true);
 }
 
 _command void k_vc_menu () name_info (','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_ICON|VSARG2_NOEXIT_SCROLL)
