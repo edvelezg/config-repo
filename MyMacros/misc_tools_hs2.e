@@ -388,15 +388,30 @@ _command void k_context_menu(boolean force_rbutton = false) name_info(','VSARG2_
 defeventtab default_keys;
 def  K_CONTEXT_MENU_KEY  = k_context_menu;
 
+
+#if __VERSION__ < 19
+#define _TW_ETAB2   _toolbar_etab2
+static boolean force_rbutton = true;   // tweak for tagrefs/tagwin
+#else
+#define _TW_ETAB2   _toolwindow_etab2
+static boolean force_rbutton = false;
+#endif
+
 // install add. event handlers
-// @see projutil.e
-defeventtab _toolbar_etab2;
-void _toolbar_etab2.K_CONTEXT_MENU_KEY()
+// @see proctree.e
+defeventtab _tbproctree_form;
+void _tbproctree_form.K_CONTEXT_MENU_KEY()
 {
    k_context_menu();
 }
 
-// @see tbtagrefs.e
+defeventtab _TW_ETAB2;
+void _TW_ETAB2.K_CONTEXT_MENU_KEY()
+{
+   k_context_menu();
+}
+
+// @see tagrefs.e
 defeventtab _tbtagrefs_form;
 void ctlrefedit.K_CONTEXT_MENU_KEY ()
 {
@@ -406,9 +421,10 @@ void ctlrefedit.K_CONTEXT_MENU_KEY ()
 defeventtab _tbtagwin_form;
 void edit1.K_CONTEXT_MENU_KEY ()
 {
-   k_context_menu(true);
+   k_context_menu(force_rbutton);
 }
 
+// version control context menu
 _command void k_vc_menu () name_info (','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_ICON|VSARG2_NOEXIT_SCROLL)
 {
    if ( p_window_id==HIDDEN_WINDOW_ID ) p_window_id=_mdi;
