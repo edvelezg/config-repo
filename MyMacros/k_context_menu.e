@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////
-// © by HS2 - 2012
+// © by HS2 - 2014
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma option(strict,on)
@@ -10,13 +10,24 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 // Note: Only selected (most often used) p_object-s curr. supported.
+
+#if 0 // HS2-NOT: k_context_menu needs this patch in mouse.e
+// HS2-CHG: override stock macro mouse.e::context_menu() with this enhanced, but compatible version: x,y opt. args
+_command void context_menu(int x = MAXINT, int y = MAXINT) name_info(','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_ICON|VSARG2_NOEXIT_SCROLL)
+{
+   if (x == MAXINT) x = p_client_width intdiv 2;
+   if (y == MAXINT) y = p_client_height intdiv 2;
+   _mou_mode_menu(x,y);
+}
+#endif
+
 /**
- * shows context menu @ text cursor position or curr, selected item
+ * shows context menu @ text cursor position or curr. selected item
  * key binding is hardwired for now - see below
  *
- * @param force_rbutton needed for tagwin/tagrefs edit control (see below)
+ * @param force_rbutton needed for tagwin/tagefs edit control (see below)
  */
-_command void k_context_menu (boolean force_rbutton = false) name_info (','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_ICON|VSARG2_NOEXIT_SCROLL|VSARG2_TEXT_BOX|VSARG2_CMDLINE)
+_command void k_context_menu(boolean force_rbutton = false) name_info(','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_ICON|VSARG2_NOEXIT_SCROLL|VSARG2_TEXT_BOX|VSARG2_CMDLINE)
 {
    // Put the menu right on the current mouse pointer location:
    int x = MAXINT, y = MAXINT;
