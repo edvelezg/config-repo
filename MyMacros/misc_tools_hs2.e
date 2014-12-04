@@ -383,7 +383,7 @@ _command void k_context_menu(boolean force_rbutton = false) name_info(','VSARG2_
 
 
 // key binding defintion for 'k-context-menu'
-#define K_CONTEXT_MENU_KEY  'A-S-+' // Alt-Shift-<+> - change here if needed
+#define K_CONTEXT_MENU_KEY  'A-S-A' // Alt-Shift-<+> - change here if needed
 
 defeventtab default_keys;
 def  K_CONTEXT_MENU_KEY  = k_context_menu;
