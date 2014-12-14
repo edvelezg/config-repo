@@ -9,3 +9,5 @@ public:
 private:
     BYTE *m_pInternal;
 };
+
+

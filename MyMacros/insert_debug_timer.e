@@ -94,6 +94,7 @@ static void insertText3(_str indentText)
 static void insertText4(_str indentText)
 {
    _str lineText = "";
+say('indentText='indentText);
    _str var1Name = "timeDiff"g_debugVarCounter;
 
    // figure out what lang we're in
