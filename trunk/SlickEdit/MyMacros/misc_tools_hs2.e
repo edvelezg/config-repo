@@ -397,6 +397,13 @@ static boolean force_rbutton = true;   // tweak for tagrefs/tagwin
 static boolean force_rbutton = false;
 #endif
 
+// @see somef...e
+defeventtab _tbfilelist_form;
+void _tbfilelist_form.K_CONTEXT_MENU_KEY()
+{
+   k_context_menu();
+}
+
 // install add. event handlers
 // @see proctree.e
 defeventtab _tbproctree_form;
