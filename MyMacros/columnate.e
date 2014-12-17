@@ -12,6 +12,18 @@ _command void columnate() {
 
 }
 
+_command void get_first_col() {
+
+   if (_select_type() == "") {
+      select_all()
+   } else if (_select_type() != "LINE" && _select_type() != "BLOCK") {
+      // Convert it into a LINE selection
+      _select_type('', 'T', 'LINE');
+   }
+   _str out = filter_command("cut -f2 | xargs -0");
+
+}
+
 //_command Tick() name_info(','VSARG2_MACRO|VSARG2_MARK|VSARG2_REQUIRES_MDI_EDITORCTL)
 //{
 //   _macro('R',1);
