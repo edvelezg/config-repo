@@ -6,6 +6,7 @@
 #region Imports
 #include "slick.sh"
 #import  "mouse.e"
+#import  "tbfilelist.e"
 #endregion
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -25,11 +26,11 @@ _command void context_menu(int x = MAXINT, int y = MAXINT) name_info(','VSARG2_M
  * shows context menu @ text cursor position or curr. selected item
  * key binding is hardwired for now - see below
  *
- * @param force_rbutton needed for tagwin/tagefs edit control (see below)
+ * @param force_rbutton needed for tagwin/tagrefs edit control (see below)
  */
 _command void k_context_menu(boolean force_rbutton = false) name_info(','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL|VSARG2_ICON|VSARG2_NOEXIT_SCROLL|VSARG2_TEXT_BOX|VSARG2_CMDLINE)
 {
-   // Put the menu right on the current mouse pointer location:
+   // put the menu right on the current cursor or mouse pointer location
    int x = MAXINT, y = MAXINT;
 
    if ( _isEditorCtl() )
@@ -40,7 +41,14 @@ _command void k_context_menu(boolean force_rbutton = false) name_info(','VSARG2_
    else if ( (p_object == OI_TREE_VIEW) || (p_object == OI_TEXT_BOX) || (p_object == OI_COMBO_BOX) )
    {
       x = p_client_width;
-      y = (p_object == OI_TREE_VIEW) ? (_TreeCurLineNumber() - _TreeScroll()) * p_line_height : p_client_height;
+      y = p_client_height;
+
+      if (p_object == OI_TREE_VIEW)
+      {
+         int t_;
+         _TreeGetCurCoord(_TreeCurIndex(), t_, y, t_, t_); // HS2-NOT: _TreeGetCurCoord returns y = -1 for recent SE versions ???
+         if (y >= 0) y /= _dy2ly(SM_TWIP, 1);
+      }
    }
    else
    {
@@ -68,29 +76,99 @@ _command void k_context_menu(boolean force_rbutton = false) name_info(','VSARG2_
 }
 
 // key binding defintion
-#define K_CONTEXT_MENU_KEY  'A-S-A' // Alt-Shift-<A>
+#define K_CONTEXT_MENU_KEY  'A-S-+' // Alt-Shift-<+>
 
 defeventtab default_keys;
 def  K_CONTEXT_MENU_KEY  = k_context_menu;
 
+
+#if __VERSION__ < 19
+#define _TW_ETAB2   _toolbar_etab2
+static boolean force_rbutton = true;   // tweak for tagrefs/tagwin
+#else
+#define _TW_ETAB2   _toolwindow_etab2
+static boolean force_rbutton = false;
+#endif
+
 // install add. event handlers
-// @see projutil.e
-defeventtab _toolbar_etab2;
-void _toolbar_etab2.K_CONTEXT_MENU_KEY()
+
+// used by various forms
+defeventtab _TW_ETAB2;
+void _TW_ETAB2.K_CONTEXT_MENU_KEY()
 {
    k_context_menu();
 }
 
-// @see tbtagrefs.e
+// @see proctree.e
+defeventtab _tbproctree_form;
+void _tbproctree_form.K_CONTEXT_MENU_KEY()
+{
+   k_context_menu();
+}
+
+// @see tagrefs.e
 defeventtab _tbtagrefs_form;
 void ctlrefedit.K_CONTEXT_MENU_KEY ()
 {
-   k_context_menu(true);
+   k_context_menu(force_rbutton);
 }
 // @see tagwin.e
 defeventtab _tbtagwin_form;
 void edit1.K_CONTEXT_MENU_KEY ()
 {
-   k_context_menu(true);
+   k_context_menu(force_rbutton);
 }
 
+// @see tbfilelist.e
+defeventtab _tbfilelist_form;
+
+// wid helpers
+static int getCurFormWid_FilesTB()
+{
+   formwid := _find_formobj("_tbfilelist_form");
+   if (formwid && formwid.p_child && formwid.p_child.p_object == OI_FORM) formwid = formwid.p_child;
+   return formwid;
+}
+static int getCurTreeWid_FilesTB( int formwid = 0 )
+{
+   _nocheck _control ctl_file_list;
+   _nocheck _control ctl_project_list;
+   _nocheck _control ctl_workspace_list;
+
+   if (!formwid ) formwid = getCurFormWid_FilesTB();
+   int  treewid = 0;
+   if ( formwid )
+   {
+      #if __VERSION__ >= 18   // oldest version I kept installed
+      if      ( gfilelist_show == FILELIST_SHOW_OPEN_FILES )      treewid = formwid.ctl_file_list;
+      else if ( gfilelist_show == FILELIST_SHOW_PROJECT_FILES )   treewid = formwid.ctl_project_list;
+      else if ( gfilelist_show == FILELIST_SHOW_WORKSPACE_FILES ) treewid = formwid.ctl_workspace_list;
+      #else
+      if       ( formwid.ctl_file_list.p_visible )       treewid = formwid.ctl_file_list;
+      else if  ( formwid.ctl_project_list.p_visible )    treewid = formwid.ctl_project_list;
+      else if  ( formwid.ctl_workspace_list.p_visible )  treewid = formwid.ctl_workspace_list;
+      #endif
+   }
+   return treewid;
+}
+
+void _tbfilelist_form.K_CONTEXT_MENU_KEY()
+{
+   // even with filter control having focus forward event to file list
+   formwid := getCurFormWid_FilesTB();
+   treewid := getCurTreeWid_FilesTB( formwid );
+   if ( treewid ) treewid.call_event(treewid,last_event (),'2');
+}
+
+#if __VERSION__ >= 18
+// patch for tbfilelist.e: (cycle) switching tabs with (SHIFT)-CTRL-TAB
+void _tbfilelist_form.'C-TAB','S-C-TAB'()
+{
+   key := event2name(last_event(null, true));
+   inc := pos('S-', key, 1, 'I') ? -1 : +1;
+   tix := ctl_sstab.p_ActiveTab + inc;
+   if (tix > FILELIST_SHOW_WORKSPACE_FILES) tix = FILELIST_SHOW_OPEN_FILES;
+   ctl_sstab.p_ActiveTab = tix;
+   call_event(ctl_sstab,CHANGE_TABACTIVATED,'W');
+}
+#endif
