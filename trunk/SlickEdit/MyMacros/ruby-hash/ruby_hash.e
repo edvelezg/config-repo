@@ -1,3 +1,6 @@
+// Ruby enhancement.
+// « on: January 25, 2015, 10:46:20 PM »
+// http://community.slickedit.com/index.php?topic=11098.msg46789;boardseen#new
 #include "slick.sh"
 
 #pragma option(strictsemicolons,on)
@@ -6,7 +9,9 @@
 #pragma option(strictparens,on)
 
 
-_command void ruby_hash() name_info(','VSARG2_MULTI_CURSOR|VSARG2_CMDLINE|VSARG2_REQUIRES_EDITORCTL|VSARG2_LASTKEY)
+//_command void ruby_hash() name_info(','VSARG2_MULTI_CURSOR|VSARG2_CMDLINE|VSARG2_REQUIRES_EDITORCTL|VSARG2_LASTKEY)
+//Graeme: It seems to work if there are no name_info options
+_command void ruby_hash() name_info(',')
 {
    if (command_state()) {
       call_root_key('#');
