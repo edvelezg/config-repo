@@ -93,6 +93,7 @@ def  'A-T' 'b'= activate_build;
 def  'A-T' 'a'= activate_call_stack;
 def  'A-T' 'c'= activate_tbclass;
 def  'A-T' 'd'= activate_defs;
+def  'A-T' 'e'= activate_annotations;
 def  'A-T' 'h'= activate_deltasave;
 def  'A-T' 'l'= activate_files_files;
 def  'A-T' 'p'= activate_files_project;
