@@ -22,29 +22,29 @@
 defeventtab default_keys;
 
 // Alt-keys are not defined by CUA emulation -- these are copied mostly from Slick emulation.
-def 'A-a'=adjust_block_selection;
-def 'A-b'=select_block;
-def 'A-c'=copy_to_cursor;
-def 'A-d'=cut;      // well, this one is added to the slick emulation.
-def 'A-e'=end_select;
-def 'A-f'=fill_selection;
-def 'A-j'=join_line;
-def 'A-k'=cut;
-def 'A-l'=select_line;
-def 'A-m'=move_to_cursor;
-def 'A-n'=keyin_buf_name;
-def 'A-o'=overlay_block_selection;
-def 'A-p'=reflow_paragraph;
-def 'A-r'=root_keydef;
-def 'A-s'=split_line;
-//def 'A-t'=find_matching_paren;   // Alt-t used for tool window activation below
-def 'A-u'=deselect;
-def 'A-v'=copy_to_clipboard;
-def 'A-w'=cut_word;
-def 'A-x'=safe_exit;
-def 'A-y'=begin_select;
-def 'A-z'=select_char;
-def "A-'"=duplicate_line;
+//def 'A-a'=adjust_block_selection;
+//def 'A-b'=select_block;
+//def 'A-c'=copy_to_cursor;
+//def 'A-d'=cut;      // well, this one is added to the slick emulation.
+//def 'A-e'=end_select;
+//def 'A-f'=fill_selection;
+//def 'A-j'=join_line;
+//def 'A-k'=cut;
+//def 'A-l'=select_line;
+//def 'A-m'=move_to_cursor;
+//def 'A-n'=keyin_buf_name;
+//def 'A-o'=overlay_block_selection;
+//def 'A-p'=reflow_paragraph;
+//def 'A-r'=root_keydef;
+//def 'A-s'=split_line;
+////def 'A-t'=find_matching_paren;   // Alt-t used for tool window activation below
+//def 'A-u'=deselect;
+//def 'A-v'=copy_to_clipboard;
+//def 'A-w'=cut_word;
+//def 'A-x'=safe_exit;
+//def 'A-y'=begin_select;
+//def 'A-z'=select_char;
+//def "A-'"=duplicate_line;
 
 // CUA has
 // def 'C-/'= push_ref;
@@ -54,8 +54,8 @@ def "A-'"=duplicate_line;
 def 'C-;'=push_bookmark;
 
 // Some keys for what-is, where-is
-def 'A-q'=what_is;
-def 'A-S-q'=where_is;
+//def 'A-q'=what_is;
+//def 'A-S-q'=where_is;
 
 // these commands could be changed from CUA to slick:
 // but ... doing so loses some nice line-splitting features.
@@ -109,7 +109,7 @@ def  'A-T' 'x'= activate_regex_evaluator;
 def  'A-T' 's'= activate_search;
 def  'A-T' 'y'= activate_symbols_browser;
 
-def 'F5'= config; // CUA: project_debug
+//def 'F5'= config; // CUA: project_debug
 
 // Routine executed when macro file is compiled ("loaded" in SlickEdit terminology)
 defload() {
