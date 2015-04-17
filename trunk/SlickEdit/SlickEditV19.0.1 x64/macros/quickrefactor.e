@@ -4252,30 +4252,48 @@ int _c_generate_debug(VS_TAG_BROWSE_INFO &cm, _str prefix)
       _GoToROffset(cm.scope_seekpos);
 
       line := indent :+ 'printf("' :+ cm.member_name :+ '(';
-      if(function_info.arguments._length() != 0) {
-         for(i:=0; i < function_info.arguments._length(); i++) {
-            strappend(line, function_info.arguments[i].ParamName'=');
-            strappend(line, get_printf_type(function_info.arguments[i].ParamType));
-            if(i < function_info.arguments._length()-1) {
+      if (function_info.arguments._length() != 0) {
+         for (i:=0; i < function_info.arguments._length(); i++) {
+            say(function_info.arguments[i].ParamType);
+            if (function_info.arguments[i].ParamType == "std::string" || function_info.arguments[i].ParamType == "osp_cppUtil::String&" || function_info.arguments[i].ParamType == "osp_dataSource::String&") {
+               strappend(line, function_info.arguments[i].ParamName'=');
+               strappend(line, '%s');
+            } else {
+               strappend(line, function_info.arguments[i].ParamName'=');
+               strappend(line, get_printf_type(function_info.arguments[i].ParamType));
+            }
+
+            if (i < function_info.arguments._length()-1) {
                strappend(line, ", ");
             }
          }
       }
       strappend(line,')\n"');
-      for(i:=0; i < function_info.arguments._length(); i++) {
+      for (i:=0; i < function_info.arguments._length(); i++) {
          //RH - added to handle parameters passed by references
-         if(pos('&', function_info.arguments[i].ParamType) > 0){
-            strappend(line, ', ' :+ '&' :+ function_info.arguments[i].ParamName);
-         }
-         else {
-            strappend(line, ', ' :+ function_info.arguments[i].ParamName);
+         if (pos('&', function_info.arguments[i].ParamType) > 0) {
+            if (function_info.arguments[i].ParamType == "osp_cppUtil::String&" || function_info.arguments[i].ParamType == "osp_dataSource::String&") {
+               strappend(line, ', ' :+ function_info.arguments[i].ParamName :+ '.value()');
+            } else if (function_info.arguments[i].ParamType == "std::string&") {
+               strappend(line, ', ' :+ function_info.arguments[i].ParamName :+ '.c_str()');
+            } else {
+               strappend(line, ', ' :+ '&' :+ function_info.arguments[i].ParamName);
+            }
+         } else {
+            if (function_info.arguments[i].ParamType == "osp_cppUtil::String" || function_info.arguments[i].ParamType == "osp_dataSource::String") {
+               strappend(line, ', ' :+ function_info.arguments[i].ParamName :+ '.value()');
+            } else if (function_info.arguments[i].ParamType == "std::string") {
+               strappend(line, ', ' :+ function_info.arguments[i].ParamName :+ '.c_str()');
+            } else {
+               strappend(line, ', ' :+ function_info.arguments[i].ParamName);
+            }
          }
       }
       strappend(line, ");");
       insert_line(line);
       return 0;
 
-   } else if(cm.type_name == 'param' || cm.type_name == 'var' || cm.type_name == 'gvar' || cm.type_name == 'lvar') {
+   } else if (cm.type_name == 'param' || cm.type_name == 'var' || cm.type_name == 'gvar' || cm.type_name == 'lvar') {
       indent = get_line_leading_whitespace();
 
       _str var_access = prefix :+ cm.member_name;   // String used to access the var in the outputted code
@@ -4284,7 +4302,22 @@ int _c_generate_debug(VS_TAG_BROWSE_INFO &cm, _str prefix)
       search(";","@hXcs");
 
       // If a struct then print out all the members
-      if(get_var_def(cm, var_def) == 0 && (var_def.type_name == 'struct' || var_def.type_name == 'class')) {
+      if (get_var_def(cm, var_def) == 0 && (var_def.type_name == 'struct' || var_def.type_name == 'class')) {
+
+         if (cm.return_type == "osp_cppUtil::String" || cm.return_type == "osp_dataSource::String") {
+            line := indent :+ 'printf("' :+ var_access :+ '=';
+            strappend(line, '%s' :+ '\n", ' :+ var_access :+ '.value());');
+            insert_line(line);
+            return 0;
+         }
+
+         if (cm.return_type == "std::string") {
+            line := indent :+ 'printf("' :+ var_access :+ '=';
+            strappend(line, '%s' :+ '\n", ' :+ var_access :+ '.c_str());');
+            insert_line(line);
+            return 0;
+         }
+
          VS_TAG_BROWSE_INFO member_list[];
          struct VS_TAG_RETURN_TYPE visited:[];
          get_class_members(var_def, VS_TAGFILTER_VAR, VS_TAGCONTEXT_ACCESS_public, member_list, visited); 
