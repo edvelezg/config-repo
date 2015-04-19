@@ -13,7 +13,7 @@
 //Graeme: It seems to work if there are no name_info options
 //_command void ruby_hash() name_info(',')
 // SlickEdit support have told me that I need VSARG2_MARK in the list of name_info options otherwise the selection gets cleared before the command is executed.
-_command void ruby_hash() name_info(','VSARG2_MULTI_CURSOR|VSARG2_CMDLINE|VSARG2_REQUIRES_EDITORCTL|VSARG2_LASTKEY|VSARG2_MARK)
+_command void ruby_hash() name_info(','VSARG2_CMDLINE|VSARG2_REQUIRES_EDITORCTL|VSARG2_LASTKEY|VSARG2_MARK)
 {
    if (command_state()) {
       call_root_key('#');
@@ -51,3 +51,8 @@ _command void ruby_hash() name_info(','VSARG2_MULTI_CURSOR|VSARG2_CMDLINE|VSARG2
    _insert_text("#{}");
    cursor_left();
 }
+
+// Defines a hotkey of # only under ruby-mode so that it doesn't do it with other languages
+defeventtab ruby_keys;
+def '#'= ruby_hash;
+
