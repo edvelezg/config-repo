@@ -1,0 +1,3 @@
+List of macro vars that I have redefined:
+
+def_xml_no_schema_list = .xml .xsd .xsl
