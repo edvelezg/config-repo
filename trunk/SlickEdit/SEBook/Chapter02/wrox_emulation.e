@@ -32,7 +32,7 @@ defeventtab default_keys;
 //def 'A-k'=cut;
 //def 'A-l'=select_line;
 //def 'A-m'=move_to_cursor;
-//def 'A-n'=keyin_buf_name;
+def 'A-n'=keyin_buf_name;
 //def 'A-o'=overlay_block_selection;
 //def 'A-p'=reflow_paragraph;
 //def 'A-r'=root_keydef;
