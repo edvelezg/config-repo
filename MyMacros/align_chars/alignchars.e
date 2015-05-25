@@ -1,3 +1,12 @@
+// I created this this macro based on: Joseph Van Valen (aligneq.e)
+// File:       alignchars.e
+// Author:     EdgeVel
+//
+// Description:
+// Implements three commands borrowed from other editors. The common thread                  
+// between each of the commands is that they operate on selected text and use                
+// the selection filter techniques supplied by Visual SlickEdit.                             
+
 #include "slick.sh"
 
 static int gMaxCharCol;
