@@ -110,7 +110,6 @@ def  'A-T' 's'= activate_search;
 def  'A-T' 'y'= activate_symbols_browser;
 
 defeventtab ruby_keys;
-
 def '#'= ruby_hash;
 
 //def 'F5'= config; // CUA: project_debug
