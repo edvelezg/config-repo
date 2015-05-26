@@ -3,3 +3,6 @@ List of macro vars that I have redefined:
 def_xml_no_schema_list = .xml .xsd .xsl
 def_search_result_max_line_size = 5000
 
+added shortcuts to these menus: 
+_tbfilelist_menu
+_tbdelta_menu
