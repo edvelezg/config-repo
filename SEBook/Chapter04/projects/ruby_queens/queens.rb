@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require 'board'
+require_relative 'board'
 
 size = ARGV.shift.to_i
 b = Board.new(size)
