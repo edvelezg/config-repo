@@ -8,7 +8,7 @@
 defmain() {
   load("align_chars\\alignchars.e");
   load("escape_string\\string_paste.e");
-
+  load("my_emulation\\my_emulation.e");
   return 0;
 }
 
