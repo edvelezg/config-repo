@@ -161,7 +161,7 @@ string_paste() name_info(','VSARG2_MARK|VSARG2_TEXT_BOX|VSARG2_REQUIRES_EDITORCT
 
 
 /**
- * Copy string without escape
+ * Copy string and escape it
  *
  * @author Ding Zhaojie (2010-12-9)
  */
@@ -174,7 +174,7 @@ string_copy() name_info(','VSARG2_MARK|VSARG2_READ_ONLY|VSARG2_TEXT_BOX|VSARG2_R
     _str clipd = get_clipboard();
     if (clipd != null) {
         free_clipboard(1);
-        set_clipboard(escape_string(clipd, false));
+        set_clipboard(escape_string(clipd, true));
     }
 }
 
