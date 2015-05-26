@@ -156,7 +156,7 @@ static void insertText2(_str indentText)
       // do the math and output the time difference
       lineText = indentText"double "var3Name" = "var2Name" - "var1Name";";
       insert_line(lineText);
-      lineText = indentText"_debug.printf(\"Elapsed time ["g_debugVarCounter"] = %lf seconds.\\n\", "var3Name");";
+      lineText = indentText"printf(\"Elapsed time ["g_debugVarCounter"] = %lf seconds.\\n\", "var3Name");";
       insert_line(lineText);
       break;
    case 'java':
