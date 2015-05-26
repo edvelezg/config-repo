@@ -1,0 +1,10 @@
+hello_world_with_4
+and a whole
+hello_world_with_4
+bunch of other
+strings
+hello_world_with_5
+including <>$$*()/
+hello_world_with_7
+hello_world_with_4
+hello_world_with_8
