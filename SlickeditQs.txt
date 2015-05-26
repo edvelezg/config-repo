@@ -1,0 +1,2 @@
+- When I am editing a buffer in slickedit it does not change color to red, 
+it should be changing color but it isn't.
