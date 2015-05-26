@@ -121,8 +121,7 @@ xml_escape(_str text, boolean do_esc)
 }
 
 
-static _str
-escape_string(_str text, boolean do_esc)
+static _str escape_string(_str text, boolean do_esc)
 {
     switch (p_LangId) {
     case 'c':
