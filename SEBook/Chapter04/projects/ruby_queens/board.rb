@@ -45,7 +45,7 @@ class Board
     @pos[row] = nil
     @col[col] = false
     @diag1[col-row+size] = false
-    @diag2[col+row] = false
+    @diag2[col+row] = true
     col
   end
 
