@@ -43,6 +43,10 @@ _command void insert_debug_timer() name_info(','VSARG2_MACRO|VSARG2_MARK|VSARG2_
    {
       message("Could not find function in buffer");
       top();
+      if (search('#include', 'E>')) stop();
+      _begin_line() // Go to the beginning of the line
+      cursor_up();
+      insert_blankline_below();
       insertText0("");
    }
    _restore_pos2( p );
@@ -121,6 +125,7 @@ static void insertText0(_str indentText)
    "    return (double)clock() / CLOCKS_PER_SEC;\n"\
    "}\n"\
    "#endif\n";
+   _begin_line();
    _insert_text(c_code);
 }
 

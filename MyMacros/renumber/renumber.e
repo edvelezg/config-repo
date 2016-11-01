@@ -1,4 +1,5 @@
 #include "slick.sh"
+#include "..\\common\\hs2_cur_word_sel.e"
 
 /* Demo for StackOverflow question 14205293 */
 _command my_renumber() name_info(','VSARG2_MARK|VSARG2_REQUIRES_EDITORCTL)

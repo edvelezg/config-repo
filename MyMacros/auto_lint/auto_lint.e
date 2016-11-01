@@ -14,6 +14,7 @@ void rlint()
 
    if (Lint_LoadIni(p_LangId, lintPath) == 0 && lintPath != "NA") 
    {
+      say('lintPath='lintPath);
       do_run_lint(lintPath, p_buf_name);
    }
 };
@@ -30,6 +31,7 @@ void do_run_lint(_str lintPrg, _str filename)
    finalCmd = stranslate(finalCmd, p_buf_name, "%f");
    finalCmd = stranslate(finalCmd, _GetWorkspaceDir(), "%w");
    finalCmd = stranslate(finalCmd, p_LangId, "%l");
+   say('finalCmd='finalCmd);
 
    _str doSetMarkers;
    _str lintCmd;
@@ -111,6 +113,7 @@ void Lint_DoAutoRunOnSave(_str &doAutoRunOnSave)
 int Lint_LoadIni(_str langType, _str &lintExe)
 {
    _str iniPath = _GetWorkspaceDir() :+ SLICK_LINT_INI;
+   say('iniPath='iniPath);
    int status = _ini_get_value(iniPath, "Languages", langType, lintExe, "NA");
 
    return status;
@@ -118,5 +121,6 @@ int Lint_LoadIni(_str langType, _str &lintExe)
 
 _str file_path(_str s)
 {
+   say('file_path(s='s' )');
    return strip_filename(s,'ne');
 };

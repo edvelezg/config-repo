@@ -108,6 +108,8 @@ def  'A-T' 'r'= activate_references;
 def  'A-T' 'x'= activate_regex_evaluator;
 def  'A-T' 's'= activate_search;
 def  'A-T' 'y'= activate_symbols_browser;
+def  'A-=' 's'= align_chars;
+
 def  'C-T' 'c'= string_copy;
 def  'C-T' 'v'= string_paste;
 def  'C-T' 'l'= transpose_lines;
