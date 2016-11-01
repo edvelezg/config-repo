@@ -1,3 +1,14 @@
+11/1/2016 4:50 PM Is there a way to do multiple selections with a macro.
+I want to be able to select all paths in a file. I have code to select one
+path, but now I want to go through the file until the end and have an active
+selection on each path. Any help appreciated,
+
+11/1/2016 4:44 PM Is there a slickedit command to get words from a 
+selection?  This is what I want to do with my PrintMacro command.  I want 
+to capture the selection.  With the selection captured I want to see if 
+any of the words are actually int variables.  If they are then it should 
+take the variable and add an = after it followed by %d to print it out.  
+
 5/25/2015 8:15:27 PM
 I am trying to load a batch-macro with load commands. The file structure looks like this:
 
