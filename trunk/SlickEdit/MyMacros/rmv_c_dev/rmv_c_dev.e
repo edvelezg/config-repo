@@ -13,7 +13,9 @@ _command void rmv_c_dev() {
    // This doesn't run correctly if I don't supply the full path, I want to detect the path of this script.
    _str cmd = 'ruby C:\Users\egutarra\config-repo2\trunk\SlickEdit\MyMacros\rmv_c_dev\rmv_c_dev.rb'
    _str out = filter_command(cmd);
+   insert_blankline_above()
+   expand_alias('checkin');
 // say('cmd='cmd);
 }
 
-
+def 'A-V' 'f' = rmv_c_dev
