@@ -1,0 +1,303 @@
+<ErrorExpressions
+	xmlns="http://www.slickedit.com/schema/11.0/ErrorRE.xsd">
+	<Tool
+		Name="default"
+		Priority="0"
+		Enabled="1">
+		<Expression
+			Name="def1"
+			OldName="def_error_re"
+			Priority="0"
+			Enabled="1">
+			<RE>
+				<![CDATA[^\*@(cfe\: (Error|Warning)\:|error(~:f|[*:])|warning(~:f|[:*])|\(|<|)\*@ *{:q|(.\\|):p}( +| *\(|\:|, line ){:d#}(,|\:|)( *{:d#}|> :i|)(\)|) @(error|){(\:|Error[~s]|Fatal|Warning)?*$}]]>
+			</RE>
+		</Expression>
+		<Expression
+			Name="def2"
+			OldName="def_error_re2"
+			Priority="1"
+			Enabled="1">
+			<RE>
+				<![CDATA[^link *\:?*\:{}{}{}{?*}$]]>
+			</RE>
+		</Expression>
+		<Expression
+			Name="def4"
+			OldName="_error_re4"
+			Priority="2"
+			Enabled="1">
+			<RE>
+				<![CDATA[^({#3?@} at ){#0:p} line {#1:i}?*$]]>
+			</RE>
+		</Expression>
+		<Expression
+			Name="Python"
+			OldName=""
+			Priority="3"
+			Enabled="1">
+			<RE>
+				<![CDATA[^  File \"{#0[^"]+}\", line {#1:i}?*(\n|\r\n|\r)?*(\n|\r\n|\r)( *?\^(\n|\r\n|\r)|){#3[^ ]+\: ?*}$]]>
+			</RE>
+			<Matches>
+				<![CDATA[  File "junk5.py", line 1
+    x=import
+          ^
+SyntaxError: invalid syntax
+
+  File "test.py", line 21, in <module>
+    foo.bar()
+AttributeError: Foo instance has no attribute 'bar'
+]]>
+			</Matches>
+		</Expression>
+	</Tool>
+	<Tool
+		Name="Java"
+		Priority="1"
+		Enabled="1">
+		<Expression
+			Name="NJikes"
+			OldName="_error_javacNjikes"
+			Priority="0"
+			Enabled="1">
+			<RE>
+				<![CDATA[^{#0?*}\:{#1:i}\:({#2:i}\:{#3?*$}|{#2}{#3?*$})]]>
+			</RE>
+		</Expression>
+		<Expression
+			Name="JBuilder"
+			OldName="_error_jbuilder"
+			Priority="1"
+			Enabled="1">
+			<RE>
+				<![CDATA[^[ \t]@\"{#0:p}\"\: {#3Error \#\: :i \: ?*} at line {#1:i}, column {#2:i}$]]>
+			</RE>
+			<Matches>
+				<![CDATA["Frame1.java": Error #: 202 : 'class' or 'interface' expected at line 8, column 1]]>
+			</Matches>
+		</Expression>
+		<Expression
+			Name="Exception"
+			OldName="_error_javaException"
+			Priority="2"
+			Enabled="1">
+			<RE>
+				<![CDATA[^\tat [~ \t]#((.[~ \t]#)*)\({#0?#}\:{#1:i}\)]]>
+			</RE>
+			<Matches>
+				<![CDATA[at com.slickedit.guibuilder.GUICmdSequencer.setProperty(GUICmdSequencer.java:286)]]>
+			</Matches>
+		</Expression>
+		<Expression
+			Name="Maven"
+			OldName="none"
+			Priority="3"
+			Enabled="1">
+			<RE>
+				<![CDATA[^\[ERROR\]:b{#0:p}\:\[{#1:n}\,{#2:n}\]:b{#3?#}$]]>
+			</RE>
+			<Matches>
+				<![CDATA[[ERROR] App.java:[11,18] cannot find symbol]]>
+			</Matches>
+		</Expression>
+		<Expression
+			Name="Exception2"
+			OldName="_error_javaException2"
+			Priority="4"
+			Enabled="0">
+			<RE>
+				<![CDATA[^\tat:b#{#0[~\(]#}\({#1[~\)\:]#}\)]]>
+			</RE>
+		</Expression>
+		<Expression
+			Name="Exception3"
+			OldName="_error_javaException3"
+			Priority="5"
+			Enabled="0">
+			<RE>
+				<![CDATA[^\tat:b#{#0[~\(]#}\({#1?#}\:{#2:i}\)]]>
+			</RE>
+		</Expression>
+		<Expression
+			Name="JUnit"
+			OldName="_error_junitExceptionHeader"
+			Priority="6"
+			Enabled="0">
+			<RE>
+				<![CDATA[^:i\):b#{#0[~\(]#}\({#1[~\)]#}\)]]>
+			</RE>
+		</Expression>
+	</Tool>
+	<Tool
+		Name="Exclusions"
+		Priority="2"
+		Enabled="1">
+		<Expression
+			Name="Total Time"
+			OldName=""
+			Priority="0"
+			Enabled="1">
+			<RE>
+				<![CDATA[^\-+:btotal:btime\::b:i\::i\::i$]]>
+			</RE>
+			<Matches>
+				<![CDATA[---------- Total Time: 0:00:22]]>
+			</Matches>
+		</Expression>
+		<Expression
+			Name="In file included from"
+			OldName=""
+			Priority="1"
+			Enabled="1">
+			<RE>
+				<![CDATA[in file included from :p\::d]]>
+			</RE>
+			<Matches>
+				<![CDATA[In file included from file.cpp:13]]>
+			</Matches>
+		</Expression>
+	</Tool>
+	<Tool
+		Name="Unix Defaults"
+		Priority="3"
+		Enabled="0">
+		<Expression
+			Name="COB-390"
+			OldName="_error_re_cob_390"
+			Priority="0"
+			Enabled="1">
+			<RE>
+				<![CDATA[^ *{#1:i}  :c:c:c:c:c:d:d:d:d-:c   {#0}{#2}{#3?*$}]]>
+			</RE>
+			<Matches>
+				<![CDATA[5  IGYPS2072-S   "DISSPLAY" was invalid.  Skipped to the next verb, period]]>
+			</Matches>
+		</Expression>
+		<Expression
+			Name="FOR-390"
+			OldName="_error_re_for_390"
+			Priority="1"
+			Enabled="1">
+			<RE>
+				<![CDATA[^ISN +{#1:i}\:{#0}{#2}{#3}]]>
+			</RE>
+			<Matches>
+				<![CDATA[ISN     4:200       READZ (1,250,END=500) (INOUT(I),I=1,20)                       00021006]]>
+			</Matches>
+		</Expression>
+		<Expression
+			Name="PL1-390"
+			OldName="_error_re_pl1_390"
+			Priority="2"
+			Enabled="1">
+			<RE>
+				<![CDATA[^:c:c:c:d:d:d:d:c :c   {#1:i}{#0}{#2} +{#3?*$}]]>
+			</RE>
+			<Matches>
+				<![CDATA[IEL0304I S   3       INVALID SYNTAX IN ASSIGNMENT STATEMENT AFTER 'ERRORHERE'.    'ERRORHERE' IGNORED.]]>
+			</Matches>
+		</Expression>
+		<Expression
+			Name="S-390"
+			OldName="_error_re_s_390"
+			Priority="3"
+			Enabled="1">
+			<RE>
+				<![CDATA[^?*\*\* Record {#1:i} in {#0[~ ]+}{#2} +{#3?*$}]]>
+			</RE>
+		</Expression>
+		<Expression
+			Name="CC-390"
+			OldName="_error_re_cc_390"
+			Priority="4"
+			Enabled="1">
+			<RE>
+				<![CDATA[^(error|warning) [~ \t]+ {#0:p}\:{#1:i}:b{#2}{#3?*$}]]>
+			</RE>
+		</Expression>
+		<Expression
+			Name="CPP-390"
+			OldName="_error_re_cpp_390"
+			Priority="5"
+			Enabled="1">
+			<RE>
+				<![CDATA[^{#0:q}, line {#1:i}.{#2:i}\:{#3?*$}]]>
+			</RE>
+		</Expression>
+	</Tool>
+	<Tool
+		Name="Windows Defaults"
+		Priority="4"
+		Enabled="1">
+		<Expression
+			Name="Visual Studio"
+			OldName="_error_visual_cpp"
+			Priority="0"
+			Enabled="1">
+			<RE>
+				<![CDATA[^(:i>|[ \t]@){#0?*}\({#1:i}(,{#2:i}|)(,:i|)(,:i|)\) *\: {#3?*$}]]>
+			</RE>
+			<Matches>
+				<![CDATA[c:\Visual Studio Projects\testprj\testprj.cpp(29) : error C2078: too many initializers]]>
+			</Matches>
+		</Expression>
+	</Tool>
+	<Tool
+		Name="Other"
+		Priority="5"
+		Enabled="0">
+		<Expression
+			Name="Vantage"
+			OldName="_error_vantage_re"
+			Priority="0"
+			Enabled="0">
+			<RE>
+				<![CDATA[^\*\*Error\: LINE {#1:i}{#0} \*\*\* {#3?*}$]]>
+			</RE>
+			<Matches>
+				<![CDATA[**Error: LINE 23 *** No legal integer type for integer literal >>0<<.]]>
+			</Matches>
+		</Expression>
+		<Expression
+			Name="PV-Wave"
+			OldName="_error_re3"
+			Priority="1"
+			Enabled="0">
+			<RE>
+				<![CDATA[^  At\: {#0:p}, Line {#1:i}$]]>
+			</RE>
+		</Expression>
+		<Expression
+			Name="Microfocus"
+			OldName="_microfocus_re"
+			Priority="2"
+			Enabled="0">
+			<RE>
+				<![CDATA[^\*[ \t]+{#1:i}-[a-z]\*\*{#0}]]>
+			</RE>
+		</Expression>
+		<Expression
+			Name="ActionScript (Macromedia Flash)"
+			OldName="_error_actionscript"
+			Priority="3"
+			Enabled="0">
+			<RE>
+				<![CDATA[^\*\*Error\*\* {#0:p}\: Line {#1:i}\: {#2}{#3?*$}]]>
+			</RE>
+		</Expression>
+		<Expression
+			Name="Lua (luac)"
+			OldName=""
+			Priority="4"
+			Enabled="0">
+			<RE>
+				<![CDATA[^:p\: {#0:p}\:{#1:i}\: {#3?*$}]]>
+			</RE>
+		</Expression>
+	</Tool>
+	<Tool
+		Name="User"
+		Priority="6"
+		Enabled="0"></Tool>
+</ErrorExpressions>

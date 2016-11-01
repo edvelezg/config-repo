@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<outlineviewdata>
+	<scheme name="DocBook Sections Only">
+		<rule nodetype="sect1" autoexpand="0">
+			<![CDATA[Sect 1: (%xreflabel)]]>
+		</rule>
+		<rule nodetype="sect2" autoexpand="0">
+			<![CDATA[Sect 2: (%xreflabel)]]>
+		</rule>
+		<rule nodetype="sect3" autoexpand="0">
+			<![CDATA[Sect 3: (%xreflabel)]]>
+		</rule>
+		<rule nodetype="sect4" autoexpand="0">
+			<![CDATA[Sect 4: (%xreflabel)]]>
+		</rule>
+		<rule nodetype="sect5" autoexpand="0">
+			<![CDATA[Sect 5: (%xreflabel)]]>
+		</rule>
+	</scheme>
+	<scheme name="SlickProject">
+		<rule nodetype="Rule" autoexpand="1">
+			<![CDATA[(%InputExts) -> (%OutputExts)]]>
+		</rule>
+		<rule nodetype="Dependency" autoexpand="1">
+			<![CDATA[Dependency: (%Project)]]>
+		</rule>
+		<rule nodetype="Dependencies" autoexpand="0">
+			<![CDATA[Dependencies: (%Name)]]>
+		</rule>
+		<rule nodetype="Exec" autoexpand="1">
+			<![CDATA[Exec: (%CmdLine)]]>
+		</rule>
+		<rule nodetype="Libs" autoexpand="0">
+			<![CDATA[Libs]]>
+		</rule>
+		<rule nodetype="Includes" autoexpand="0">
+			<![CDATA[Includes]]>
+		</rule>
+		<rule nodetype="Files" autoexpand="0">
+			<![CDATA[Files]]>
+		</rule>
+		<rule nodetype="Target" autoexpand="1">
+			<![CDATA[Target: (%Name)]]>
+		</rule>
+		<rule nodetype="Config" autoexpand="1">
+			<![CDATA[Config: (%Name)]]>
+		</rule>
+		<rule nodetype="Project" autoexpand="1">
+			<![CDATA[Project]]>
+		</rule>
+		<rule nodetype="Include" autoexpand="1">
+			<![CDATA[Include: (%Dir)]]>
+		</rule>
+		<rule nodetype="F" autoexpand="1">
+			<![CDATA[(%N)]]>
+		</rule>
+		<rule nodetype="Lib" autoexpand="1">
+			<![CDATA[Lib: (%File)]]>
+		</rule>
+		<rule nodetype="Folder" autoexpand="0">
+			<![CDATA[Folder: (%Name)]]>
+		</rule>
+		<rule nodetype="PostBuildCommands" autoexpand="0">
+			<![CDATA[PostBuildCommands]]>
+		</rule>
+		<rule nodetype="Rules" autoexpand="0">
+			<![CDATA[Rules]]>
+		</rule>
+		<rule nodetype="Menu" autoexpand="0">
+			<![CDATA[Menu]]>
+		</rule>
+	</scheme>
+	<scheme name="SlickWorkspace">
+		<rule nodetype="Project" autoexpand="1">
+			<![CDATA[(%File)]]>
+		</rule>
+		<rule nodetype="Workspace" autoexpand="1">
+			<![CDATA[Workspace]]>
+		</rule>
+		<rule nodetype="Set" autoexpand="1">
+			<![CDATA[(%Name) = /(%Value)/]]>
+		</rule>
+		<rule nodetype="TagFile" autoexpand="1">
+			<![CDATA[TagFile: (%File)]]>
+		</rule>
+		<rule nodetype="Environment" autoexpand="0">
+			<![CDATA[Environment]]>
+		</rule>
+		<rule nodetype="Rules" autoexpand="0">
+			<![CDATA[Rules]]>
+		</rule>
+		<rule nodetype="Rule" autoexpand="1">
+			<![CDATA[(%InputExts) -> (%OutputExts)]]>
+		</rule>
+		<rule nodetype="TagFiles" autoexpand="0">
+			<![CDATA[TagFiles]]>
+		</rule>
+		<rule nodetype="Projects" autoexpand="0">
+			<![CDATA[Projects]]>
+		</rule>
+	</scheme>
+	<scheme name="SlickLex">
+		<rule nodetype="Token" autoexpand="0">
+			<![CDATA[(%Name) = /(%Text)/]]>
+		</rule>
+		<rule nodetype="IdTokens" autoexpand="1">
+			<![CDATA[IdTokens: (%Name)]]>
+		</rule>
+		<rule nodetype="Section" autoexpand="0">
+			<![CDATA[Section: (%Name)]]>
+		</rule>
+		<rule nodetype="VerifyLexer" autoexpand="0">
+			<![CDATA[VerifyLexer: (%File)]]>
+		</rule>
+		<rule nodetype="Lexer" autoexpand="1">
+			<![CDATA[Lexer]]>
+		</rule>
+		<rule nodetype="Rule" autoexpand="0">
+			<![CDATA[(%id)]]>
+		</rule>
+		<rule nodetype="IdToken" autoexpand="0">
+			<![CDATA[(%Text)]]>
+		</rule>
+		<rule nodetype="Parser" autoexpand="1">
+			<![CDATA[Parser]]>
+		</rule>
+	</scheme>
+	<scheme name="SlickOptions">
+		<rule nodetype="DialogTemplate" autoexpand="0">
+			<![CDATA[DialogTemplate: (%Name)]]>
+		</rule>
+		<rule nodetype="PropertyGroup" autoexpand="0">
+			<![CDATA[PropertyGroup: (%Caption)]]>
+		</rule>
+		<rule nodetype="CategoryTemplates" autoexpand="0">
+			<![CDATA[CategoryTemplates]]>
+		</rule>
+		<rule nodetype="Numeric" autoexpand="0">
+			<![CDATA[(%Caption)]]>
+		</rule>
+		<rule nodetype="Boolean" autoexpand="0">
+			<![CDATA[(%Caption)]]>
+		</rule>
+		<rule nodetype="DirectoryPath" autoexpand="0">
+			<![CDATA[(%Caption)]]>
+		</rule>
+		<rule nodetype="Category" autoexpand="1">
+			<![CDATA[(%Caption)(%Language)(%VCProvider)]]>
+		</rule>
+		<rule nodetype="Color" autoexpand="0">
+			<![CDATA[(%Caption)]]>
+		</rule>
+		<rule nodetype="PropertyTemplates" autoexpand="0">
+			<![CDATA[PropertyTemplates]]>
+		</rule>
+		<rule nodetype="Select" autoexpand="0">
+			<![CDATA[(%Caption)]]>
+		</rule>
+		<rule nodetype="OptionsTree" autoexpand="1">
+			<![CDATA[OptionsTree]]>
+		</rule>
+		<rule nodetype="NumericTemplate" autoexpand="0">
+			<![CDATA[(%Name)]]>
+		</rule>
+		<rule nodetype="CategoryTemplate" autoexpand="0">
+			<![CDATA[CategoryTemplate: (%Name)]]>
+		</rule>
+		<rule nodetype="FilePath" autoexpand="0">
+			<![CDATA[(%Caption)]]>
+		</rule>
+		<rule nodetype="DialogTemplates" autoexpand="0">
+			<![CDATA[DialogTemplates]]>
+		</rule>
+		<rule nodetype="PropertySheet" autoexpand="0">
+			<![CDATA[PropertySheet: (%Caption)(%VCProvider)]]>
+		</rule>
+		<rule nodetype="Text" autoexpand="0">
+			<![CDATA[(%Caption)]]>
+		</rule>
+		<rule nodetype="TextTemplate" autoexpand="0">
+			<![CDATA[(%Name)]]>
+		</rule>
+		<rule nodetype="BooleanTemplate" autoexpand="0">
+			<![CDATA[(%Name)]]>
+		</rule>
+		<rule nodetype="SelectTemplate" autoexpand="0">
+			<![CDATA[(%Name)]]>
+		</rule>
+		<rule nodetype="Options" autoexpand="1">
+			<![CDATA[Options]]>
+		</rule>
+		<rule nodetype="Dialog" autoexpand="0">
+			<![CDATA[Dialog: (%Caption)]]>
+		</rule>
+	</scheme>
+	<scheme name="DocBook">
+		<rule nodetype="sect1" autoexpand="0">
+			<![CDATA[Section 1: (%xreflabel)]]>
+		</rule>
+		<rule nodetype="para" autoexpand="0">
+			<![CDATA[para: "(%\v)"]]>
+		</rule>
+		<rule nodetype="sect2" autoexpand="0">
+			<![CDATA[Section 2: (%xreflabel)]]>
+		</rule>
+		<rule nodetype="sect3" autoexpand="0">
+			<![CDATA[Section 3: (%xreflabel)]]>
+		</rule>
+		<rule nodetype="sect4" autoexpand="0">
+			<![CDATA[Section 4: (%xreflabel)]]>
+		</rule>
+		<rule nodetype="sect5" autoexpand="0">
+			<![CDATA[Section 5: (%xreflabel)]]>
+		</rule>
+	</scheme>
+</outlineviewdata>

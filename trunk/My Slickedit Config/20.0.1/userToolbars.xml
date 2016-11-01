@@ -1,0 +1,29 @@
+<Toolbars>
+	<Toolbar Name="_tbstandard_form">
+		<Modifications>
+			<Modification Command="activate-deltasave" Action="1"/>
+			<Modification Command="history-diff-machine-file" Action="0" Message="List Backup History for Current File" Prev="save" Next="gui-print" Picture="bbsave_history.ico" Type="0"/>
+		</Modifications>
+		<Separators>
+			<Separator ItemBefore="gui-print" ItemAfter="cut" Size="1"/>
+			<Separator ItemBefore="select-code-block" ItemAfter="undo" Size="1"/>
+			<Separator ItemBefore="forward" ItemAfter="gui-find" Size="1"/>
+			<Separator ItemBefore="gui-replace" ItemAfter="fullscreen" Size="1"/>
+		</Separators>
+		<Duplicates/>
+	</Toolbar>
+	<Toolbar Name="_tbtagging_form">
+		<Modifications>
+			<Modification Command="push-alttag" Action="0" Message="Go to Declaration" Prev="push-tag" Next="pop-bookmark" Picture="bbpush_decl.ico" Type="0"/>
+		</Modifications>
+		<Duplicates/>
+	</Toolbar>
+	<Toolbar Name="_tbandroid_form">
+		<Modifications>
+			<Modification Command="android_avd_manager" Action="0" Message="Launch Android Virtual Device Manager" Prev="FIRST_ITEM" Next="android_sdk_manager" Picture="bbandroid_avd.ico" Type="0"/>
+			<Modification Command="android_sdk_manager" Action="0" Message="Launch Android SDK Manager" Prev="android_avd_manager" Next="android_ddms" Picture="bbandroid_sdk.ico" Type="0"/>
+			<Modification Command="android_ddms" Action="0" Message="Launch DDMS (Dalvik Debug Monitor)" Prev="android_sdk_manager" Next="LAST_ITEM" Picture="bbandroid_ddms.ico" Type="0"/>
+		</Modifications>
+		<Duplicates/>
+	</Toolbar>
+</Toolbars>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE SETemplate SYSTEM "http://www.slickedit.com/dtd/vse/setemplate/1.0/setemplate.dtd">
+<SETemplate Version="1.0" Type="Item">
+
+	<TemplateDetails>
+		<Name>MappedOSPEntity</Name>
+		<Description>Files for a brand new entity</Description>
+		<SortOrder>0</SortOrder>
+		<DefaultName>MappedOSPEntity</DefaultName>
+	</TemplateDetails>
+	<TemplateContent>
+		<Parameters>
+			<Parameter Name="osp_entity_name" Value="EpiWell_Well" Prompt="1" PromptString="OSP_ENTITY_NAME?"/>
+			<Parameter Name="nativeobject" Value="Well" Prompt="1" PromptString="Petra3 Native class?"/>
+		</Parameters>
+		<Files>
+			<File TargetFilename="$fileinputname$Table.java" ReplaceParameters="1">OSPEntityTable.java</File>
+			<File TargetFilename="$fileinputname$TableIterator.java" ReplaceParameters="1">OSPEntityTableIterator.java</File>
+			<File TargetFilename="$fileinputname$TableInserter.java" ReplaceParameters="1">OSPEntityTableInserter.java</File>
+			<File TargetFilename="$fileinputname$Key.java" ReplaceParameters="1">OSPEntityKey.java</File>
+			<File TargetFilename="$NativeObject$.java" ReplaceParameters="1">NativeObj.java</File>
+		</Files>
+	</TemplateContent>
+</SETemplate>

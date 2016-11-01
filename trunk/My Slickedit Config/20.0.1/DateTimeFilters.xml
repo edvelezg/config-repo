@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DateTimeFilters version="1.0" productName="SlickEdit Pro" productVersion="20.0.0.4">
+	<Filter name="This Year" interval="(This Year)">
+	</Filter>
+	<Filter name="Today" interval="(Today)">
+	</Filter>
+	<Filter name="Yesterday" interval="(Yesterday)">
+	</Filter>
+	<Filter name="This Month" interval="(This Month)">
+	</Filter>
+	<Filter name="This Hour" interval="(This Hour)">
+	</Filter>
+	<Filter name="This Week" interval="(This Week)">
+	</Filter>
+	<Filter name="Tomorrow" interval="(Tomorrow)">
+	</Filter>
+	<Filter name="This Minute" interval="(This Minute)">
+	</Filter>
+</DateTimeFilters>

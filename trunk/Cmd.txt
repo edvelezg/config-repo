@@ -1,0 +1,4 @@
+
+ruby -KU -- 'C:\Users\egutarra\Documents\Ruby\test\Test-2.rb' | gawk '{ print $1 }'
+ruby -KU -- 'C:\Users\egutarra\Documents\Ruby\test\Test-2.rb' | gawk '{ print "   "$1 }'
+

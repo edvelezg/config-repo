@@ -1,0 +1,203 @@
+#
+# Aliases for logging into various Unix systems
+#
+alias amber='ssh amber'
+alias ariel='ssh ariel'
+alias aqua='rlogin aquamarine'
+alias agate='rlogin agate'
+alias benihana='rlogin benihana'
+alias ben='rlogin benihana'
+alias bistro='rlogin bistro'
+alias carlsjr='rlogin carlsjr'
+alias diamond='rlogin diamond'
+alias garnet='ssh garnet'
+alias mickey='rlogin mickey'
+alias pyrite='rlogin pyrite'
+alias r5000-0-3='ssh r5000-0-3'
+
+#
+# Aliases for finding things using the 'find' command:
+#
+alias fdirs='find . -xdev -type d -exec ls -d {} \;'
+alias fdoc='find . -xdev -type f \( -name "*%" -o -name "*.doc" \) -exec ls -l {} \;'
+alias fexe='find . -xdev -type f -perm 755 -exec ls -d {} \;'
+alias flnk='find . -xdev -type l -exec ls -d {} \;'
+alias fman='find / -xdev -type d -name "man?" -exec ls -d {} \;'
+
+alias ff='find . -xdev -name "\!*" -exec ls -d {} \;'
+
+# alias gg='find . -xdev -type f -exec grep -i   -e "\!*" {} \;'
+# alias ggw='find . -xdev -type f -exec grep -iw  -e "\!*" {} \;'
+alias gg='find . -xdev -type f -name "\!$" -exec grep -i   -e "\!^" {} \;'
+alias ggw='find . -xdev -type f -name "\!$" -exec grep -iw  -e "\!^" {} \;'
+
+# alias ggf='find . -xdev -type f -exec grep -il  -e "\!*" {} \;'
+# alias ggwf='find . -xdev -type f -exec grep -ilw -e "\!*" {} \;'
+alias ggf='find . -xdev -type f -name "\!$" -exec grep -il  -e "\!^" {} \;'
+alias ggfci='find . -xdev -type f -name "\!$" -exec grep -l   -e "\!^" {} \;'
+alias ggwf='find . -xdev -type f -name "\!$" -exec grep -ilw -e "\!^" {} \;'
+
+#
+# Software development aliases
+#
+alias cl='g++ -g3 -O0 -o \!^ \!^.cpp'
+alias clo='g++ -g3 -O0 -o \!^ \!^.cpp \!$'
+alias co='g++ -c -g3 -O0 \!*.cpp'
+
+#-----------------------------------------------------------------------------------------------
+# File system navigation aliases
+#-----------------------------------------------------------------------------------------------
+
+alias psp='/prod/spirit'
+alias cdbuild='cd /build'
+alias cbs='cd /build/env/current_stable_build/bin'
+alias csb='cd /build/env/current_stable_build/bin'
+alias dev='cd ${OSP_MY_DEV}'
+alias devlogs='cd ${OSP_MY_DEV}/logs'
+alias osp='cd ${HOME}/OpenSpirit'
+alias ospmaster='cd /users/egutarra/OpenSpirit/v4_0_0_389/v4.0/bin; ./openspirit'
+alias ospsat='cd /users/egutarra/OpenSpirit/v4_0_0_389_sat/v4.0/bin; ./openspirit'
+alias ospbuild='cd /build/env/current_stable_build/bin; ./openspirit'
+alias osphome='cd ${OSP_HOME}'
+alias osplog='cd ${HOME}/OpenSpirit/${OSP_RELEASE}'
+alias psp='cd ${psp}'
+alias scripts='cd ${HOME}/scripts'
+alias cdv4='cd ${HOME}/OpenSpirit/v4.0'
+alias cddataserverlogs='cd ~/OpenSpirit/v4.0/logs/DataServer'
+alias cdopenworks='cd ~openworks'
+alias cdgf='cd /users/egutarra/dev/OpenSpiritProject-v4.0/source/src/osp_GeoFrame'
+alias cdch42='cd /users/egutarra/dev/OpenSpiritProject-v4.0/source/src/osp_servers/Ch4_2/osi'
+alias cdch45='cd /users/egutarra/dev/OpenSpiritProject-v4.0/source/src/osp_servers/Ch4_5/osi'
+alias cdospmetadata='cd ~/dev/OpenSpiritProject-v4.0/source/java_impl/com/openspirit/osp/metadata'
+alias cdchf_cdm='cd /prod/geoframe/gf4x/gfdk_extensions/gf4c2_14_OSP_3_opt_lnx/chf_cdm'
+
+alias reloadjar='cd ~/dev/OpenSpiritProject-v4.0/source/classes;  /prod/java/jdk1.6/bin/jar uf ospcom.jar com'
+
+alias owhome='cd $OWHOME'
+alias owdevkit='cd $OWDEVKIT'
+alias owincl='cd ${OWDEVKIT}/include/ow'
+alias gdincl='cd ${OWDEVKIT}/include/ow/gdincl'
+
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+
+#
+# Other aliases
+#
+alias allprocs='ps -ef'
+alias br='vim -R'
+alias copy='\cp -i'
+# alias cp='\cp -i'
+alias cvtfile='dos2unix "\!^" "\!^" >& /dev/null'
+alias dir='\ls -ACF'
+alias dirdate='\ls -AFlt'
+alias dirfu='\ls -AFl'
+alias diskusage='du -ka | sort -nr | head -n 40'
+alias grep='\grep -i'
+alias grepf='\grep -il'
+alias grepw='\grep -ilw'
+alias h='history'
+alias host='hostname'
+alias l='less'
+alias lo='exit'
+alias ls='\ls -AFC'
+alias lsdate='\ls -AFlt'
+alias ll='\ls --color -AFl'
+alias lsfu='\ls -AFl'
+alias m='more'
+alias make='gmake'
+alias mv='\mv -i'
+alias myprocs='ps -ef | grep egutarra'
+# alias myprocs='ps auxww | grep egutarra'
+alias ren='\mv -i'
+#alias rm='\rm -i'
+alias sysinc='cd /usr/include'
+alias tail='tail -f'
+alias untab='expand -t\!:1 \!:2 > \!:2.untab; \mv \!:2.untab \!:2'
+alias vi='vim'
+alias x='xemacs \!^ &'
+alias ldpath='echo $LD_LIBRARY_PATH | tr ":" "\n"'
+alias ospldpath='echo $OSP_LD_LIB_PATH | tr ":" "\n"'
+alias owldpath='echo $OSP_OW_LD_LIB_PATH | tr ":" "\n"'
+alias path='echo $PATH | tr ":" "\n"'
+alias clpath='echo $CLASSPATH | tr ":" "\n"'
+alias openworks='cd $HOME/dev/OpenSpirit-v4.0/dataConnectors/OpenWorks/C++/osp/plugin/data/openworks'
+
+#-----------------------------------------------------------------------------------------------
+# Source code tree navigation aliases
+#-----------------------------------------------------------------------------------------------
+
+alias api='cd ${OSP_MY_BASELINE}/api/C++/osp'
+alias bin='cd ${OSP_MY_BASELINE}/bin'
+alias dataconnectors='cd ${OSP_MY_BASELINE}/dataConnectors'
+alias devdev='cd ${OSP_MY_BASELINE}/dev'
+alias devhome='cd ${OSP_MY_BASELINE}'
+alias dh='cd ${OSP_MY_BASELINE}'
+alias impl='cd ${OSP_MY_BASELINE}/impl/C++/osp/impl'
+alias inmemory='cd ${OSP_MY_BASELINE}/providers/C++/osp/plugin/data/inmemory'
+alias jni='cd ${OSP_MY_BASELINE}/impl/jni/osp/jni'
+alias jni-old='cd ${OSP_MY_BASELINE}/jni/C++/osp/jni'
+alias jre='cd ${OSP_MY_BASELINE}/jre'
+alias jvm='cd ${OSP_MY_BASELINE}/impl/jni/jvm'
+alias jvm-old='cd ${OSP_MY_BASELINE}/jni/C++/osp/jvm'
+alias lib='cd ${OSP_MY_BASELINE}/lib'
+alias makedir='cd ${OSP_MY_BASELINE}/dev'
+# alias openworks='cd ${OSP_MY_BASELINE}/dataConnectors/OpenWorks/C++/osp/plugin/data/openworks'
+alias openworks_old_style='cd ${OSP_MY_DEV}/OpenSpiritProject-v3.2/source/src/osp_OpenWorks'
+alias owtests='cd ${OSP_MY_DEV}/owTests'
+alias plugins='cd ${OSP_MY_BASELINE}/plugins'
+alias providers='cd ${OSP_MY_BASELINE}/providers/C++/osp/plugin'
+alias rundir='cd ${HOME}/osprun'
+alias spi='cd ${OSP_MY_BASELINE}/spi/C++/osp/spi'
+alias table='cd ${OSP_MY_BASELINE}/providers/C++/osp/plugin/data/jni/table'
+alias testfiles='cd ${OSP_MY_BASELINE}/tests/RegressionTestFiles/data/query'
+alias tests='cd ${OSP_MY_BASELINE}/tests/C++/tests'
+alias tools='cd ${OSP_MY_BASELINE}/tools/C++'
+
+#-----------------------------------------------------------------------------------------------
+# Misc. developement aliases
+#-----------------------------------------------------------------------------------------------
+
+# if [ -n "$(OSP_OS_NAME)" ]; then
+#     if [ ${OSP_OS_NAME} == "SunOS" ]; then
+#        alias sunstudio='/opt/SUNWspro/bin/sunstudio --jdkhome /prod/java/jdk1.4 &'
+#        alias dbg='/opt/SUNWspro/bin/sunstudio --jdkhome /prod/java/jdk1.4 &'
+#        alias owmakelog='vi ${OSP_MY_BASELINE}/dataConnectors/OpenWorks/C++/osp/plugin/data/openworks/make.${OSP_OS_NAME}.${OSP_HOST_NAME}.log'
+#        alias dbx_osp_jvm='dbx ${OSP_MY_BASELINE}/lib/${OSP_OS_NAME}_${OSP_OS_ARCH}/${OSP_OS_RELEASE}/${OSP_COMPILE_TYPE}/jvm $*'
+#        alias dbx_ow_osp_jvm='dbx ${OSP_MY_BASELINE}/lib/${OSP_OS_NAME}_${OSP_OS_ARCH}/${OSP_OS_RELEASE}/${OSP_COMPILE_TYPE}/jvm $*'
+#        alias ospmakelog='vi ${OSP_MY_BASELINE}/dev/make.${OSP_OS_NAME}.${OSP_HOST_NAME}.log'
+# 
+#     elif [ ${OSP_OS_NAME} == "Linux" ]; then
+#        alias eclipse='${HOME}/scripts/eclipse $* &'
+#        alias ddd='/usr/bin/ddd $* &'
+#        alias ddd_ow_osp_jvm='ddd ${OSP_MY_BASELINE}/lib/${OSP_OS_NAME}_${OSP_OS_ARCH}/${OSP_OS_RELEASE}/${OSP_COMPILE_TYPE}/jvm $* &'
+#        alias gdb_osp_jvm='gdb ${OSP_MY_BASELINE}/lib/${OSP_OS_NAME}_${OSP_OS_ARCH}/${OSP_OS_RELEASE}/${OSP_COMPILE_TYPE}/jvm $*'
+#        alias gdb_ow_osp_jvm='gdb ${OSP_MY_BASELINE}/lib/${OSP_OS_NAME}_${OSP_OS_ARCH}/${OSP_OS_RELEASE}/${OSP_COMPILE_TYPE}/jvm $*'
+#        alias owmakelog='vi ${OSP_MY_BASELINE}/dataConnectors/OpenWorks/C++/osp/plugin/data/openworks/make.${OSP_OS_NAME}.${OSP_HOST_NAME}.log'
+#        alias ospmakelog='vi ${OSP_MY_BASELINE}/dev/make.${OSP_OS_NAME}.${OSP_HOST_NAME}.log'
+#     fi
+# fi
+
+#-----------------------------------------------------------------------------------------------
+# Run OpenSpirit applications
+#-----------------------------------------------------------------------------------------------
+
+alias openspirit='$OSP_HOME/bin/openspirit'
+alias ospdesktop='$OSP_HOMEi/bin/ospdesktop'
+alias ospservices='$OSP_HOME/bin/runOSServices.sh'
+
+#-----------------------------------------------------------------------------------------------
+# Other aliases
+#-----------------------------------------------------------------------------------------------
+
+alias checklic='~ssm/bin/check_license.csh'
+alias checkowlic='$LM_HOME/lmstat -a -c ${LM_LICENSE_FILE} | grep start'
+alias gmake='gmake OSP_COMPILE_TYPE=${OSP_COMPILE_TYPE} $*'
+alias startow='~openworks/ow $*'
+alias top='top -u egutarra'
+alias prstat='prstat -s cpu -a -n 8'
+alias prstat='prstat -s cpu -a -n 8'
+

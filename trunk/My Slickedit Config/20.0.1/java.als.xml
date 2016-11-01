@@ -1,0 +1,144 @@
+<profile name="/language/java/aliases">
+	<p n="=surround_with_finally">
+		<text>
+			finally {
+			%\m sur_text -indent%
+			}
+		</text>
+	</p>
+	<p n="=surround_with_if">
+		<text>
+			if (%\c) {
+			%\m sur_text -indent%
+			}
+		</text>
+	</p>
+	<p n="=surround_with_switch">
+		<text>
+			switch (%\c) {
+			%\m sur_text%
+			}
+		</text>
+	</p>
+	<p n="=surround_with_while">
+		<text>
+			while (%\c) {
+			%\m sur_text -indent%
+			}
+		</text>
+	</p>
+	<p n="=surround_with_catch">
+		<text>
+			catch (%\c) {
+			%\m sur_text -indent%
+			}
+		</text>
+	</p>
+	<p n="=surround_with_try">
+		<text>
+			try {
+			%\m sur_text -indent%
+			}
+		</text>
+	</p>
+	<p n="=surround_with_do...while">
+		<text>
+			do {
+			%\m sur_text -indent%
+			} while (%\c);
+		</text>
+	</p>
+	<p n="=surround_with_case">
+		<text>
+			case %\c:
+			%\m sur_text -indent%
+			break;
+		</text>
+	</p>
+	<p n="=surround_with_if...else">
+		<text>
+			if (%\c) {
+			%\m sur_text -indent%
+			} else {
+			%\m sur_text -indent%
+			}
+		</text>
+	</p>
+	<p n="=surround_with_for">
+		<text>
+			for (%\c) {
+			%\m sur_text -indent%
+			}
+		</text>
+	</p>
+	<p n="=surround_with_default">
+		<text>
+			default:
+			%\m sur_text -indent%
+		</text>
+	</p>
+	<p n="=surround_with_try...catch">
+		<text>
+			try {
+			%\m sur_text -indent%
+			} catch (%\c) { %\S
+			}
+		</text>
+	</p>
+	<p n="=surround_with_try...catch...finally">
+		<text>
+			try {
+			%\m sur_text -indent%
+			} catch (%\c) { %\S
+			} finally {
+			}
+		</text>
+	</p>
+	<p n="=surround_with_try...finally">
+		<text>
+			try {
+			%\m sur_text -indent%
+			} finally {
+			%\i%\c
+			}
+		</text>
+	</p>
+	<p n="=surround_with_new_j2me_midlet">
+		<text>
+			import javax.microedition.lcdui.*;
+			import javax.microedition.midlet.*;
+			%\l
+			public class %\m sur_text%
+			    extends MIDlet
+			    implements CommandListener {
+			  private Form mMainForm;
+			%\l
+			  public %\m sur_text%() {
+			    mMainForm = new Form("HelloMIDlet");
+			    mMainForm.append(new StringItem(null, "Hello, %\m sur_text%!"));
+			    mMainForm.addCommand(new Command("Exit", Command.EXIT, 0));
+			    mMainForm.setCommandListener(this);
+			  }
+			%\l
+			  public void startApp() {
+			    Display.getDisplay(this).setCurrent(mMainForm);
+			  }
+			%\l
+			  public void pauseApp() {}
+			%\l
+			  public void destroyApp(boolean unconditional) {}
+			%\l
+			  public void commandAction(Command c, Displayable s) {
+			    notifyDestroyed();
+			  }
+			}
+		</text>
+	</p>
+	<p n="=surround_with_braces">
+		<text>
+			{
+			%\m sur_text -indent%
+			}
+		</text>
+	</p>
+</profile>

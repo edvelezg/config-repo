@@ -1,0 +1,39 @@
+<!DOCTYPE Compilers SYSTEM "http://www.slickedit.com/dtd/vse/10.0/compilers.dtd">
+<Compilers Version="10.0">
+	<Java_Configuration Name="JDK 1.8.0_45" Root="C:\Program Files\Java\jdk1.8.0_45\">
+		<JARs>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\charsets.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\deploy.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\javaws.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\jce.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\jfr.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\jfxswt.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\jsse.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\management-agent.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\plugin.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\resources.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\rt.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\access-bridge-64.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\cldrdata.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\dnsns.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\jaccess.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\jfxrt.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\localedata.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\nashorn.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\sunec.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\sunjce_provider.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\sunmscapi.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\sunpkcs11.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext\zipfs.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\security\local_policy.jar"/>
+			<JAR Dir="C:\Program Files\Java\jdk1.8.0_45\jre\lib\security\US_export_policy.jar"/>
+		</JARs>
+	</Java_Configuration>
+	<C_Configuration Name="Visual Studio 2010" Header="sysconfig\vsparser\vscpp.h">
+		<Includes>
+			<Include Dir="e:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\INCLUDE\"/>
+			<Include Dir="e:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\ATLMFC\INCLUDE\"/>
+			<Include Dir="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\"/>
+		</Includes>
+	</C_Configuration>
+</Compilers>

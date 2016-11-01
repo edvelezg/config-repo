@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><Xconfig>
+	<summary>
+		<heading>Exceed Xconfig</heading>
+		<description>Xconfig lets you configure the Exceed Xserver. You can set preferences for both your host system and your PC.</description>
+		<ProductName>Exceed</ProductName>
+		<VendorName>Open Text</VendorName>
+		<Version>14.0.0.0</Version>
+	</summary>
+	<Screen0>
+		<NumberOfLastScreen ServerAction="1">0</NumberOfLastScreen>
+		<WMM_Panning>1</WMM_Panning>
+		<WMM_PanSpeed>0</WMM_PanSpeed>
+		<WMM_PanAmount nMax="100" nMin="1">25</WMM_PanAmount>
+		<WMM_VirtRootWidth nMax="8192" nMin="0">0</WMM_VirtRootWidth>
+		<WMM_VirtRootHeight nMax="8192" nMin="0">0</WMM_VirtRootHeight>
+		<WMM_AutoLoadXrdb ServerAction="1">0</WMM_AutoLoadXrdb>
+		<WMM_XrdbFile nMaxLen="260">xrdb.txt</WMM_XrdbFile>
+		<WMM_WindowManager ServerAction="1">2</WMM_WindowManager>
+		<WMM_UseNativeWMforEmbClients ServerAction="1">0</WMM_UseNativeWMforEmbClients>
+		<WMM_FitWndToDsp>0</WMM_FitWndToDsp>
+		<WMM_CascadeWnd>1</WMM_CascadeWnd>
+		<WMS_Panning>0</WMS_Panning>
+		<WMS_PanSpeed>0</WMS_PanSpeed>
+		<WMS_PanAmount nMax="100" nMin="1">25</WMS_PanAmount>
+		<WMS_VirtRootWidth ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootWidth>
+		<WMS_VirtRootHeight ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootHeight>
+		<WMS_FullScreen ServerAction="1">0</WMS_FullScreen>
+		<WMS_AutoLoadXrdb ServerAction="1">0</WMS_AutoLoadXrdb>
+		<WMS_XrdbFile nMaxLen="260">xrdb.txt</WMS_XrdbFile>
+		<WMS_SaveGeometry>0</WMS_SaveGeometry>
+		<WMS_ShowScrollBar>0</WMS_ShowScrollBar>
+		<CurrentWindowMode ServerAction="1">0</CurrentWindowMode>
+		<ServerVisual ServerAction="1">6</ServerVisual>
+		<UseAllMonitors ServerAction="1">1</UseAllMonitors>
+		<MonitorToUseForScreen ServerAction="1" nMaxLen="915">1</MonitorToUseForScreen>
+		<EnableScreen ServerAction="1">1</EnableScreen>
+		<WMM_AdvancedSettings>
+			<WMM_TrackMouse>0</WMM_TrackMouse>
+			<WMM_EnableRootDraw ServerAction="1">0</WMM_EnableRootDraw>
+			<WMM_RootMouseToX>0</WMM_RootMouseToX>
+			<WMM_DelayWindowMap>1</WMM_DelayWindowMap>
+		</WMM_AdvancedSettings>
+	</Screen0>
+	<Screen1>
+		<WMM_Panning>1</WMM_Panning>
+		<WMM_PanSpeed>0</WMM_PanSpeed>
+		<WMM_PanAmount nMax="100" nMin="1">25</WMM_PanAmount>
+		<WMM_VirtRootWidth nMax="8192" nMin="0">0</WMM_VirtRootWidth>
+		<WMM_VirtRootHeight nMax="8192" nMin="0">0</WMM_VirtRootHeight>
+		<WMM_AutoLoadXrdb ServerAction="1">0</WMM_AutoLoadXrdb>
+		<WMM_XrdbFile nMaxLen="260">xrdb.txt</WMM_XrdbFile>
+		<WMM_WindowManager ServerAction="1">2</WMM_WindowManager>
+		<WMM_UseNativeWMforEmbClients ServerAction="1">0</WMM_UseNativeWMforEmbClients>
+		<WMM_FitWndToDsp>0</WMM_FitWndToDsp>
+		<WMM_CascadeWnd>1</WMM_CascadeWnd>
+		<WMS_Panning>0</WMS_Panning>
+		<WMS_PanSpeed>0</WMS_PanSpeed>
+		<WMS_PanAmount nMax="100" nMin="1">25</WMS_PanAmount>
+		<WMS_VirtRootWidth ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootWidth>
+		<WMS_VirtRootHeight ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootHeight>
+		<WMS_FullScreen ServerAction="1">0</WMS_FullScreen>
+		<WMS_AutoLoadXrdb ServerAction="1">0</WMS_AutoLoadXrdb>
+		<WMS_XrdbFile nMaxLen="260">xrdb.txt</WMS_XrdbFile>
+		<WMS_SaveGeometry>0</WMS_SaveGeometry>
+		<WMS_ShowScrollBar>0</WMS_ShowScrollBar>
+		<CurrentWindowMode ServerAction="1">0</CurrentWindowMode>
+		<ServerVisual ServerAction="1">6</ServerVisual>
+		<UseAllMonitors ServerAction="1">0</UseAllMonitors>
+		<MonitorToUseForScreen ServerAction="1" nMaxLen="915">1</MonitorToUseForScreen>
+		<EnableScreen ServerAction="1">1</EnableScreen>
+		<WMM_AdvancedSettings>
+			<WMM_TrackMouse>0</WMM_TrackMouse>
+			<WMM_EnableRootDraw ServerAction="1">0</WMM_EnableRootDraw>
+			<WMM_RootMouseToX>0</WMM_RootMouseToX>
+			<WMM_DelayWindowMap>1</WMM_DelayWindowMap>
+		</WMM_AdvancedSettings>	
+	</Screen1>
+	<Screen2>
+		<WMM_Panning>1</WMM_Panning>
+		<WMM_PanSpeed>0</WMM_PanSpeed>
+		<WMM_PanAmount nMax="100" nMin="1">25</WMM_PanAmount>
+		<WMM_VirtRootWidth nMax="8192" nMin="0">0</WMM_VirtRootWidth>
+		<WMM_VirtRootHeight nMax="8192" nMin="0">0</WMM_VirtRootHeight>
+		<WMM_AutoLoadXrdb ServerAction="1">0</WMM_AutoLoadXrdb>
+		<WMM_XrdbFile nMaxLen="260">xrdb.txt</WMM_XrdbFile>
+		<WMM_WindowManager ServerAction="1">2</WMM_WindowManager>
+		<WMM_UseNativeWMforEmbClients ServerAction="1">0</WMM_UseNativeWMforEmbClients>
+		<WMM_FitWndToDsp>0</WMM_FitWndToDsp>
+		<WMM_CascadeWnd>1</WMM_CascadeWnd>
+		<WMS_Panning>0</WMS_Panning>
+		<WMS_PanSpeed>0</WMS_PanSpeed>
+		<WMS_PanAmount nMax="100" nMin="1">25</WMS_PanAmount>
+		<WMS_VirtRootWidth ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootWidth>
+		<WMS_VirtRootHeight ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootHeight>
+		<WMS_FullScreen ServerAction="1">0</WMS_FullScreen>
+		<WMS_AutoLoadXrdb ServerAction="1">0</WMS_AutoLoadXrdb>
+		<WMS_XrdbFile nMaxLen="260">xrdb.txt</WMS_XrdbFile>
+		<WMS_SaveGeometry>0</WMS_SaveGeometry>
+		<WMS_ShowScrollBar>0</WMS_ShowScrollBar>
+		<CurrentWindowMode ServerAction="1">0</CurrentWindowMode>
+		<ServerVisual ServerAction="1">6</ServerVisual>
+		<UseAllMonitors ServerAction="1">0</UseAllMonitors>
+		<MonitorToUseForScreen ServerAction="1" nMaxLen="915">1</MonitorToUseForScreen>
+		<EnableScreen ServerAction="1">1</EnableScreen>
+		<WMM_AdvancedSettings>
+			<WMM_TrackMouse>0</WMM_TrackMouse>
+			<WMM_EnableRootDraw ServerAction="1">0</WMM_EnableRootDraw>
+			<WMM_RootMouseToX>0</WMM_RootMouseToX>
+			<WMM_DelayWindowMap>1</WMM_DelayWindowMap>
+		</WMM_AdvancedSettings>	
+	</Screen2>
+	<Screen3>
+		<WMM_Panning>1</WMM_Panning>
+		<WMM_PanSpeed>0</WMM_PanSpeed>
+		<WMM_PanAmount nMax="100" nMin="1">25</WMM_PanAmount>
+		<WMM_VirtRootWidth nMax="8192" nMin="0">0</WMM_VirtRootWidth>
+		<WMM_VirtRootHeight nMax="8192" nMin="0">0</WMM_VirtRootHeight>
+		<WMM_AutoLoadXrdb ServerAction="1">0</WMM_AutoLoadXrdb>
+		<WMM_XrdbFile nMaxLen="260">xrdb.txt</WMM_XrdbFile>
+		<WMM_WindowManager ServerAction="1">2</WMM_WindowManager>
+		<WMM_UseNativeWMforEmbClients ServerAction="1">0</WMM_UseNativeWMforEmbClients>
+		<WMM_FitWndToDsp>0</WMM_FitWndToDsp>
+		<WMM_CascadeWnd>1</WMM_CascadeWnd>
+		<WMS_Panning>0</WMS_Panning>
+		<WMS_PanSpeed>0</WMS_PanSpeed>
+		<WMS_PanAmount nMax="100" nMin="1">25</WMS_PanAmount>
+		<WMS_VirtRootWidth ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootWidth>
+		<WMS_VirtRootHeight ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootHeight>
+		<WMS_FullScreen ServerAction="1">0</WMS_FullScreen>
+		<WMS_AutoLoadXrdb ServerAction="1">0</WMS_AutoLoadXrdb>
+		<WMS_XrdbFile nMaxLen="260">xrdb.txt</WMS_XrdbFile>
+		<WMS_SaveGeometry>0</WMS_SaveGeometry>
+		<WMS_ShowScrollBar>0</WMS_ShowScrollBar>
+		<CurrentWindowMode ServerAction="1">0</CurrentWindowMode>
+		<ServerVisual ServerAction="1">6</ServerVisual>
+		<UseAllMonitors ServerAction="1">0</UseAllMonitors>
+		<MonitorToUseForScreen ServerAction="1" nMaxLen="915">1</MonitorToUseForScreen>
+		<EnableScreen ServerAction="1">1</EnableScreen>
+		<WMM_AdvancedSettings>
+			<WMM_TrackMouse>0</WMM_TrackMouse>
+			<WMM_EnableRootDraw ServerAction="1">0</WMM_EnableRootDraw>
+			<WMM_RootMouseToX>0</WMM_RootMouseToX>
+			<WMM_DelayWindowMap>1</WMM_DelayWindowMap>
+		</WMM_AdvancedSettings>	
+	</Screen3>
+	<Screen4>
+		<WMM_Panning>1</WMM_Panning>
+		<WMM_PanSpeed>0</WMM_PanSpeed>
+		<WMM_PanAmount nMax="100" nMin="1">25</WMM_PanAmount>
+		<WMM_VirtRootWidth nMax="8192" nMin="0">0</WMM_VirtRootWidth>
+		<WMM_VirtRootHeight nMax="8192" nMin="0">0</WMM_VirtRootHeight>
+		<WMM_AutoLoadXrdb ServerAction="1">0</WMM_AutoLoadXrdb>
+		<WMM_XrdbFile nMaxLen="260">xrdb.txt</WMM_XrdbFile>
+		<WMM_WindowManager ServerAction="1">2</WMM_WindowManager>
+		<WMM_UseNativeWMforEmbClients ServerAction="1">0</WMM_UseNativeWMforEmbClients>
+		<WMM_FitWndToDsp>0</WMM_FitWndToDsp>
+		<WMM_CascadeWnd>1</WMM_CascadeWnd>
+		<WMS_Panning>0</WMS_Panning>
+		<WMS_PanSpeed>0</WMS_PanSpeed>
+		<WMS_PanAmount nMax="100" nMin="1">25</WMS_PanAmount>
+		<WMS_VirtRootWidth ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootWidth>
+		<WMS_VirtRootHeight ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootHeight>
+		<WMS_FullScreen ServerAction="1">0</WMS_FullScreen>
+		<WMS_AutoLoadXrdb ServerAction="1">0</WMS_AutoLoadXrdb>
+		<WMS_XrdbFile nMaxLen="260">xrdb.txt</WMS_XrdbFile>
+		<WMS_SaveGeometry>0</WMS_SaveGeometry>
+		<WMS_ShowScrollBar>0</WMS_ShowScrollBar>
+		<CurrentWindowMode ServerAction="1">0</CurrentWindowMode>
+		<ServerVisual ServerAction="1">6</ServerVisual>
+		<UseAllMonitors ServerAction="1">0</UseAllMonitors>
+		<MonitorToUseForScreen ServerAction="1" nMaxLen="915">1</MonitorToUseForScreen>
+		<EnableScreen ServerAction="1">1</EnableScreen>
+		<WMM_AdvancedSettings>
+			<WMM_TrackMouse>0</WMM_TrackMouse>
+			<WMM_EnableRootDraw ServerAction="1">0</WMM_EnableRootDraw>
+			<WMM_RootMouseToX>0</WMM_RootMouseToX>
+			<WMM_DelayWindowMap>1</WMM_DelayWindowMap>
+		</WMM_AdvancedSettings>	
+	</Screen4>
+	<Screen5>
+		<WMM_Panning>1</WMM_Panning>
+		<WMM_PanSpeed>0</WMM_PanSpeed>
+		<WMM_PanAmount nMax="100" nMin="1">25</WMM_PanAmount>
+		<WMM_VirtRootWidth nMax="8192" nMin="0">0</WMM_VirtRootWidth>
+		<WMM_VirtRootHeight nMax="8192" nMin="0">0</WMM_VirtRootHeight>
+		<WMM_AutoLoadXrdb ServerAction="1">0</WMM_AutoLoadXrdb>
+		<WMM_XrdbFile nMaxLen="260">xrdb.txt</WMM_XrdbFile>
+		<WMM_WindowManager ServerAction="1">2</WMM_WindowManager>
+		<WMM_UseNativeWMforEmbClients ServerAction="1">0</WMM_UseNativeWMforEmbClients>
+		<WMM_FitWndToDsp>0</WMM_FitWndToDsp>
+		<WMM_CascadeWnd>1</WMM_CascadeWnd>
+		<WMS_Panning>0</WMS_Panning>
+		<WMS_PanSpeed>0</WMS_PanSpeed>
+		<WMS_PanAmount nMax="100" nMin="1">25</WMS_PanAmount>
+		<WMS_VirtRootWidth ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootWidth>
+		<WMS_VirtRootHeight ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootHeight>
+		<WMS_FullScreen ServerAction="1">0</WMS_FullScreen>
+		<WMS_AutoLoadXrdb ServerAction="1">0</WMS_AutoLoadXrdb>
+		<WMS_XrdbFile nMaxLen="260">xrdb.txt</WMS_XrdbFile>
+		<WMS_SaveGeometry>0</WMS_SaveGeometry>
+		<WMS_ShowScrollBar>0</WMS_ShowScrollBar>
+		<CurrentWindowMode ServerAction="1">0</CurrentWindowMode>
+		<ServerVisual ServerAction="1">6</ServerVisual>
+		<UseAllMonitors ServerAction="1">0</UseAllMonitors>
+		<MonitorToUseForScreen ServerAction="1" nMaxLen="915">1</MonitorToUseForScreen>
+		<EnableScreen ServerAction="1">1</EnableScreen>
+		<WMM_AdvancedSettings>
+			<WMM_TrackMouse>0</WMM_TrackMouse>
+			<WMM_EnableRootDraw ServerAction="1">0</WMM_EnableRootDraw>
+			<WMM_RootMouseToX>0</WMM_RootMouseToX>
+			<WMM_DelayWindowMap>1</WMM_DelayWindowMap>
+		</WMM_AdvancedSettings>	
+	</Screen5>
+	<Screen6>
+		<WMM_Panning>1</WMM_Panning>
+		<WMM_PanSpeed>0</WMM_PanSpeed>
+		<WMM_PanAmount nMax="100" nMin="1">25</WMM_PanAmount>
+		<WMM_VirtRootWidth nMax="8192" nMin="0">0</WMM_VirtRootWidth>
+		<WMM_VirtRootHeight nMax="8192" nMin="0">0</WMM_VirtRootHeight>
+		<WMM_AutoLoadXrdb ServerAction="1">0</WMM_AutoLoadXrdb>
+		<WMM_XrdbFile nMaxLen="260">xrdb.txt</WMM_XrdbFile>
+		<WMM_WindowManager ServerAction="1">2</WMM_WindowManager>
+		<WMM_UseNativeWMforEmbClients ServerAction="1">0</WMM_UseNativeWMforEmbClients>
+		<WMM_FitWndToDsp>0</WMM_FitWndToDsp>
+		<WMM_CascadeWnd>1</WMM_CascadeWnd>
+		<WMS_Panning>0</WMS_Panning>
+		<WMS_PanSpeed>0</WMS_PanSpeed>
+		<WMS_PanAmount nMax="100" nMin="1">25</WMS_PanAmount>
+		<WMS_VirtRootWidth ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootWidth>
+		<WMS_VirtRootHeight ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootHeight>
+		<WMS_FullScreen ServerAction="1">0</WMS_FullScreen>
+		<WMS_AutoLoadXrdb ServerAction="1">0</WMS_AutoLoadXrdb>
+		<WMS_XrdbFile nMaxLen="260">xrdb.txt</WMS_XrdbFile>
+		<WMS_SaveGeometry>0</WMS_SaveGeometry>
+		<WMS_ShowScrollBar>0</WMS_ShowScrollBar>
+		<CurrentWindowMode ServerAction="1">0</CurrentWindowMode>
+		<ServerVisual ServerAction="1">6</ServerVisual>
+		<UseAllMonitors ServerAction="1">0</UseAllMonitors>
+		<MonitorToUseForScreen ServerAction="1" nMaxLen="915">1</MonitorToUseForScreen>
+		<EnableScreen ServerAction="1">1</EnableScreen>
+		<WMM_AdvancedSettings>
+			<WMM_TrackMouse>0</WMM_TrackMouse>
+			<WMM_EnableRootDraw ServerAction="1">0</WMM_EnableRootDraw>
+			<WMM_RootMouseToX>0</WMM_RootMouseToX>
+			<WMM_DelayWindowMap>1</WMM_DelayWindowMap>
+		</WMM_AdvancedSettings>	
+	</Screen6>
+	<Screen7>
+		<WMM_Panning>1</WMM_Panning>
+		<WMM_PanSpeed>0</WMM_PanSpeed>
+		<WMM_PanAmount nMax="100" nMin="1">25</WMM_PanAmount>
+		<WMM_VirtRootWidth nMax="8192" nMin="0">0</WMM_VirtRootWidth>
+		<WMM_VirtRootHeight nMax="8192" nMin="0">0</WMM_VirtRootHeight>
+		<WMM_AutoLoadXrdb ServerAction="1">0</WMM_AutoLoadXrdb>
+		<WMM_XrdbFile nMaxLen="260">xrdb.txt</WMM_XrdbFile>
+		<WMM_WindowManager ServerAction="1">2</WMM_WindowManager>
+		<WMM_UseNativeWMforEmbClients ServerAction="1">0</WMM_UseNativeWMforEmbClients>
+		<WMM_FitWndToDsp>0</WMM_FitWndToDsp>
+		<WMM_CascadeWnd>1</WMM_CascadeWnd>
+		<WMS_Panning>0</WMS_Panning>
+		<WMS_PanSpeed>0</WMS_PanSpeed>
+		<WMS_PanAmount nMax="100" nMin="1">25</WMS_PanAmount>
+		<WMS_VirtRootWidth ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootWidth>
+		<WMS_VirtRootHeight ServerAction="1" nMax="8192" nMin="0">0</WMS_VirtRootHeight>
+		<WMS_FullScreen ServerAction="1">0</WMS_FullScreen>
+		<WMS_AutoLoadXrdb ServerAction="1">0</WMS_AutoLoadXrdb>
+		<WMS_XrdbFile nMaxLen="260">xrdb.txt</WMS_XrdbFile>
+		<WMS_SaveGeometry>0</WMS_SaveGeometry>
+		<WMS_ShowScrollBar>0</WMS_ShowScrollBar>
+		<CurrentWindowMode ServerAction="1">0</CurrentWindowMode>
+		<ServerVisual ServerAction="1">6</ServerVisual>
+		<UseAllMonitors ServerAction="1">0</UseAllMonitors>
+		<MonitorToUseForScreen ServerAction="1" nMaxLen="915">1</MonitorToUseForScreen>
+		<EnableScreen ServerAction="1">1</EnableScreen>
+		<WMM_AdvancedSettings>
+			<WMM_TrackMouse>0</WMM_TrackMouse>
+			<WMM_EnableRootDraw ServerAction="1">0</WMM_EnableRootDraw>
+			<WMM_RootMouseToX>0</WMM_RootMouseToX>
+			<WMM_DelayWindowMap>1</WMM_DelayWindowMap>
+		</WMM_AdvancedSettings>	
+	</Screen7>
+	<CommonSettings>
+		<FocusPolicy>0</FocusPolicy>
+		<EnableReset>1</EnableReset>
+		<ExitOnReset>0</ExitOnReset>
+		<CloseWarn>1</CloseWarn>
+		<PromptMultipleSessions>0</PromptMultipleSessions>
+		<RunMultipleSessions>0</RunMultipleSessions>
+		<HideXServerMenuItems ServerAction="1">0</HideXServerMenuItems>
+		<SysDisplayChangeWarnOn>0</SysDisplayChangeWarnOn>
+		<SaveSessionOnExit>0</SaveSessionOnExit>
+		<UseDesktopWorkArea ServerAction="1">1</UseDesktopWorkArea>
+		<DspChangeServerResetAlways>0</DspChangeServerResetAlways>
+		<EnableWorkspaces>0</EnableWorkspaces>
+		<ToolbarConfigFile ServerAction="1" bEmptyAllowed="1" nMaxLen="260"/>
+	</CommonSettings>
+	<MonitorInfo>
+		<MonitorWidth ServerAction="1" nMax="999999999" nMin="0">0</MonitorWidth>
+		<MonitorHeight ServerAction="1" nMax="999999999" nMin="0">0</MonitorHeight>
+	</MonitorInfo>
+	<Video>
+		<CurrentScreenMeasureUnit ServerAction="1">0</CurrentScreenMeasureUnit>
+		<ScrWidthInMM ServerAction="1" nMax="999" nMin="0">0</ScrWidthInMM>
+		<ScrHeightInMM ServerAction="1" nMax="999" nMin="0">0</ScrHeightInMM>
+		<DPIValue ServerAction="1" nMax="999" nMin="0">75</DPIValue>
+		<DeferPaletteChanges>1</DeferPaletteChanges>
+		<OptimizeColormaps>1</OptimizeColormaps>
+		<RgbFile ServerAction="1" nMaxLen="260">rgb.txt</RgbFile>
+		<FgIconColor bEmptyAllowed="1" nMaxLen="99">cyan</FgIconColor>
+		<BgIconColor bEmptyAllowed="1" nMaxLen="99"/>
+		<PreserveSysColors>1</PreserveSysColors>
+		<PreallocSysColorsOnRoot ServerAction="1">1</PreallocSysColorsOnRoot>
+		<XClientIconFile nMaxLen="260">exceed.exe</XClientIconFile>
+		<XClientIconIndex>1</XClientIconIndex>
+	</Video>
+	<AdvancedDisplaySettings>
+		<DisableMotifInput ServerAction="1">0</DisableMotifInput>
+		<FullDrag ServerAction="1">0</FullDrag>
+		<NoFocusOnRaise ServerAction="1">1</NoFocusOnRaise>
+		<ConfigureWindowPositionToClient ServerAction="1">0</ConfigureWindowPositionToClient>
+		<ShowMultipleMonitorWarnings ServerAction="1">1</ShowMultipleMonitorWarnings>
+		<UseNTSetFG ServerAction="1">1</UseNTSetFG>
+		<MotifPadWindow ServerAction="1">0</MotifPadWindow>
+		<AllowPrimaryWindowOnTop ServerAction="1">0</AllowPrimaryWindowOnTop>
+		<FocusAutoRaise ServerAction="1">0</FocusAutoRaise>
+		<SunCompatible ServerAction="1">0</SunCompatible>
+		<UseInstalledColorMap ServerAction="1">0</UseInstalledColorMap>
+		<Overlay2D>1</Overlay2D>
+		<Depth12Support ServerAction="1">1</Depth12Support>
+		<NT5LayerSupport OSSupport="5" ServerAction="1">0</NT5LayerSupport>
+		<NativeWmTooltip>0</NativeWmTooltip>
+		<NativeWmIconBox>0</NativeWmIconBox>
+		<DrawOnMovingWindow>0</DrawOnMovingWindow>
+		<DrawOnResizingWindow>0</DrawOnResizingWindow>
+		<MultipleDepthsSupport ServerAction="1">1</MultipleDepthsSupport>
+		<PreventDlgAcrossMonitors>1</PreventDlgAcrossMonitors>
+		<XRaiseWindowOnClick>1</XRaiseWindowOnClick>
+		<CloseWarnOnXClientExit>0</CloseWarnOnXClientExit>
+	</AdvancedDisplaySettings>
+	<KeyboardInput>
+		<AllowKbdMod>0</AllowKbdMod>
+		<AltKey>2</AltKey>
+		<ShiftKey>0</ShiftKey>
+		<WinKey>2</WinKey>
+		<PrimaryKbdFile ServerAction="1" bEmptyAllowed="1" nMaxLen="260"/>
+		<AlternateKbdFile ServerAction="1" nMaxLen="260">us.kbf</AlternateKbdFile>
+		<UseKeyBoardHook ServerAction="1">1</UseKeyBoardHook>
+	</KeyboardInput>
+	<MouseInput>
+		<MouseWheelState ServerAction="1">3</MouseWheelState>
+		<WheelUpMouseEvent>4</WheelUpMouseEvent>
+		<WheelDownMouseEvent>5</WheelDownMouseEvent>
+		<MovementThreshold nMax="10" nMin="1">2</MovementThreshold>
+		<MidBtnEmulation>1</MidBtnEmulation>
+		<ClickInterval nMax="2000" nMin="50">100</ClickInterval>
+		<MacroBindings>
+			<WheelUp nMaxLen="32">&lt;none&gt;</WheelUp>
+			<WheelDown nMaxLen="32">&lt;none&gt;</WheelDown>
+			<ShiftWheelUp nMaxLen="32">&lt;none&gt;</ShiftWheelUp>
+			<ShiftWheelDown nMaxLen="32">&lt;none&gt;</ShiftWheelDown>
+			<ControlWheelUp nMaxLen="32">&lt;none&gt;</ControlWheelUp>
+			<ControlWheelDown nMaxLen="32">&lt;none&gt;</ControlWheelDown>
+			<ControlShiftWheelUp nMaxLen="32">&lt;none&gt;</ControlShiftWheelUp>
+			<ControlShiftWheelDown nMaxLen="32">&lt;none&gt;</ControlShiftWheelDown>
+			<WheelFile ServerAction="1" nMaxLen="260">us.kbf</WheelFile>
+		</MacroBindings>
+	</MouseInput>
+	<CJKInput>
+	    <InputMethod>0</InputMethod>
+	    <Kinput2>0</Kinput2>
+	    <Ximp35>0</Ximp35>
+	    <Ximp40>0</Ximp40>
+	    <XIM>0</XIM>
+	    <UseEnvironment>0</UseEnvironment>
+	    <XimpLocale bEmptyAllowed="1" nMaxLen="260"/>
+	    <XIMLocale bEmptyAllowed="1" nMaxLen="260"/>
+	</CJKInput>
+	<Communications>
+		<XDMCP>
+			<ConnectHost ServerAction="1" bEmptyAllowed="1" nMaxLen="255"/>
+			<DspClass ServerAction="1" bEmptyAllowed="1" nMaxLen="50">HCLpcXserver</DspClass>
+			<DspId>1014048043</DspId>
+			<DspIdWeight>11</DspIdWeight>
+			<Key ServerAction="1" bEmptyAllowed="1" nMaxLen="7"/>
+			<LocalPort nMax="65535" nMin="0">296</LocalPort>
+			<RemotePort nMax="65535" nMin="0">288</RemotePort>
+			<KillAllOnExit ServerAction="1">1</KillAllOnExit>
+			<FirstMgr ServerAction="1">0</FirstMgr>
+			<HostListFile nMaxLen="260">xdmcp.txt</HostListFile>
+			<EnableHostList ServerAction="1">0</EnableHostList>
+			<UseBroadcastAddr ServerAction="1">1</UseBroadcastAddr>
+			<ConnectTimeout>30</ConnectTimeout>
+			<CommTimeout>5</CommTimeout>
+			<NetworkInterfaceEnabled ServerAction="1">0</NetworkInterfaceEnabled>
+			<NetInterfaceMAC ServerAction="1" bEmptyAllowed="1"/>
+			<NetInterfaceName bEmptyAllowed="1"/>
+			<XDMCPAddress ServerAction="1" bEmptyAllowed="1" nMaxLen="255"/>
+			<TCPBroadcastAddr nMaxLen="255">255.255.255.255</TCPBroadcastAddr>
+			<KeepAlives>0</KeepAlives>
+		</XDMCP>
+		<Transport_Interface>0</Transport_Interface>
+		<Transport_NetworkProviders>0</Transport_NetworkProviders>
+		<IPDiscovery_On>0</IPDiscovery_On>
+		<IPDiscovery_Server1 ServerAction="1" nMaxLen="255"/>
+		<IPDiscovery_Server2 ServerAction="1" bEmptyAllowed="1" nMaxLen="255"/>
+		<IPDiscovery_Port1 ServerAction="1" nMax="65535" nMin="0">80</IPDiscovery_Port1>
+		<IPDiscovery_Port2 ServerAction="1" bEmptyAllowed="1" nMax="65535" nMin="0">80</IPDiscovery_Port2>
+		<IPDiscovery_TimeOut1 nMax="120" nMin="0">10</IPDiscovery_TimeOut1>
+		<IPDiscovery_TimeOut2 bEmptyAllowed="1" nMax="120" nMin="0">10</IPDiscovery_TimeOut2>
+		<StartUp_DspNumber ServerAction="1" nMax="9999" nMin="0">0</StartUp_DspNumber>
+		<Startup_Mode ServerAction="1">0</Startup_Mode>
+		<EnableAutoClose>0</EnableAutoClose>
+		<AutoClose_UseXScreenSaverTime>1</AutoClose_UseXScreenSaverTime>
+		<AutoClose_IdleTimeHrs nMax="23" nMin="0">0</AutoClose_IdleTimeHrs>
+		<AutoClose_IdleTimeMins nMax="59" nMin="0">10</AutoClose_IdleTimeMins>	
+		<AutoClose_EvenAppIsActive>0</AutoClose_EvenAppIsActive>
+	</Communications>
+	<EodProxy>
+		<Login>
+			<ProxyUse ServerAction="1">0</ProxyUse>
+			<ProxyHostInfoAskUser>1</ProxyHostInfoAskUser>
+			<ConnSettingsFile>default.efcd</ConnSettingsFile>
+			<WarnProxyConn>1</WarnProxyConn>
+		</Login>
+	</EodProxy>
+	<Security>
+		<HostAccessFile nMaxLen="260">xhost.txt</HostAccessFile>
+		<AccessMod>0</AccessMod>
+		<HostAccessFileMode ServerAction="1">2</HostAccessFileMode>
+		<HostAccessFile_CRC>3766423385</HostAccessFile_CRC>
+		<UseUserAccessFile ServerAction="1">0</UseUserAccessFile>
+		<UserAccessFile nMaxLen="260">xauth</UserAccessFile>
+		<PluginConfFile_CRC ServerAction="1">1499071584</PluginConfFile_CRC>
+		<HelperAppConfFile_CRC ServerAction="1">2002555823</HelperAppConfFile_CRC>
+		<SecurityPolicyFile_CRC ServerAction="1">3831110999</SecurityPolicyFile_CRC>
+		<SecurityPolicyFile ServerAction="1" nMaxLen="260">Security.txt</SecurityPolicyFile>
+		<EnableExt>0</EnableExt>
+		<ExtendPassword bEmptyAllowed="1" nMaxLen="2048"/>
+		<ConfigPassword bEmptyAllowed="1" nMaxLen="2048"/>
+		<WarnXClientConnection>0</WarnXClientConnection>
+		<AskUserToAddHost>0</AskUserToAddHost>
+	</Security>
+	<SysAdmin>
+	    <EnableDisableFeatures>1</EnableDisableFeatures>
+	    <DisableFeatures>
+	        <ChangeXDispNumber>0</ChangeXDispNumber>
+	        <Extend>0</Extend>
+	        <LPRRootAccess>1</LPRRootAccess>
+	        <TestExtensions>0</TestExtensions>
+	        <Trace ServerAction="1">0</Trace>
+	        <XstartBrowseHosts>0</XstartBrowseHosts>
+	        <XstartBrowseHostsConfig>0</XstartBrowseHostsConfig>
+	        <XstartPasswordSave>0</XstartPasswordSave>
+	        <XstartRememberPassword>0</XstartRememberPassword>
+	        <XstartRLOGINStartMethod>0</XstartRLOGINStartMethod>
+	        <XstartRSHStartMethod>0</XstartRSHStartMethod>
+	        <XstartWizardConfig>0</XstartWizardConfig>
+	        <XstartLoadOptimization>0</XstartLoadOptimization>
+	        <XClientNWMExit>0</XClientNWMExit>
+	        <XServerCopyPaste>0</XServerCopyPaste>
+	        <XServerExit>0</XServerExit>
+	        <XServerReset>0</XServerReset>
+	        <XServerToolbarClose>0</XServerToolbarClose>
+	        <DesktopSharing>0</DesktopSharing>
+	    </DisableFeatures>
+	</SysAdmin>
+	<XServerProtocol>
+		<DECwindows ServerAction="1">0</DECwindows>
+		<XConformanceTest>0</XConformanceTest>
+		<EnableCustomVendorName ServerAction="1">0</EnableCustomVendorName>
+		<CustomVendorName bEmptyAllowed="1" nMaxLen="255"/>
+	</XServerProtocol>
+	<XServerExtensions>
+	    <Extensions>
+		    <TOG_CUP ServerAction="1">0</TOG_CUP>
+		    <EVI ServerAction="1">0</EVI>
+		    <DoubleBuffer ServerAction="1">1</DoubleBuffer>
+		    <XInput ServerAction="1">1</XInput>
+		    <MitShm ServerAction="1">0</MitShm>
+		    <AppGroup ServerAction="1">1</AppGroup>
+		    <Record ServerAction="1">1</Record>
+		    <Security ServerAction="1">1</Security>
+		    <XTestR6 ServerAction="1">1</XTestR6>
+		    <Shape ServerAction="1">1</Shape>
+		    <Sync ServerAction="1">1</Sync>
+		    <BigRequests ServerAction="1">1</BigRequests>
+		    <Render ServerAction="1">1</Render>
+			<GLX ServerAction="1">0</GLX>
+			<XFixes ServerAction="1">1</XFixes>
+			<Damage ServerAction="1">1</Damage>
+			<Composite ServerAction="1">0</Composite>
+			<XEvIE ServerAction="1">0</XEvIE>
+			<RandR ServerAction="1">1</RandR>
+			<Resource ServerAction="1">1</Resource>
+			<XKEYBOARD ServerAction="1">0</XKEYBOARD>
+			<XINERAMA ServerAction="1">1</XINERAMA>
+			<XVideo ServerAction="1">0</XVideo>
+			<XF86Misc ServerAction="1">0</XF86Misc>
+			<XF86VidMode ServerAction="1">1</XF86VidMode>
+			<Freedom ServerAction="1">1</Freedom>
+	    </Extensions>
+	    <ExtensionPeers>
+		    <AllSecureExt>0</AllSecureExt>
+		    <DoubleBufferPeer ServerAction="1">0</DoubleBufferPeer>
+		    <GLXPeer ServerAction="1">0</GLXPeer>
+		    <MitShmPeer ServerAction="1">0</MitShmPeer>
+		    <RecordPeer ServerAction="1">0</RecordPeer>
+		    <ShapePeer ServerAction="1">0</ShapePeer>
+		    <SyncPeer ServerAction="1">0</SyncPeer>
+		    <XInputPeer ServerAction="1">0</XInputPeer>
+		    <XTestR6Peer ServerAction="1">0</XTestR6Peer>
+		    <RenderPeer ServerAction="1">0</RenderPeer>
+			<XFixesPeer ServerAction="1">0</XFixesPeer>
+			<DamagePeer ServerAction="1">0</DamagePeer>
+			<CompositePeer ServerAction="1">0</CompositePeer>
+			<XEvIEPeer ServerAction="1">0</XEvIEPeer>
+			<RandRPeer ServerAction="1">0</RandRPeer>
+			<ResourcePeer ServerAction="1">0</ResourcePeer>
+			<XKBPeer ServerAction="1">0</XKBPeer>
+			<EVIPeer ServerAction="1">0</EVIPeer>
+			<XINERAMAPeer ServerAction="1">0</XINERAMAPeer>
+			<XVideoPeer ServerAction="1">0</XVideoPeer>
+			<XF86MiscPeer ServerAction="1">0</XF86MiscPeer>
+			<XF86VidModePeer ServerAction="1">0</XF86VidModePeer>
+			<FreedomPeer ServerAction="1">0</FreedomPeer>
+	    </ExtensionPeers>
+		<GLXSettings>
+			<DirectRender ServerAction="1">0</DirectRender>
+			<HardwareAcc ServerAction="1">1</HardwareAcc>
+			<OneVisualPerPixelFormat ServerAction="1">1</OneVisualPerPixelFormat>
+			<Overlays ServerAction="1">0</Overlays>
+			<GLX13Support ServerAction="1">1</GLX13Support>
+		</GLXSettings>
+		<RenderSettings>
+			<HardwareAcc ServerAction="1">0</HardwareAcc>
+			<DisablePseudo ServerAction="1">1</DisablePseudo>
+		</RenderSettings>
+	</XServerExtensions>
+	<Performance>
+		<Exact0WidthLines>0</Exact0WidthLines>
+		<DraftMode>1</DraftMode>
+		<SaveUnders>0</SaveUnders>
+		<MaxBackStore>2</MaxBackStore>
+		<DefBackStore>0</DefBackStore>
+		<MinBackStore>0</MinBackStore>
+		<LimitWindowExposures ServerAction="1">1</LimitWindowExposures>	
+		<BatchRequests ServerAction="1">1</BatchRequests>
+		<ReadOnWriteBlocked ServerAction="1">0</ReadOnWriteBlocked>
+		<SaveBits ServerAction="1">0</SaveBits>
+		<EnableOpenGLBStores ServerAction="1">0</EnableOpenGLBStores>
+		<ExposeOnColorChange ServerAction="1">0</ExposeOnColorChange>
+		<OversizedCursors ServerAction="1">1</OversizedCursors>
+		<Xperf>
+			<GraphicsOperation>0</GraphicsOperation>
+			<WindowMethod>0</WindowMethod>
+			<PixmapMethod>0</PixmapMethod>
+		</Xperf>
+	</Performance>
+	<XSelection>
+		<XSel nMaxLen="40">PRIMARY</XSel>
+		<AutoCopy>1</AutoCopy>
+		<AutoPaste>1</AutoPaste>
+		<CopyOnFocusLoss>1</CopyOnFocusLoss>
+		<GrabClipBoardRetryTime ServerAction="1" nMax="9999" nMin="0">200</GrabClipBoardRetryTime>
+		<AutoPasteDelayTime ServerAction="1" nMax="9999" nMin="0">200</AutoPasteDelayTime>
+	</XSelection>
+	<TroubleShooting>
+		<EnableLogFile>1</EnableLogFile>
+		<LogFile nMaxLen="260">exceed.log</LogFile>
+		<LogFontOpens>0</LogFontOpens>
+		<LogWndCmdNames>0</LogWndCmdNames>
+		<LogGLXInfo>0</LogGLXInfo>
+		<LogXWebInformation>0</LogXWebInformation>
+		<TraceOn ServerAction="1">0</TraceOn>
+		<TraceSlow ServerAction="1">0</TraceSlow>
+		<LogConnectionError>0</LogConnectionError>
+		<LogXDMCPProgress>0</LogXDMCPProgress>
+	</TroubleShooting>
+	<PowerMgmt>
+		<RefuseSleep>2</RefuseSleep>
+		<IdleTime nMax="9999" nMin="0">0</IdleTime>
+		<UserPromptTimeout nMax="9999" nMin="0">0</UserPromptTimeout>
+		<Presentation>1</Presentation>
+		<ServerReset>0</ServerReset>
+	</PowerMgmt>
+	<Fonts>
+		<AutoFontSubstitution>1</AutoFontSubstitution>
+		<FSSync>0</FSSync>
+		<FSReadTimeout nMax="999" nMin="0">30</FSReadTimeout>
+		<FSWriteTimeout nMax="999" nMin="0">5</FSWriteTimeout>
+		<AutoReopenFS>0</AutoReopenFS>
+		<EnableFScache>1</EnableFScache>
+		<LocalFontsfirst>0</LocalFontsfirst>
+		<LocalizeFontPath>0</LocalizeFontPath>
+		<DefTextFont ServerAction="1" nMaxLen="255">fixed</DefTextFont>
+		<DefCursorFont ServerAction="1" nMaxLen="255">cursor</DefCursorFont>
+		<LFP_CFGFile ServerAction="1" nMaxLen="260">lfp.xdb</LFP_CFGFile>
+		<FDBEditOption>0</FDBEditOption>
+		<ReopenFS ServerAction="1">32</ReopenFS>
+		<OptimizeForJava ServerAction="1">0</OptimizeForJava>
+		<HonestSetFontPath ServerAction="1">0</HonestSetFontPath>
+		<DefaultFontResolution ServerAction="1">75</DefaultFontResolution>
+		<UseTypographicWinFontSize ServerAction="1">0</UseTypographicWinFontSize>
+	</Fonts>
+	<HumExDB>
+		<ExdbDynamicDisplay ServerAction="1">0</ExdbDynamicDisplay>
+		<MinDynamicDisplayNumber ServerAction="1">0</MinDynamicDisplayNumber>
+		<MaxDynamicDisplayNumber ServerAction="1">9999</MaxDynamicDisplayNumber>
+	</HumExDB>
+	<Accessibility>
+		<EnableAccessibility>0</EnableAccessibility>
+		<AccDelayShowWindow nMax="10000" nMin="0">5000</AccDelayShowWindow>
+		<AccDelayShowWindowRetry nMax="10" nMin="0">5</AccDelayShowWindowRetry>
+	</Accessibility>
+	<Undocumented>
+		<CJK_XIMLocale/>
+		<CJK_FontOffset>0</CJK_FontOffset>
+		<CJK_TickCount>500</CJK_TickCount>
+		<CJK_NoCapsCheck>0</CJK_NoCapsCheck>
+		<CJK_XimpInputStyle/>
+		<CJK_XIMInputStyle/>
+		<CJK_AlwaysUseProperty>0</CJK_AlwaysUseProperty>
+		<CJK_BIG5EncodingName>HP-BIG5</CJK_BIG5EncodingName>
+	</Undocumented>
+</Xconfig>

@@ -1,0 +1,80 @@
+# Some example alias instructions
+# If these are enabled they will be used instead of any instructions
+# they may mask.  For example, alias rm='rm -i' will mask the rm
+# application.  To override the alias instruction use a \ before, ie
+# \rm will call the real rm not the alias.
+
+# Interactive operation...
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+
+# Default to human readable figures
+alias df='df -h'
+alias du='du -h'
+
+# Misc :)
+alias less='less -r'                          # raw control characters
+alias whence='type -a'                        # where, of a sort
+alias grep='grep --color'                     # show differences in colour
+
+# Some shortcuts for different directory listings
+alias ls='ls -hF --color=tty'                 # classify files in colour
+alias lr='ls -lrt'
+alias ls='ls -skFGh'
+# alias dir='ls --color=auto --format=vertical'
+# alias vdir='ls --color=auto --format=long'
+alias ll='ls -l'                              # long list
+alias la='ls -A'                              # all but . and ..
+alias l='ls -CF'                              #
+
+alias lr='ls -lrt'
+alias ls='ls -skFGh'
+alias e='mate'
+alias open.='open .'
+alias h='history'
+
+# A cleaner display of the paths.
+alias path='echo $PATH | tr ":" "\n"'
+alias ldpath='echo $DYLD_LIBRARY_PATH | tr ":" "\n"'
+alias clpath='echo $CLASSPATH | tr ":" "\n"'
+alias ll='ls -l'
+alias sup='svn up'
+alias sci='svn ci -m ""'
+
+# Put most used directories here for quick access
+alias cdjav='cd ~/Project/JavaRowReordering'
+alias cdbit='cd ~/Project/BitmapIndexCpp'
+alias cdtmp='cd ~/Tmp'
+alias cdeds='cd ~/Project/EdStuff'
+alias cdrub='cd ~/Documents/Ruby'
+alias cdcol='cd ~/Project/ColumnMerging'
+alias cdpro='cd ~/Project/'
+
+# Testing this for quick access
+alias mkfixed='$HOME/Documents/Ruby/mkfixed.rb'
+alias svnexec='$HOME/Documents/Bash/svnexec.sh'
+alias svnignore='$HOME/Documents/Bash/svnignore.sh'
+alias nofont='$HOME/Documents/Bash/nofont.sh'
+
+# Aliases for connecting to GXT
+alias ssh2mail2='/usr/bin/ssh -l poppop -i $HOME/.ssh/id_rsa mail2.gxt.com'
+alias ssh2aitne='/usr/bin/ssh -l poppop -i $HOME/.ssh/id_rsa -L 5901:aitne:5901 mail2.gxt.com'
+alias ssh2svn='/usr/bin/ssh -l poppop -i $HOME/.ssh/id_rsa -L 8080:cvs01.gxt.com:8080 -L 3690:cvs01.gxt.com:3690 mail2.gxt.com'
+# alias sshmaster="ssh -l edvelez licef"
+alias sshmaster='ssh -l edvelez licef'
+alias sshc1='ssh -l edvelez -t licef "ssh compute-00-01"'
+alias sshc2='ssh -l edvelez -t licef "ssh compute-00-02"'
+alias sshc3='ssh -l edvelez -t licef "ssh compute-00-03"'
+alias sshc4='ssh -l edvelez -t licef "ssh compute-00-04"'
+alias sshc5='ssh -l edvelez -t licef "ssh compute-00-05"'
+alias sshc6='ssh -l edvelez -t licef "ssh compute-00-06"'
+alias sshc7='ssh -l edvelez -t licef "ssh compute-00-07"'
+alias sshc8='ssh -l edvelez -t licef "ssh compute-00-08"'
+alias sshc9='ssh -l edvelez -t licef "ssh compute-00-09"'
+alias sshc10='ssh -l edvelez -t licef "ssh compute-00-10"'
+alias sshc11='ssh -l edvelez -t licef "ssh compute-00-11"'
+alias sshc12='ssh -l edvelez -t licef "ssh compute-00-12"'
+alias sshc13='ssh -l edvelez -t licef "ssh compute-00-13"'
+alias sshc14='ssh -l edvelez -t licef "ssh compute-00-14"'
+alias sshc15='ssh -l edvelez -t licef "ssh compute-00-15"'

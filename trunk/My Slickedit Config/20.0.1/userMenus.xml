@@ -1,0 +1,60 @@
+<Menus>
+	<Menu Name="_tbfilelist_menu">
+		<Modifications>
+			<Modification Caption="&amp;Open" Action="2" ParentCaption="_tbfilelist_menu" SubMenu="0"/>
+			<Modification Caption="Open in C&amp;urrent Window" Action="2" ParentCaption="_tbfilelist_menu" SubMenu="0"/>
+			<Modification Caption="&amp;Save" Action="2" ParentCaption="_tbfilelist_menu" SubMenu="0"/>
+			<Modification Caption="&amp;Close" Action="2" ParentCaption="_tbfilelist_menu" SubMenu="0"/>
+			<Modification Caption="&amp;Diff" Action="2" ParentCaption="_tbfilelist_menu" SubMenu="0"/>
+			<Modification Caption="Add to Pro&amp;ject..." Action="2" ParentCaption="_tbfilelist_menu" SubMenu="0"/>
+		</Modifications>
+		<Separators>
+			<Separator ItemBefore="Add to Pro&amp;ject..." ItemAfter="Dismiss on select" ParentCaption="_tbfilelist_menu"/>
+		</Separators>
+		<Duplicates/>
+	</Menu>
+	<Menu Name="_ext_menu_default">
+		<Modifications>
+			<Modification Caption="&amp;Add File to Project..." Action="2" ParentCaption="_ext_menu_default" SubMenu="0"/>
+		</Modifications>
+		<Separators>
+			<Separator ItemBefore="Quick Replace" ItemAfter="Go to &amp;Definition" ParentCaption="_ext_menu_default"/>
+			<Separator ItemBefore="Edit Associated File" ItemAfter="List &amp;Symbols" ParentCaption="_ext_menu_default"/>
+			<Separator ItemBefore="Show in Symbol Browser" ItemAfter="C++ &amp;Refactoring" ParentCaption="_ext_menu_default"/>
+			<Separator ItemBefore="Add Import" ItemAfter="Options..." ParentCaption="_ext_menu_default&gt;Imports"/>
+			<Separator ItemBefore="Update Doc Comment" ItemAfter="Set Breakpoint" ParentCaption="_ext_menu_default"/>
+			<Separator ItemBefore="Add Watch" ItemAfter="Copy Word" ParentCaption="_ext_menu_default"/>
+			<Separator ItemBefore="List Clipboards..." ItemAfter="&amp;Toggle Bookmark" ParentCaption="_ext_menu_default"/>
+			<Separator ItemBefore="&amp;Add File to Project..." ItemAfter="&amp;Version Control" ParentCaption="_ext_menu_default"/>
+			<Separator ItemBefore="U&amp;nlock" ItemAfter="&amp;Add" ParentCaption="_ext_menu_default&gt;Version Control"/>
+			<Separator ItemBefore="&amp;Remove" ItemAfter="&amp;History..." ParentCaption="_ext_menu_default&gt;Version Control"/>
+			<Separator ItemBefore="&amp;Manager..." ItemAfter="&amp;Setup..." ParentCaption="_ext_menu_default&gt;Version Control"/>
+			<Separator ItemBefore="&amp;Version Control" ItemAfter="Edit This Menu" ParentCaption="_ext_menu_default"/>
+		</Separators>
+		<Duplicates/>
+	</Menu>
+	<Menu Name="_ext_menu_default_sel">
+		<Modifications>
+			<Modification Command="PrintMacro2" Caption="&amp;Generate Debug from Selected" Action="0" Message="First on PrintMacro2" Prev="_ext_menu_default_sel&gt;Quick Extract Method..." Next="_ext_menu_default_sel&gt;Shift Selection Left..." ParentCaption="_ext_menu_default_sel" SubMenu="0"/>
+		</Modifications>
+		<Separators>
+			<Separator ItemBefore="Paste" ItemAfter="Quick Search" ParentCaption="_ext_menu_default_sel"/>
+			<Separator ItemBefore="Quick Replace" ItemAfter="Quick Rename..." ParentCaption="_ext_menu_default_sel"/>
+			<Separator ItemBefore="&amp;Generate Debug from Selected" ItemAfter="Shift Selection Left..." ParentCaption="_ext_menu_default_sel"/>
+			<Separator ItemBefore="Spell Check Selection" ItemAfter="Add Watch" ParentCaption="_ext_menu_default_sel"/>
+			<Separator ItemBefore="Set Watchpoint" ItemAfter="Edit This Menu" ParentCaption="_ext_menu_default_sel"/>
+		</Separators>
+		<Duplicates/>
+	</Menu>
+	<Menu Name="_tbdelta_menu">
+		<Modifications>
+			<Modification Caption="&amp;Save Selected Backup as..." Action="2" ParentCaption="_tbdelta_menu" SubMenu="0"/>
+			<Modification Caption="&amp;Open Selected Backup" Action="2" ParentCaption="_tbdelta_menu" SubMenu="0"/>
+			<Modification Caption="Run &amp;Diff on Selected Backup" Action="2" ParentCaption="_tbdelta_menu" SubMenu="0"/>
+			<Modification Caption="&amp;Revert to Selected Backup" Action="2" ParentCaption="_tbdelta_menu" SubMenu="0"/>
+			<Modification Caption="Add &amp;Comments to Selected Backup" Action="2" ParentCaption="_tbdelta_menu" SubMenu="0"/>
+			<Modification Caption="&amp;View CVS History" Action="2" ParentCaption="_tbdelta_menu" SubMenu="0"/>
+		</Modifications>
+		<Duplicates/>
+	</Menu>
+</Menus>

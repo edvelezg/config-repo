@@ -1,0 +1,11 @@
+<Favorites>
+	<Favorite
+		name="Documents"
+		path="%USERPROFILE%\Documents\"></Favorite>
+	<Favorite
+		name="Desktop"
+		path="%USERPROFILE%\Desktop\"></Favorite>
+	<Favorite
+		name="Public"
+		path="C:\Users\Public\Documents\"></Favorite>
+</Favorites>
