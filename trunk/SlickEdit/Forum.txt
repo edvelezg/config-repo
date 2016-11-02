@@ -1,3 +1,6 @@
+11/1/2016 4:53 PM Is there a way to get all the permutations of a word
+iteratively? This has already been answered.
+
 11/1/2016 4:50 PM Is there a way to do multiple selections with a macro.
 I want to be able to select all paths in a file. I have code to select one
 path, but now I want to go through the file until the end and have an active
