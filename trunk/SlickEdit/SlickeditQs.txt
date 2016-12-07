@@ -1,2 +1,26 @@
 - When I am editing a buffer in slickedit it does not change color to red, 
 it should be changing color but it isn't.
+
+I am not getting 
+
+Hi all,
+
+How can I use the function get_function_info from one of my macros. When I try including quickrefactor.e it asks me to include more things. I want to get the function parameters and print them out in this command
+
+    [code]
+        _command rmvFnDataTypes() name_info(','VSARG2_MARK|VSARG2_REQUIRES_EDITORCTL)
+        {
+            struct VS_TAG_BROWSE_INFO cm;
+            tag_browse_info_init(cm);
+            int status = tag_get_browse_info("", cm, false, null, false, true, false, true, false, true, visited);
+            tag_browse_info_dump(cm,'cm');
+            if (status == COMMAND_CANCELLED_RC) return status;
+            if (status < 0) {
+                //_message_box("Quick modify parameters failed: ":+get_message(status), "Quick Modify Parameters Refactoring");
+                return status;
+            }
+       
+            VS_TAG_FUNCTION_INFO function_info;
+            [b]get_function_info(function_info, cm);[/b]
+        }
+    [/code]
