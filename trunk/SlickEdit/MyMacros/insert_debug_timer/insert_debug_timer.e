@@ -6,6 +6,48 @@
 // this is a global static counter to make our variables unique
 static int g_debugVarCounter = 0;
 
+
+_command void insert_osp_debug_timer() name_info(','VSARG2_MACRO|VSARG2_MARK|VSARG2_REQUIRES_MDI_EDITORCTL)
+{
+   // put the cursor on the first line of the selection 
+   _begin_select();
+   // get the indentation of the current line
+   first_non_blank();
+   int indentCol = p_col - 1;
+   // start building the new line of code
+   _str indentText = indent_string(indentCol);
+   // we need to go up one line because insert_text inserts _after_ the current line
+   up();
+
+   _str lineText = "";
+   _str var1Name = "beginWallTime"g_debugVarCounter;
+   lineText :+= indentText"osp::ULong "var1Name" = osp::impl::util::TimeChecker::currentTime();";
+   insert_line(lineText);
+
+   // put the cursor on the last line of the selection 
+   int status = _end_select();
+   if (status == TEXT_NOT_SELECTED_RC) {
+      // we have to move down a line
+      down();
+   }
+   // insert the text to calculate the time difference
+   lineText = "";
+// _str var1Name = "beginWallTime"g_debugVarCounter;
+   _str var2Name = "endWallTime"g_debugVarCounter;
+   _str var3Name = "wallTimeDiff"g_debugVarCounter;
+   // insert the text to get the current timestamp
+   lineText = indentText"osp::ULong "var2Name" = osp::impl::util::TimeChecker::currentTime();";
+   insert_line(lineText);
+   // do the math and output the time difference
+   lineText = indentText"osp::ULong "var3Name" = "var2Name" - "var1Name";";
+   insert_line(lineText);
+   lineText = indentText"printf(\"Elapsed time ["g_debugVarCounter"] = %lf seconds.\\n\", "var3Name");";
+   insert_line(lineText);
+
+   // increment the global counter for variable names
+   g_debugVarCounter++;
+}
+
 /**
  * Inserts code to capture begin and end timestamps around the 
  * currently selected block of code.  The difference in seconds 
@@ -39,8 +81,7 @@ _command void insert_debug_timer() name_info(','VSARG2_MACRO|VSARG2_MARK|VSARG2_
    // Check if the function get_wall_time is defined
    _str fct = "get_wall_time";
    typeless p; _save_pos2( p );
-   if ( !find( fct, 'PEHNWCF' ) )
-   {
+   if (!find( fct, 'PEHNWCF' )) {
       message("Could not find function in buffer");
       top();
       if (search('#include', 'E>')) stop();
@@ -60,7 +101,7 @@ static void insertText1(_str indentText)
    _str lineText = "";
    // create the variable names
    _str var1Name = "beginWallTime"g_debugVarCounter;
-   
+
    // figure out what language we're in (Slick-C, C++ or Java for now)
    switch (p_LangId) {
    case 'e':
