@@ -1,6 +1,8 @@
 // 10/13/2016 7:44 AM I based this on beautify_bash.e which works alright.
 #include "slick.sh"
 
+static _str gUsrStr;
+
 _command void rmv_c_dev() {
 
    if (_select_type() == "") {
@@ -10,11 +12,15 @@ _command void rmv_c_dev() {
       _select_type('', 'T', 'LINE');
    }
 
+   _str prmpt = "";
+   gUsrStr = prompt(prmpt, "Please enter an issue number: ");
+
    // This doesn't run correctly if I don't supply the full path, I want to detect the path of this script.
-   _str cmd = 'ruby C:\Users\egutarra\config-repo2\trunk\SlickEdit\MyMacros\rmv_c_dev\rmv_c_dev.rb'
+   _str cmd = 'ruby C:\Users\egutarra\config-repo2\trunk\SlickEdit\MyMacros\rmv_c_dev\rmv_c_dev.rb 'gUsrStr
    _str out = filter_command(cmd);
-   insert_blankline_above()
-   expand_alias('checkin');
+   cursor_down();
+   end_line();
+// expand_alias('checkin');
 // say('cmd='cmd);
 }
 
