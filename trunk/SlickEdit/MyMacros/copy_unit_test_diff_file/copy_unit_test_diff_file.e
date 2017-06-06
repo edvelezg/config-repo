@@ -23,12 +23,12 @@ static _str MST_Get_Selected_Text(boolean OneLine=false)
 
 _command copy_unit_test_diff_file() name_info(','VSARG2_MARK|VSARG2_REQUIRES_EDITORCTL)
 {
-   _str text = '.txt''';
+   _str text = '.txt"';
 // top_of_buffer();
    if (search(text, 'E>')) stop();
    cursor_left();
    select_char();
-   if (search('''C','-E')) stop();
+   if (search('/C','-E')) stop();
    cursor_right();
    _str filePath = MST_Get_Selected_Text();
 
