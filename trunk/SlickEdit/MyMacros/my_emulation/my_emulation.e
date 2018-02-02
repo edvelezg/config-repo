@@ -23,11 +23,11 @@ defeventtab default_keys;
 
 // Alt-keys are not defined by CUA emulation -- these are copied mostly from Slick emulation.
 //def 'A-a'=adjust_block_selection;
-//def 'A-b'=select_block;
+def 'A-b'=select_block;
 //def 'A-c'=copy_to_cursor;
 //def 'A-d'=cut;      // well, this one is added to the slick emulation.
 //def 'A-e'=end_select;
-//def 'A-f'=fill_selection;
+def 'A-f'=fill_selection;
 //def 'A-j'=join_line;
 //def 'A-k'=cut;
 //def 'A-l'=select_line;
@@ -44,7 +44,8 @@ def 'A-n'=keyin_buf_name;
 //def 'A-x'=safe_exit;
 //def 'A-y'=begin_select;
 //def 'A-z'=select_char;
-//def "A-'"=duplicate_line;
+def "A-'"=duplicate_line;
+def 'C-S-/'=toggle_comment;
 
 // CUA has
 // def 'C-/'= push_ref;
