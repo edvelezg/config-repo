@@ -23,7 +23,7 @@ static _str MST_Get_Selected_Text(boolean OneLine=false)
 
 _command copy_unit_test_diff_file() name_info(','VSARG2_MARK|VSARG2_REQUIRES_EDITORCTL)
 {
-   _str text = '.txt''';
+   _str text = '.xml''';
 // top_of_buffer();
    if (search(text, 'E>')) stop();
    cursor_left();
@@ -118,6 +118,38 @@ _command void copy_buf_name_noext() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRE
 // _copy_text_to_clipboard(_strip_filename(p_buf_name,'PE'));
 }
 
+_command void copy_unix_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
+{
+	/* Remove the first 5 chars of the filename */
+   _str dirName = _strip_filename(p_buf_name,'N');
+   _str filName = _strip_filename(p_buf_name,'P');
+   say(dirName :+ filName);
+   _str unixHome = '/home/qa';
+   _str windHome = 'C:\tibco\lin64vm465.qa.datasynapse.com\TIB_GridServer_5.2.0\'
+   _str relaPath = substr(dirName, windHome._length());
+   relaPath = stranslate(relaPath, '/',   '\');
+   _str fullPath = unixHome :+ relaPath
+   say(fullPath :+ filName);
+   _copy_text_to_clipboard(fullPath :+ filName);
+// _copy_text_to_clipboard(_strip_filename(p_buf_name,'PE'));
+}
+
+_command void copy_unix_dir_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
+{
+	/* Remove the first 5 chars of the filename */
+   _str dirName = _strip_filename(p_buf_name,'N');
+   _str filName = _strip_filename(p_buf_name,'P');
+   say(dirName);
+   _str unixHome = '/home/qa';
+   _str windHome = 'C:\tibco\lin64vm465.qa.datasynapse.com\TIB_GridServer_5.2.0\'
+   _str relaPath = substr(dirName, windHome._length());
+   relaPath = stranslate(relaPath, '/',   '\');
+   _str fullPath = unixHome :+ relaPath
+   say(fullPath);
+   _copy_text_to_clipboard(fullPath);
+// _copy_text_to_clipboard(_strip_filename(p_buf_name,'PE'));
+}
+
 _command void copy_buf_name_dir() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
 {
    _copy_text_to_clipboard(_strip_filename(p_buf_name,'N'));
@@ -127,4 +159,5 @@ def  'A-C' 'd' = copy_buf_name_dir;
 def  'A-C' 'f' = copy_buf_name;
 def  'A-C' 'n' = copy_buf_name_only;
 def  'A-C' 'e' = copy_buf_name_noext;
-def  'A-C' 'u' = copy_unit_test_diff_file;
+def  'A-C' 'u' 'd' = copy_unix_dir_path;
+def  'A-C' 'u' 'f' = copy_unix_path;
