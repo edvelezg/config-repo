@@ -123,13 +123,13 @@ _command void copy_unix_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDI
 	/* Remove the first 5 chars of the filename */
    _str dirName = _strip_filename(p_buf_name,'N');
    _str filName = _strip_filename(p_buf_name,'P');
-   say(dirName :+ filName);
+// say(dirName :+ filName);
    _str unixHome = '/home/qa';
-   _str windHome = 'C:\tibco\lin64vm465.qa.datasynapse.com\TIB_GridServer_5.2.0\'
+   _str windHome = 'C:\tibco\lin64vm492.rofa.tibco.com\qa'
    _str relaPath = substr(dirName, windHome._length());
    relaPath = stranslate(relaPath, '/',   '\');
    _str fullPath = unixHome :+ relaPath
-   say(fullPath :+ filName);
+// say(fullPath :+ filName);
    _copy_text_to_clipboard(fullPath :+ filName);
 // _copy_text_to_clipboard(_strip_filename(p_buf_name,'PE'));
 }
@@ -139,13 +139,13 @@ _command void copy_unix_dir_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES
 	/* Remove the first 5 chars of the filename */
    _str dirName = _strip_filename(p_buf_name,'N');
    _str filName = _strip_filename(p_buf_name,'P');
-   say(dirName);
+// say(dirName);
    _str unixHome = '/home/qa';
-   _str windHome = 'C:\tibco\lin64vm465.qa.datasynapse.com\TIB_GridServer_5.2.0\'
+   _str windHome = 'C:\tibco\lin64vm492.rofa.tibco.com\qa'
    _str relaPath = substr(dirName, windHome._length());
    relaPath = stranslate(relaPath, '/',   '\');
    _str fullPath = unixHome :+ relaPath
-   say(fullPath);
+// say(fullPath);
    _copy_text_to_clipboard(fullPath);
 // _copy_text_to_clipboard(_strip_filename(p_buf_name,'PE'));
 }
