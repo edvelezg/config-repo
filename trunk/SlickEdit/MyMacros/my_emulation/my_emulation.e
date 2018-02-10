@@ -34,7 +34,7 @@ def 'A-f'=fill_selection;
 //def 'A-m'=move_to_cursor;
 def 'A-n'=keyin_buf_name;
 //def 'A-o'=overlay_block_selection;
-//def 'A-p'=reflow_paragraph;
+def 'A-p'=reflow_paragraph;
 //def 'A-r'=root_keydef;
 //def 'A-s'=split_line;
 ////def 'A-t'=find_matching_paren;   // Alt-t used for tool window activation below
@@ -87,6 +87,8 @@ def 'C-0'-'C-9'= alt_gtbookmark;    // reversed from CUA
 def 'A-HOME'=center_line;
 def 'A-PGUP'=line_to_top;
 def 'A-PGDN'=line_to_bottom;
+def 'A-S-PGDN'=page_left;
+def 'A-S-PGUP'=page_right;
 
 // Shortcut keys for invoking Tool Windows: Alt-T is for "Tool Window"
 def  'A-T' 'k'= activate_bookmarks;
