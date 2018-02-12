@@ -40,11 +40,11 @@ int Rsync_LoadIni(_str SectionName, _str &name)
    return status;
 };
 
-_str Rsync_GetHome(_str &homeDir)
+int Rsync_GetHome(_str &homeDir)
 {
     _str iniPath = _GetWorkspaceDir() :+ RSYNC_INI;
-   _ini_get_value(iniPath, "Settings", "HomeDir", homeDir, "NA");
-   return homeDir;
+   int status = _ini_get_value(iniPath, "Settings", "HomeDir", homeDir, "NA");
+   return status;
 };
 
 
@@ -63,10 +63,10 @@ int LoadRsyncIniFile(_str &machineName, _str &unixHome)
       say("ERROR: You're missing the file " RSYNC_INI " in your directory");
    }
 
-      if (Rsync_GetHome(unixHome) == 0 && unixHome != "NA") {
+   if (Rsync_GetHome(unixHome) == 0 && unixHome != "NA") {
       say('HomeDir='unixHome);
    } else {
-      say("WARN: A Home directory was not specified");
+      say("WARN: status=" :+ status :+ "A Home directory may not have been specified");
       unixHome = '/opt/qa';
    }
    return status;
@@ -81,7 +81,7 @@ _command void copy_unix_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDI
    _str dirName = _strip_filename(p_buf_name,'N');
    _str filName = _strip_filename(p_buf_name,'P');
 
-   _str windHome = 'C:\tibco\' :+ machineName :+ '\qa';
+   _str windHome = 'C:\tibco\' :+ machineName :+ '\qa\';
    _str relaPath = substr(dirName, windHome._length());
    relaPath = stranslate(relaPath, '/',   '\');
    _str fullPath = unixHome :+ relaPath;
@@ -99,10 +99,16 @@ _command void copy_unix_dir_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES
    _str dirName = _strip_filename(p_buf_name,'N');
    _str filName = _strip_filename(p_buf_name,'P');
 // say(dirName);
-   _str windHome = 'C:\tibco\' :+ machineName :+ '\qa';
+   _str windHome = 'C:\tibco\' :+ machineName :+ '\qa\';
+   say(windHome);
+   say(dirName);
    _str relaPath = substr(dirName, windHome._length());
+   say(relaPath);
    relaPath = stranslate(relaPath, '/',   '\');
+   say(relaPath);
    _str fullPath = unixHome :+ relaPath;
+   say (unixHome);
+   say(fullPath);
 // say(fullPath);
    _copy_text_to_clipboard(fullPath);
 // _copy_text_to_clipboard(_strip_filename(p_buf_name,'PE'));
