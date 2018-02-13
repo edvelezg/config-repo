@@ -119,6 +119,8 @@ def  'C-T' 'l'= transpose_lines;
 def  'C-T' 'w'= transpose_words;
 def  'C-T' 'a'= transpose_chars;
 
+def  'C-W' = surround_with;
+
 defeventtab ruby_keys;
 def '#'= ruby_hash;
 

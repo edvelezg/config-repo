@@ -6,15 +6,15 @@
 
 _command void run_rsync() name_info(',' VSARG2_REQUIRES_EDITORCTL)
 {
-   rsync();
+   display_loadini();
 };
 
-void rsync()
+void display_loadini()
 {
     _str machineName;
-   if (Rsync_LoadIni("MachineName", machineName) == 0 && machineName != "NA") 
+   if (Rsync_LoadIni("Primary", machineName) == 0 && machineName != "NA") 
    {
-      say('MachineName='machineName);
+      say('Primary='machineName);
 //    do_run_rsync(rsyncPath, p_buf_name);
    } else {
       say("ERROR: You're missing the file " RSYNC_INI " in your directory");
@@ -23,12 +23,21 @@ void rsync()
    _str homDir;
    if (Rsync_GetHome(homDir) == 0 && homDir != "NA") 
    {
-      say('HomeDir='homDir);
+      say('PrimaryDir='homDir);
 //    do_run_rsync(rsyncPath, p_buf_name);
    } else {
       say("ERROR: You're missing the file " RSYNC_INI " in your directory");
    }
 
+   _str engineHome, engine;
+   if (Rsync_GetEngineMachine(engineHome, engine) == 0) 
+   {
+      say('Engine='engine);
+      say('EngineDir='engineHome);
+//    do_run_rsync(rsyncPath, p_buf_name);
+   } else {
+      say("ERROR: You're missing the file " RSYNC_INI " in your directory");
+   }
 
 };
 
@@ -43,7 +52,15 @@ int Rsync_LoadIni(_str SectionName, _str &name)
 int Rsync_GetHome(_str &homeDir)
 {
     _str iniPath = _GetWorkspaceDir() :+ RSYNC_INI;
-   int status = _ini_get_value(iniPath, "Settings", "HomeDir", homeDir, "NA");
+   int status = _ini_get_value(iniPath, "Settings", "PrimaryDir", homeDir, "NA");
+   return status;
+};
+
+int Rsync_GetEngineMachine(_str &engineHome, _str &engine)
+{
+    _str iniPath = _GetWorkspaceDir() :+ RSYNC_INI;
+   int status = _ini_get_value(iniPath, "Settings", "Engine", engine, "NA");
+   status = _ini_get_value(iniPath, "Settings", "EngineDir", engineHome, "NA");
    return status;
 };
 
@@ -56,15 +73,15 @@ int Rsync_GetHome(_str &homeDir)
  */
 int LoadRsyncIniFile(_str &machineName, _str &unixHome)
 {
-   int status = Rsync_LoadIni("MachineName", machineName);
+   int status = Rsync_LoadIni("Primary", machineName);
    if (status == 0 && machineName != "NA") {
-      say('MachineName='machineName);
+      say('Primary='machineName);
    } else {
       say("ERROR: You're missing the file " RSYNC_INI " in your directory");
    }
 
    if (Rsync_GetHome(unixHome) == 0 && unixHome != "NA") {
-      say('HomeDir='unixHome);
+      say('PrimaryDir='unixHome);
    } else {
       say("WARN: status=" :+ status :+ "A Home directory may not have been specified");
       unixHome = '/opt/qa';
