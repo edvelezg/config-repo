@@ -85,6 +85,10 @@ int LoadRsyncIniFile(_str &primaryMachine, _str &primaryDir)
       say("WARN: status=" :+ status :+ "A Home directory may not have been specified");
       primaryDir = '/opt/qa';
    }
+
+   primaryMachine = strip(primaryMachine);
+   primaryDir = strip(primaryDir);
+
    return status;
 }
 
