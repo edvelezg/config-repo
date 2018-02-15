@@ -109,3 +109,7 @@ fi
 trap 1 2 3
 
 if [ -r ~/.trace_login ]; then echo "leaving ~/.bash_profile"; fi
+
+if [ -r ~/.bash_profile.ed ]; then
+  . ~/.bash_profile.ed
+fi
