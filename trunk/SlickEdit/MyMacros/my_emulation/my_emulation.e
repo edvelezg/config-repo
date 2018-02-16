@@ -28,7 +28,7 @@ def 'A-b'=select_block;
 //def 'A-d'=cut;      // well, this one is added to the slick emulation.
 //def 'A-e'=end_select;
 def 'A-f'=fill_selection;
-//def 'A-j'=join_line;
+def 'A-j'=join_line;
 //def 'A-k'=cut;
 //def 'A-l'=select_line;
 //def 'A-m'=move_to_cursor;
@@ -89,6 +89,7 @@ def 'A-PGUP'=line_to_top;
 def 'A-PGDN'=line_to_bottom;
 def 'A-S-PGDN'=page_right;
 def 'A-S-PGUP'=page_left;
+def 'A-S-J' 'l'=join_lines;
 
 // Shortcut keys for invoking Tool Windows: Alt-T is for "Tool Window"
 def  'A-T' 'k'= activate_bookmarks;
