@@ -1,0 +1,105 @@
+#
+# Aliases for finding things using the 'find' command:
+#
+alias fdirs='find . -xdev -type d -exec ls -d {} \;'
+alias fdoc='find . -xdev -type f \( -name "*%" -o -name "*.doc" \) -exec ls -l {} \;'
+alias fexe='find . -xdev -type f -perm 755 -exec ls -d {} \;'
+alias flnk='find . -xdev -type l -exec ls -d {} \;'
+alias fman='find / -xdev -type d -name "man?" -exec ls -d {} \;'
+
+alias ff='find . -xdev -name "\!*" -exec ls -d {} \;'
+
+# alias gg='find . -xdev -type f -exec grep -i   -e "\!*" {} \;'
+# alias ggw='find . -xdev -type f -exec grep -iw  -e "\!*" {} \;'
+alias gg='find . -xdev -type f -name "\!$" -exec grep -i   -e "\!^" {} \;'
+alias ggw='find . -xdev -type f -name "\!$" -exec grep -iw  -e "\!^" {} \;'
+
+# alias ggf='find . -xdev -type f -exec grep -il  -e "\!*" {} \;'
+# alias ggwf='find . -xdev -type f -exec grep -ilw -e "\!*" {} \;'
+alias ggf='find . -xdev -type f -name "\!$" -exec grep -il  -e "\!^" {} \;'
+alias ggfci='find . -xdev -type f -name "\!$" -exec grep -l   -e "\!^" {} \;'
+alias ggwf='find . -xdev -type f -name "\!$" -exec grep -ilw -e "\!^" {} \;'
+
+#
+# Software development aliases
+#
+alias cl='g++ -g3 -O0 -o \!^ \!^.cpp'
+alias clo='g++ -g3 -O0 -o \!^ \!^.cpp \!$'
+alias co='g++ -c -g3 -O0 \!*.cpp'
+
+#-----------------------------------------------------------------------------------------------
+# File system navigation aliases
+#-----------------------------------------------------------------------------------------------
+
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+
+#
+# Other aliases
+#
+alias allprocs='ps -ef'
+alias br='vim -R'
+alias copy='\cp -i'
+# alias cp='\cp -i'
+alias cvtfile='dos2unix "\!^" "\!^" >& /dev/null'
+alias dir='\ls -ACF'
+alias dirdate='\ls -AFlt'
+alias dirfu='\ls -AFl'
+alias diskusage='du -ka | sort -nr | head -n 40'
+alias grep='\grep -i'
+alias grepf='\grep -il'
+alias grepw='\grep -ilw'
+alias h='history'
+alias host='hostname'
+alias l='less'
+alias lo='exit'
+alias ls='\ls --color=auto'
+alias lsdate='\ls -AFlt'
+alias ll='\ls --color -AFl'
+alias lsfu='\ls -AFl'
+alias m='more'
+alias make='gmake'
+alias mv='\mv -i'
+alias myprocs='ps -ef | grep egutarra'
+# alias myprocs='ps auxww | grep egutarra'
+alias ren='\mv -i'
+#alias rm='\rm -i'
+alias sysinc='cd /usr/include'
+alias tail='tail -f'
+alias untab='expand -t\!:1 \!:2 > \!:2.untab; \mv \!:2.untab \!:2'
+alias vi='vim'
+alias x='xemacs \!^ &'
+alias ldpath='echo $LD_LIBRARY_PATH | tr ":" "\n"'
+alias ospldpath='echo $OSP_LD_LIB_PATH | tr ":" "\n"'
+alias owldpath='echo $OSP_OW_LD_LIB_PATH | tr ":" "\n"'
+alias path='echo $PATH | tr ":" "\n"'
+alias clpath='echo $CLASSPATH | tr ":" "\n"'
+alias openworks='cd $HOME/dev/OpenSpirit-v4.0/dataConnectors/OpenWorks/C++/osp/plugin/data/openworks'
+
+#-----------------------------------------------------------------------------------------------
+# Source code tree navigation aliases
+#-----------------------------------------------------------------------------------------------
+
+
+#-----------------------------------------------------------------------------------------------
+# Misc. developement aliases
+#-----------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------
+# Run applications
+#-----------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------
+# Other aliases
+#-----------------------------------------------------------------------------------------------
+
+alias checklic='~ssm/bin/check_license.csh'
+alias checkowlic='$LM_HOME/lmstat -a -c ${LM_LICENSE_FILE} | grep start'
+alias gmake='gmake OSP_COMPILE_TYPE=${OSP_COMPILE_TYPE} $*'
+alias top='top -u egutarra'
+alias prstat='prstat -s cpu -a -n 8'
+alias prstat='prstat -s cpu -a -n 8'
+

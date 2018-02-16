@@ -2,6 +2,8 @@
 @REM https://stackoverflow.com/questions/6359820/how-to-SET-commands-output-as-a-variable-in-a-batch-file
 
 @echo off
+
+SET SCRIPT_DIR=%CD%
 cd ..\
 SET CURRENT_DIR=%CD%
 
