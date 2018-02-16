@@ -1,0 +1,41 @@
+# ~/.bash_profile for Linux
+
+# The gcc3 compiler doesn't work on MICO src
+# /usr/local/gcc3/bin:
+
+PATH=\
+~rgh/bin/$HOSTTYPE:\
+~rgh/scripts:\
+~rgh/squirrel/squirrel-sql-3.2.1:\
+${MY_LOCAL}/bin:\
+/prod/java/jdk1.6/bin:\
+/prod/java/ant/bin:\
+/prod/accurev/:\
+/prod/Rational/releases/purify.i386_linux2.7.0.0.0-008/:\
+/usr/bin/X11:\
+/bin:\
+/usr/bin:\
+/usr/sbin:\
+/usr/ccs/bin:\
+/sbin
+
+export PATH
+
+LD_LIBRARY_PATH=/usr/bin:/usr/X11R6/lib
+export LD_LIBRARY_PATH
+
+# ------------------------------------------------------
+
+# export OSP_DEV_HOME=~/dev/v4.0
+# export OSP_MAKE_DIR=/build/env/current_stable_build/dev
+
+# ------------------------------------------------------
+# set up some aliases
+
+# ------------------------------------------------------
+# Remove duplicates from PATH, LD_LIBRARY_PATH, MANPATH, CLASSPATH
+PATH=`repath "$PATH"`
+LD_LIBRARY_PATH=`repath $LD_LIBRARY_PATH`
+CLASSPATH=`reclasspath $CLASSPATH`
+# Get rid of '/usr/man', it's the same as '/usr/share/man'
+MANPATH=`repath -omitdir /usr/man $MANPATH`

@@ -1,0 +1,34 @@
+#! /bin/bash
+
+# source the interactive stuff for this shell (the login shell) as well
+source ${HOME}/.aliases
+source ${HOME}/.functions
+
+#export OSP_MY_DEV=$HOME/dev
+
+# ==== alias for colors ========
+BLACK="tput setf 0"
+BLUE="tput setf 1"
+GREEN="tput setf 2"
+CYAN="tput setf 3"
+RED="tput setf 4"
+MAGENTA="tput setf 5"
+YELLOW="tput setf 6"
+WHITE="tput setf 7"
+
+RETURN="tput sgr0"
+BOLD="tput bold"
+REV="tput rev"
+
+export DISPLAY=egutarra:0.0
+export PATH=${HOME}/scripts:/usr/local/bin:${PATH}:/opt/SUNWspro/bin
+#setprompt
+
+export JAVA_HOME=/opt/jdk1.7.0_79
+export JRE_HOME=/opt/jdk1.7.0_79/jre
+export PATH=$PATH:/opt/jdk1.7.0_79/bin:/opt/jdk1.7.0_79/jre/bin
+
+#Prompt: 'hostname [<working_directory] <history_number> %' (bold)
+#PS1="\[\e[1;30m\]\h [\w] \! %\ "
+#PS1="`$REV``$RED`[$netip `$BLUE`/\W]#`$RETURN` "
+#source ${HOME}/scripts/devenv.sh

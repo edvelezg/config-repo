@@ -1,5 +1,40 @@
 #include "slick.sh"
 
+static _str MST_Get_Selected_Text(boolean OneLine=false)
+{
+   _str text='',Result='';
+   int i=0,Start=0,Stopp=0;
+   i = _get_selinfo(Start,Stopp,0);
+   if (i != TEXT_NOT_SELECTED_RC) {
+      filter_init();
+      while (filter_get_string(text) == 0) {
+         if (OneLine) {
+            return(text);
+         }
+         if (Result != "") {
+            Result=Result :+ "\n";
+         }
+         Result=Result :+ text;
+      }
+      filter_restore_pos();
+   }
+   return(Result);
+}
+
+_command copy_unit_test_diff_file() name_info(','VSARG2_MARK|VSARG2_REQUIRES_EDITORCTL)
+{
+   _str text = '.txt''';
+// top_of_buffer();
+   if (search(text, 'E>')) stop();
+   cursor_left();
+   select_char();
+   if (search('''C','-E')) stop();
+   cursor_right();
+   _str filePath = MST_Get_Selected_Text();
+
+   _copy_text_to_clipboard(filePath);
+}
+
 static _str remove_chars(_str text)
 {
    text = substr(text, 4, length(text)-6);
@@ -78,15 +113,17 @@ _command void copy_unit_test_diff() name_info(','VSARG2_MARK|VSARG2_REQUIRES_EDI
 _command void copy_buf_name_noext() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
 {
 	/* Remove the first 5 chars of the filename */
-// _copy_text_to_clipboard(substr(_strip_filename(p_buf_name,'PE'), 5));
-   _copy_text_to_clipboard(_strip_filename(p_buf_name,'PE'));
+   _copy_text_to_clipboard(substr(_strip_filename(p_buf_name,'PE'), 5));
+// _copy_text_to_clipboard(_strip_filename(p_buf_name,'PE'));
 }
-def  'A-C' 'e'= copy_buf_name_noext;
 
 _command void copy_buf_name_dir() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
 {
    _copy_text_to_clipboard(_strip_filename(p_buf_name,'N'));
 }
+
 def  'A-C' 'd' = copy_buf_name_dir;
 def  'A-C' 'f' = copy_buf_name;
 def  'A-C' 'n' = copy_buf_name_only;
+def  'A-C' 'e' = copy_buf_name_noext;
+def  'A-C' 'u' = copy_unit_test_diff_file;

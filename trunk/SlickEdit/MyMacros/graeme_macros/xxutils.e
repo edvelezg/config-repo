@@ -358,25 +358,25 @@ _command void xopvss() name_info(',')
 
 
 _menu xmenu1 {
-   "|&Set diff region", "xset_diff_region", "","","";
-   "Compare |&Diff region", "xcompare_diff_region", "","","";
-   "|&Beautify project", "xbeautify_project", "","","";
+   "&Set diff region", "xset_diff_region", "","","";
+   "Compare &Diff region", "xcompare_diff_region", "","","";
+   "&Beautify project", "xbeautify_project", "","","";
    "--","","","","";
-   "Copy Buffer |&Name","xcurbuf-name-to-clip","","",""; 
-   "Copy Buffer |&Path","xcurbuf-path-to-clip","","",""; 
-   "Copy Active Pro|&Ject Name","xproject_name_to_clip","","",""; 
+   "Copy Buffer &Name","xcurbuf-name-to-clip","","",""; 
+   "Copy Buffer &Path","xcurbuf-path-to-clip","","",""; 
+   "Copy Active Pro&Ject Name","xproject_name_to_clip","","",""; 
    "--","","","","";
 
-   submenu "&|Complete","","","" {
+   submenu "&Complete","","","" {
       "complete-prev-no-dup","complete_prev_no_dup","","","";
       "complete-next-no-dup","complete_next_no_dup","","","";
       "complete-prev","complete_prev","","","";
       "complete-next","complete_next","","","";
-      "complete-|&List","complete_list","","","";
+      "complete-&List","complete_list","","","";
       "complete-more","complete_more","","","";
    }
 
-   submenu "Select / |&Hide","","","" {
+   submenu "Select / &Hide","","","" {
       "select code block","select_code_block","","","";
       "select paren","select_paren_block","","","";
       "select procedure", "select_proc", "","","";
@@ -386,7 +386,7 @@ _menu xmenu1 {
       "show all","show-all","","","";
    }
 
-   submenu "Open / E|&Xplore","","open-file or explore folder","" {
+   submenu "Open / E&Xplore","","open-file or explore folder","" {
       "Open from here","xopen_from_here","","","open from current buffer path";
       "Open from config","xopen_from_config","","","open file from configuration folder";
       "Open vsstack error file","xopvss","","","Open Slick C error file";
@@ -395,7 +395,7 @@ _menu xmenu1 {
       "Explore config folder","explore_config","","",""; 
       "Explore installation folder", "explore_vslick","","",""; 
       "Explore docs","explore_docs","","",""; 
-      "Explore project","explore_vpj","","","";
+      "Explore &project","explore_vpj","","","";
    }
 
    submenu "&Case conversion","","","" {
@@ -417,4 +417,6 @@ _command show_xmenu1() name_info(',')
    mou_show_menu('xmenu1');
 }
 
-
+def 'A-R' '2'= show_xmenu1;
+def 'A-S-Q'= show_xmenu1;
+def 'A-C-U'= explore_vpj;

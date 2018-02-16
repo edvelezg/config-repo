@@ -23,18 +23,18 @@ defeventtab default_keys;
 
 // Alt-keys are not defined by CUA emulation -- these are copied mostly from Slick emulation.
 //def 'A-a'=adjust_block_selection;
-//def 'A-b'=select_block;
+def 'A-b'=select_block;
 //def 'A-c'=copy_to_cursor;
 //def 'A-d'=cut;      // well, this one is added to the slick emulation.
 //def 'A-e'=end_select;
-//def 'A-f'=fill_selection;
+def 'A-f'=fill_selection;
 //def 'A-j'=join_line;
 //def 'A-k'=cut;
 //def 'A-l'=select_line;
 //def 'A-m'=move_to_cursor;
 def 'A-n'=keyin_buf_name;
 //def 'A-o'=overlay_block_selection;
-//def 'A-p'=reflow_paragraph;
+def 'A-p'=reflow_paragraph;
 //def 'A-r'=root_keydef;
 //def 'A-s'=split_line;
 ////def 'A-t'=find_matching_paren;   // Alt-t used for tool window activation below
@@ -44,7 +44,8 @@ def 'A-n'=keyin_buf_name;
 //def 'A-x'=safe_exit;
 //def 'A-y'=begin_select;
 //def 'A-z'=select_char;
-//def "A-'"=duplicate_line;
+def "A-'"=duplicate_line;
+def 'C-S-/'=toggle_comment;
 
 // CUA has
 // def 'C-/'= push_ref;
@@ -86,6 +87,8 @@ def 'C-0'-'C-9'= alt_gtbookmark;    // reversed from CUA
 def 'A-HOME'=center_line;
 def 'A-PGUP'=line_to_top;
 def 'A-PGDN'=line_to_bottom;
+def 'A-S-PGDN'=page_left;
+def 'A-S-PGUP'=page_right;
 
 // Shortcut keys for invoking Tool Windows: Alt-T is for "Tool Window"
 def  'A-T' 'k'= activate_bookmarks;
@@ -115,6 +118,8 @@ def  'C-T' 'v'= string_paste;
 def  'C-T' 'l'= transpose_lines;
 def  'C-T' 'w'= transpose_words;
 def  'C-T' 'a'= transpose_chars;
+
+def  'C-W' = surround_with;
 
 defeventtab ruby_keys;
 def '#'= ruby_hash;

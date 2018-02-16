@@ -1,0 +1,61 @@
+#-----------------------------------------------------------------------------------------------
+# functions
+#-----------------------------------------------------------------------------------------------
+
+function setprompt
+{
+    case $TERM in
+        xterm*)
+            local TITLEBAR='\[\033]0;\u@\h:\w\007\]'
+        ;;
+        *)
+            local TITLEBAR=''
+        ;;
+    esac
+    
+    PS1="${TITLEBAR}\[\e[1;30m\]\h [\w] \! %\[\e[m\] "
+    # PS1="${TITLEBAR}\
+    # [\$(date +%H%M)]\
+    # [\u@\h:\w]\
+    # \$ "
+    PS2='> '
+    PS4='+ '
+}
+
+function setprompt_
+{
+    # Change the window title of X terminals
+    case $TERM in
+        xterm*|rxvt|Eterm|eterm)
+            PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+        ;;
+        screen)
+            PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
+        ;;
+    esac
+}
+
+function cd {
+    builtin cd "$@" && ls -F
+}
+
+untargz ()
+{  
+   echo "Trying to untargz $1"
+   # Tab completion will give you the entire file name, with the '.tar.gz' suffix
+   # This also handles 'foo_tar.gz' as well as 'foo.tar.gz'
+   _d=`expr $1 : '\(.*\)tar\.gz$' \| $1`
+   gunzip ${_d}tar.gz && tar xvf ./${_d}tar
+}
+
+# -------------------------------------------------------------------
+# tar/untar tar-balls using gzip/gunzip -> .gz files
+targz ()
+{
+   echo "Trying to targz $1"
+   # Tab completion leaves a trailing '/', remove it if necessary
+   _d=`expr $1 : '\(.*\)/$' \| $1`
+   rm -f ${_d}.tar
+   tar cf - ${_d} > ${_d}.tar && gzip ${_d}.tar && rm -rf ${_d}
+}
+
