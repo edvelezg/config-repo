@@ -392,9 +392,9 @@ _menu xmenu1 {
       "Open vsstack error file","xopvss","","","Open Slick C error file";
       "-","","","","";
       "Explore current buffer","explore_cur_buffer","","","explore folder of current buffer";
-      "Explore config folder","explore_config","","",""; 
-      "Explore installation folder", "explore_vslick","","",""; 
-      "Explore docs","explore_docs","","",""; 
+      "Explore &config folder","explore_config","","",""; 
+      "Explore &installation folder", "explore_vslick","","",""; 
+      "Explore &docs","explore_docs","","",""; 
       "Explore &project","explore_vpj","","","";
    }
 

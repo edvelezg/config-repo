@@ -87,8 +87,8 @@ def 'C-0'-'C-9'= alt_gtbookmark;    // reversed from CUA
 def 'A-HOME'=center_line;
 def 'A-PGUP'=line_to_top;
 def 'A-PGDN'=line_to_bottom;
-def 'A-S-PGDN'=page_left;
-def 'A-S-PGUP'=page_right;
+def 'A-S-PGDN'=page_right;
+def 'A-S-PGUP'=page_left;
 
 // Shortcut keys for invoking Tool Windows: Alt-T is for "Tool Window"
 def  'A-T' 'k'= activate_bookmarks;
