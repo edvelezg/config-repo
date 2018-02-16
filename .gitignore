@@ -18,3 +18,4 @@
 /trunk/SlickEdit/MyMacros/run_command_into_slick/*.ex
 /trunk/SlickEdit/SEBook/Chapter01/*.ex
 *.ex
+join_line_with_space.ex
