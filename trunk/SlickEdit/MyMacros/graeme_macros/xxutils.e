@@ -294,7 +294,7 @@ _command void explore_docs() name_info(',')
 // explore active project vpj folder
 _command void explore_vpj() name_info(',')
 {
-   explore(_project_name);
+   explore(strip_filename(_project_name,'N'));
 }
 
 

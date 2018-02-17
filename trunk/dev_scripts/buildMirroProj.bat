@@ -1,3 +1,4 @@
+@REM NOTE: DOES NOT FULLY WORK
 @REM Copyright (c) 2018 TIBCO Software Inc. All Rights Reserved. 
 @REM https://stackoverflow.com/questions/6359820/how-to-SET-commands-output-as-a-variable-in-a-batch-file
 
@@ -6,9 +7,9 @@ SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
 
 SET SCRIPT_DIR=%CD%
 cd ..\
-SET CURRENT_DIR=%CD%
+SET PROJECT_DIR=%CD%
 
-FOR /F "tokens=* USEBACKQ" %%F IN (`cygpath %CURRENT_DIR%`) DO (
+FOR /F "tokens=* USEBACKQ" %%F IN (`cygpath %PROJECT_DIR%`) DO (
 SET CygwinDir=%%F
 )
 
