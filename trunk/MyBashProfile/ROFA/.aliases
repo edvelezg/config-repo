@@ -37,9 +37,15 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 
-#
+#-----------------------------------------------------------------------------------------------
+# Installation navigation aliases
+#-----------------------------------------------------------------------------------------------
+alias cdgslog='cd /opt/qa/datasynapse/manager-data/logs/server/'
+alias cddrlog='cd /opt/qa/GridServerSDK-Linux/examples/service/adder/work/log/'
+
+#-----------------------------------------------------------------------------------------------
 # Other aliases
-#
+#-----------------------------------------------------------------------------------------------
 alias allprocs='ps -ef'
 alias br='vim -R'
 alias copy='\cp -i'
