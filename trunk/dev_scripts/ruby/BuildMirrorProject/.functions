@@ -59,3 +59,10 @@ targz ()
    tar cf - ${_d} > ${_d}.tar && gzip ${_d}.tar && rm -rf ${_d}
 }
 
+# tailg gridserver log
+tailgslog ()
+{
+    builtin cd /opt/qa/datasynapse/manager-data/logs/server/
+    tail -f gridserver.log
+}
+
