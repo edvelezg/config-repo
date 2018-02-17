@@ -1,4 +1,6 @@
 # Copyright (c) 2018 TIBCO Software Inc. All Rights Reserved.
+# Requires both Cygwin and gem inifile, to install use the command: 'gem install inifile'
+# Cygwin found in https://cygwin.com/setup-x86_64.exe
 
 require 'inifile'
 require 'pp'
@@ -6,6 +8,8 @@ require "fileutils"
 
 # Change to the script's directory.
 Dir.chdir(__dir__)
+puts "Downloading files to be copied"
+puts `download.bat`
 
 script_dir = Dir.pwd
 project_dir = Dir.pwd # TODO: replace with File.expand_path("..", Dir.pwd)
@@ -73,8 +77,8 @@ end
 # Create the rsync.ini file
 FileUtils.copy_file(File.join(script_dir, "BuildMirrorProject.ini"), "rsync.ini")
 
-#puts "bash -c \"ssh-copy-id #{user}@#{primary}\""
-#puts `bash -c \"ssh-copy-id #{user}@#{primary}\"`
+puts "bash -c \"ssh-copy-id #{user}@#{primary}\""
+puts `bash -c \"ssh-copy-id #{user}@#{primary}\"`
 
 def scp_file_to_unix(script_dir, filename, user, primary)
   orig = "#{File.join(script_dir, filename).to_s}"
@@ -85,9 +89,9 @@ def scp_file_to_unix(script_dir, filename, user, primary)
   puts `scp '#{cyg_orig}' #{dest}`
 end
 
-#scp_file_to_unix(script_dir, ".bash_profile", user, primary)
-#scp_file_to_unix(script_dir, ".aliases"     , user, primary)
-#scp_file_to_unix(script_dir, ".functions"   , user, primary)
+scp_file_to_unix(script_dir, ".bash_profile", user, primary)
+scp_file_to_unix(script_dir, ".aliases"     , user, primary)
+scp_file_to_unix(script_dir, ".functions"   , user, primary)
 
 #puts "scp \"#{File.join(script_dir, ".aliases").to_s}\"      #{user}@#{primary}:/home/#{user}"
 #puts "scp \"#{File.join(script_dir, ".functions").to_s}\"    #{user}@#{primary}:/home/#{user}"
@@ -106,10 +110,6 @@ end
 
 # Execute git commands to build mirror
 #https://ayende.com/blog/4749/executing-tortoisegit-from-the-command-line
-execute_cmd('TortoiseGitProc /command:repocreate')
-execute_cmd('TortoiseGitProc /command:commit /path:. /logmsg:"init files + ignored files" /closeonend:3')
-#puts `TortoiseGitProc `
-
-#puts `TortoiseGitProc \/command:repocreate`
-#"C:\Program Files\TortoiseGit\bin\TortoiseGitProc.exe" /command:ignore /path:"%CD%\%Primary%.vtg*%CD%\%Primary%.vpwhist" /logmsg:"SE files to be ignored" /closeonend:2
+#execute_cmd('TortoiseGitProc /command:repocreate')
+#execute_cmd('TortoiseGitProc /command:commit /path:. /logmsg:"init files + ignored files" /closeonend:3')
 
