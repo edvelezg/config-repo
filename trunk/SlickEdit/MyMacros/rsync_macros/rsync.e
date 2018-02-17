@@ -105,8 +105,7 @@ _command void copy_unix_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDI
    _str dirName = _strip_filename(p_buf_name,'N');
    _str filName = _strip_filename(p_buf_name,'P');
 
-
-   _str windHome = 'C:\tibco\' :+ primaryMachine :+ '\' :+ mirrorFolder :+ '\';
+   _str windHome = _GetWorkspaceDir() :+ mirrorFolder :+ '\';
    _str relaPath = substr(dirName, windHome._length());
    relaPath = stranslate(relaPath, '/',   '\');
    _str fullPath = primaryDir :+ relaPath;
@@ -128,7 +127,7 @@ _command void copy_unix_dir_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES
    _str dirName = _strip_filename(p_buf_name,'N');
    _str filName = _strip_filename(p_buf_name,'P');
 // say(dirName);
-   _str windHome = 'C:\tibco\' :+ machineName :+ '\' :+ mirrorFolder :+ '\';
+   _str windHome = _GetWorkspaceDir() :+ mirrorFolder :+ '\';
    say(windHome);
    say(dirName);
    _str relaPath = substr(dirName, windHome._length());
