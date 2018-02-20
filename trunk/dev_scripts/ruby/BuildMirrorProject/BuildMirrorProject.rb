@@ -21,6 +21,7 @@ puts cyg_project_dir
 
 # Read the ini file that specifies how the project is to be built
 file       = IniFile.load('BuildMirrorProject.ini')
+
 # pretty print object
 puts "here is the loaded file BuildMirrorProject.ini:"
 pp file
