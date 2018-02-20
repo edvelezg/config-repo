@@ -21,7 +21,6 @@ puts cyg_project_dir
 
 # Read the ini file that specifies how the project is to be built
 file       = IniFile.load('BuildMirrorProject.ini')
-
 # pretty print object
 puts "here is the loaded file BuildMirrorProject.ini:"
 pp file
@@ -93,23 +92,13 @@ scp_file_to_unix(script_dir, ".bash_profile", user, primary)
 scp_file_to_unix(script_dir, ".aliases"     , user, primary)
 scp_file_to_unix(script_dir, ".functions"   , user, primary)
 
-#puts "scp \"#{File.join(script_dir, ".aliases").to_s}\"      #{user}@#{primary}:/home/#{user}"
-#puts "scp \"#{File.join(script_dir, ".functions").to_s}\"    #{user}@#{primary}:/home/#{user}"
-
-#puts `scp "\"#{File.join(#{script_dir}, ".bash_profile").to_s}\" #{user}@#{primary}:/home/#{user}"`
-#puts `scp "\"#{File.join(#{script_dir}, ".aliases").to_s}\"      #{user}@#{primary}:/home/#{user}"`
-#puts `scp "\"#{File.join(#{script_dir}, ".functions").to_s}\"    #{user}@#{primary}:/home/#{user}"`
-
-# Execute git commands to init repo
-#puts `TortoiseGitProc \/command:repocreate`
 def execute_cmd(cmd)
   # Shell execution in ruby
   # https://gist.github.com/JosephPecoraro/4069
   puts `#{cmd}`
 end
 
-# Execute git commands to build mirror
-#https://ayende.com/blog/4749/executing-tortoisegit-from-the-command-line
-#execute_cmd('TortoiseGitProc /command:repocreate')
-#execute_cmd('TortoiseGitProc /command:commit /path:. /logmsg:"init files + ignored files" /closeonend:3')
-
+# Execute git commands to init repo
+# https://ayende.com/blog/4749/executing-tortoisegit-from-the-command-line
+execute_cmd('TortoiseGitProc /command:repocreate')
+execute_cmd('TortoiseGitProc /command:commit /path:. /logmsg:"init files + ignored files" /closeonend:3')
