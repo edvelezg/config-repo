@@ -15,6 +15,7 @@
 
 ::w/::with
 ::]b::\\netapp01c\Build
+::]bmp::BuildMirrorProject.rb
 ::b/f::before
 ::chgd::changed
 ::chgs::changes
@@ -66,17 +67,15 @@ return
 ;http://stackoverflow.com/questions/34801868/creating-a-time-sensitive-keyboard-shortcut-chord-with-autohotkey
 $^!i::
     Input key1, I L1 T0.8 ;wait 0.8 seconds for a keypress
-    If (key1 = "p" || key1 = "k" || key1 = "u" || key1 = "l") { ;if p, k or u were pressed
+    If (key1 = "p" || key1 = "k" || key1 = "m" || key1 = "l") { ;if p, k or u were pressed
         If (key1 = "p") { ;if the first key we waited for was p:
             Run, "E:\Petra\Issues"
         } Else If (key1 = "k") { ;if the first key we waited for was k:
             Run, "E:\Kingdom\Issues"
-        } Else If (key1 = "u") { ;if the first key we waited for was u:
-            Run, "C:\Users\egutarra\Desktop\Current Issue"
+        } Else If (key1 = "m") { ;if the first key we waited for was u:
+            Run, "https://jira.tibco.com/projects/GS/issues/GS-14073?filter=myopenissues"
         } Else If (key1 = "l") {
-            Run, "E:\Journal\KingdomIssues.txt"
-            Run, "C:\dev\DC-Petra\trunk\docs\Petra3Issues.txt"
-            Run, "E:\IssueList.xlsx"
+            Run, "\\EGUTARRA-2\Journal\Issues.txt"
         } 
      }
      Else {

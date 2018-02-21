@@ -126,7 +126,7 @@ _command void copy_unix_dir_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES
 	/* Get the directory name and file name */
    _str dirName = _strip_filename(p_buf_name,'N');
    _str filName = _strip_filename(p_buf_name,'P');
-// say(dirName);
+
    _str windHome = _GetWorkspaceDir() :+ mirrorFolder :+ '\';
    say(windHome);
    say(dirName);
@@ -137,9 +137,8 @@ _command void copy_unix_dir_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES
    _str fullPath = unixHome :+ relaPath;
    say (unixHome);
    say(fullPath);
-// say(fullPath);
+
    _copy_text_to_clipboard(fullPath);
-// _copy_text_to_clipboard(_strip_filename(p_buf_name,'PE'));
 }
 
 def  'A-C' 'u' 'd' = copy_unix_dir_path;
