@@ -141,5 +141,25 @@ _command void copy_unix_dir_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES
    _copy_text_to_clipboard(fullPath);
 }
 
+_command void getInfoFromRsync() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
+{
+   say("GetGSInfo.rb " :+ _GetWorkspaceDir());
+   _str cmdline = "C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\GetGSInfo.rb" :+ _GetWorkspaceDir();
+   int status = 0;
+   _str res = _PipeShellResult(cmdline, status, '');
+   _insert_text(strip(res,"B"," \t\n\R"));
+   say(res);
+// _str text = "Workflow was run successfully on GS " :+ version :+ " using " :+ machineName;
+// insert_line(text);
+}
+
+_command cdate2() name_info(','VSARG2_REQUIRES_EDITORCTL)
+{
+   _str cmdline = 'bash -c "date +''%Y-%m-%d %H:%M:%S:%3N''"';
+   int status = 0;
+   _str res = _PipeShellResult(cmdline, status, '');
+   _insert_text(strip(res,"B"," \t\n\R"));
+}
+
 def  'A-C' 'u' 'd' = copy_unix_dir_path;
 def  'A-C' 'u' 'f' = copy_unix_path;
