@@ -143,23 +143,34 @@ _command void copy_unix_dir_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES
 
 _command void getInfoFromRsync() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
 {
-   say("GetGSInfo.rb " :+ _GetWorkspaceDir());
-   _str cmdline = "C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\GetGSInfo.rb" :+ _GetWorkspaceDir();
+   _str cmdline = "ruby C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\GetGSInfo.rb " :+ _GetWorkspaceDir();
+   say(cmdline);
    int status = 0;
-   _str res = _PipeShellResult(cmdline, status, '');
-   _insert_text(strip(res,"B"," \t\n\R"));
-   say(res);
+   _str res = _PipeShellResult(cmdline, status, 'C');
+   e(_GetWorkspaceDir() :+ 'Report.txt');
+   _insert_text(res);
 // _str text = "Workflow was run successfully on GS " :+ version :+ " using " :+ machineName;
 // insert_line(text);
+}
+
+_command void copy_local_to_remote() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
+{
+   _str cmdline = "ruby C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\GenerateCopyRemoteCommand.rb " :+ _GetWorkspaceDir() :+ " " :+ p_buf_name;
+   int status = 0;
+   _str res = _PipeShellResult(cmdline, status, 'C');
+   e(_GetWorkspaceDir() :+ 'copy.bat');
+   _insert_text(res);
 }
 
 _command cdate2() name_info(','VSARG2_REQUIRES_EDITORCTL)
 {
    _str cmdline = 'bash -c "date +''%Y-%m-%d %H:%M:%S:%3N''"';
    int status = 0;
-   _str res = _PipeShellResult(cmdline, status, '');
+   _str res = _PipeShellResult(cmdline, status, 'C');
    _insert_text(strip(res,"B"," \t\n\R"));
 }
 
 def  'A-C' 'u' 'd' = copy_unix_dir_path;
+def  'A-C' 'i' = getInfoFromRsync;
 def  'A-C' 'u' 'f' = copy_unix_path;
+def  'A-C' 'r' 'c' = copy_local_to_remote;
