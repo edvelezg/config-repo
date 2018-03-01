@@ -39,8 +39,10 @@ remotePath = File.join(primaryDir, relpath)
 puts remotePath
 cmd = "scp #{cygpath} #{user}@#{primary}:#{remotePath}"
 puts cmd
-# File.open(File.join(project_path, "CopyToRemote.bat"), "w") do |f|
-	# f.puts cmd
-# end
-Clipboard.copy(cmd) 
+File.open(File.join(project_path, "CopyToRemote.bat"), "w") do |f|
+	f.puts cmd
+	f.puts 'pause'
+	f.puts "exit"
+end
 
+system "start #{project_path}\\CopyToRemote.bat"

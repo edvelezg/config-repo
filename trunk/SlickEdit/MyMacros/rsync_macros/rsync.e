@@ -157,9 +157,12 @@ _command void copy_local_to_remote() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIR
 {
    _str cmdline = "ruby C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\GenerateCopyRemoteCommand.rb " :+ _GetWorkspaceDir() :+ " " :+ p_buf_name;
    int status = 0;
-   _str res = _PipeShellResult(cmdline, status, 'C');
-   e(_GetWorkspaceDir() :+ 'copy.bat');
-   _insert_text(res);
+// e(_GetWorkspaceDir() :+ 'Result');
+// concur_shell()
+   _str res = _PipeShellResult(cmdline, status, 'A');
+// _insert_text(res);
+// concur_command(cmdline, true, false);
+// concur_shell(cmdline);
 }
 
 _command cdate2() name_info(','VSARG2_REQUIRES_EDITORCTL)
