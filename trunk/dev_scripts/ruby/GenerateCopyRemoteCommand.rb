@@ -30,10 +30,10 @@ primaryDir = settings["PrimaryDir"]
 user = settings["User"]
 
 mirror_folder = File.basename(primaryDir)
-project_path = File.join(project_path, mirror_folder);
-cyg_project_dir_length = getCygPath(project_path).length
+mirror_path = File.join(project_path, mirror_folder);
+cyg_mirror_dir_length = getCygPath(mirror_path).length
 
-relpath = cygpath[cyg_project_dir_length..-1]
+relpath = cygpath[cyg_mirror_dir_length..-1]
 remotePath = File.join(primaryDir, relpath)
 
 puts remotePath
@@ -46,3 +46,4 @@ File.open(File.join(project_path, "CopyToRemote.bat"), "w") do |f|
 end
 
 system "start #{project_path}\\CopyToRemote.bat"
+
