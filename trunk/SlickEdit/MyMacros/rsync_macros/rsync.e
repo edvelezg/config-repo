@@ -147,8 +147,8 @@ _command void getInfoFromRsync() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_E
    say(cmdline);
    int status = 0;
    _str res = _PipeShellResult(cmdline, status, 'C');
-   e(_GetWorkspaceDir() :+ 'Report.txt');
-   _insert_text(res);
+   e(_GetWorkspaceDir() :+ 'rsync2.ini');
+// _insert_text(res);
 // _str text = "Workflow was run successfully on GS " :+ version :+ " using " :+ machineName;
 // insert_line(text);
 }
