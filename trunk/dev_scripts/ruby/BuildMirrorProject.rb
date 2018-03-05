@@ -49,6 +49,8 @@ project_dir = File.join(current_dir, primary)
 puts "===============Creating the project directory================"
 puts "project_dir: #{project_dir}"
 FileUtils::mkdir_p project_dir
+puts "engine_dir:  #{project_dir}/#{engine}/#{mirror_engineDir}"
+FileUtils::mkdir_p "#{project_dir}/#{engine}/#{mirror_engineDir}"
 
 cyg_project_dir = `cygpath "#{project_dir}"`.chomp
 puts "cyg_project_dir: #{cyg_project_dir}"
@@ -57,7 +59,6 @@ Dir.chdir(project_dir)
 print "Press any key to continue:"
 k = get_character
 puts k.chr
-
 
 # Create the .gitignore file
 open(".gitignore", "w") do |io|
@@ -96,11 +97,14 @@ FileUtils.copy_file(File.join(current_dir, "rsync.ini"), "rsync.ini")
 # I have not found a good way to copy the key for auto-ssh using a script 
 puts "==========================================================================="
 puts "I have not found a good way to copy the key for auto-ssh using a script_dir"
-puts "Thus, copying the following command into the clibpoard:"
+puts "Thus, copying the following commands into the clibpoard:"
 cmd = "ssh-copy-id #{user}\@#{primary}"
-puts "==========================================================================="
 puts "#{cmd}"
 Clipboard.copy cmd.chomp
+cmd = "ssh-copy-id #{user}\@#{engine}"
+puts "#{cmd}"
+Clipboard.copy cmd.chomp
+puts "==========================================================================="
 #puts "bash -c \"ssh-copy-id #{user}\@#{primary}\""
 #puts `bash -c \"ssh-copy-id #{user}\@#{primary}\"`
 
@@ -116,6 +120,10 @@ end
 scp_file_to_unix(script_dir, ".bash_profile", user, primary)
 scp_file_to_unix(script_dir, ".aliases"     , user, primary)
 scp_file_to_unix(script_dir, ".functions"   , user, primary)
+
+scp_file_to_unix(script_dir, ".bash_profile", user, engine)
+scp_file_to_unix(script_dir, ".aliases"     , user, engine)
+scp_file_to_unix(script_dir, ".functions"   , user, engine)
 
 def execute_cmd(cmd)
   # Shell execution in ruby

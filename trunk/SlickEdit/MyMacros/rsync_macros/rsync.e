@@ -171,6 +171,8 @@ _command cdate2() name_info(','VSARG2_REQUIRES_EDITORCTL)
    int status = 0;
    _str res = _PipeShellResult(cmdline, status, 'C');
    _insert_text(strip(res,"B"," \t\n\R"));
+   goto_url('https://community.slickedit.com/index.php/topic,15953.0.html');
+
 }
 
 def  'A-C' 'u' 'd' = copy_unix_dir_path;
