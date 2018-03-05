@@ -10,7 +10,7 @@
 #import "stdprocs.e"
 #import "sc/lang/IToString.e"
 #import "sc/lang/IHashable.e"
-#import "colorDistance.e"
+#import "ColorDistance.e"
 #import "markers.sh"
 #import "SymColors.e"
 #import "WordInfo.e"
@@ -19,6 +19,15 @@
 #pragma pedantic on
 #pragma strict on
 #pragma strict2 on
+
+//#define USE_STREAM_MARKER     // Color the highlighted word
+//#define STREAM_LINE           // Color the entire line for a highlighted word
+#define USE_LINE_MARKER         // Draw a box around the highlighted line
+#define USE_SCROLL_MARKER     // Add scroll markers on highlighted lines.
+
+#define STREAM_MARKER_TYPE VSMARKERTYPEFLAG_DRAW_BOX
+//#define STREAM_MARKER_TYPE VSMARKERTYPEFLAG_DRAW_FOCUS_RECT
+//#define STREAM_MARKER_TYPE 0
 
 #define SYMTAB_NOTIFY_DELWORD '_highlight_delword'
 #define SYMTAB_NOTIFY_ADDWORD '_highlight_addword'
@@ -240,7 +249,7 @@ void _switchbuf_tbhighlight(_str oldbuffname, _str flag, _str swold_pos=null, _s
     typeless modTime = _GetBufferInfoHt(s_bufferModTimeKey)
     if (gSymAutoUpdate)
     {
-        if (modTime != s_modtimeSymHighlight)
+        if (modTime == null || modTime != s_modtimeSymHighlight)
         {
             _SetBufferInfoHt(s_bufferModTimeKey, s_modtimeSymHighlight);
             sym_symtag_update_window();
@@ -321,6 +330,7 @@ void sym_symtag_update_window()
     save_selection(m);
     save_search(ss, sf, sw, sr, sf2);
     _StreamMarkerRemoveType(p_window_id, s_markertypeSymHighlight); // Remove all highlights from this window
+    _LineMarkerRemoveType(p_window_id, s_markertypeSymHighlight);   // Remove all highlights from this window
     sym_color_remove_highlight_markers(p_window_id); // Remove all scrollbar marks from this window
 
     dbgsay("Update: " p_buf_name);
@@ -352,6 +362,18 @@ void sym_symtag_update_window()
                 long offset_highlight = match_length('S');//_QROffset();
                 int length_Highlight  = match_length(); //s._length();
 
+                #if defined(STREAM_LINE) && defined(USE_STREAM_MARKER)
+                typeless po;
+                save_pos(po);
+                _begin_line();
+                offset_highlight = _QROffset();
+                _end_line();
+                offset_end := _QROffset();
+                length_Highlight = (int)(offset_end - offset_highlight);
+                isRealOffset = true;
+                restore_pos(po);
+                #endif
+
                 int colorIndex = -1;
                 dbgsay("ML " match_length() ", _QROffset:"(int)_QROffset() ", offset_highlight ="offset_highlight ", MatchText is:"s);
                 //dbgsay("s_searchString:" s_searchString ", S is " s);
@@ -370,12 +392,31 @@ void sym_symtag_update_window()
                     SymbolColor *c = getSymColorFromTag(s);
                     if (c != null)
                     {
+                        #ifdef USE_LINE_MARKER
+                        int rgb = 0x00ff00;
+                        ColorDefinition *colorDef = c->getColorDef();
+                        if (colorDef != null)
+                        {
+                            rgb = colorDef->m_rgb;
+                        }
+                        #endif
                         dbgsay("2");
                         colorIndex = c->getMarkerIndex();
                         if (colorIndex != -1)
                         {
+                            #ifdef USE_STREAM_MARKER
                             int pos_marker = _StreamMarkerAdd( p_window_id, offset_highlight, length_Highlight, isRealOffset, 0, s_markertypeSymHighlight, '');
                             _StreamMarkerSetTextColor(pos_marker, colorIndex);
+                            #endif 
+
+                            #ifdef USE_LINE_MARKER
+                            line_maker:=_LineMarkerAdd(p_window_id, p_line, false, 1, 0, s_markertypeSymHighlight, "MESSAGE");
+                            _LineMarkerSetStyleColor(line_maker, rgb);
+                            #endif
+
+                            #ifdef USE_SCROLL_MARKER
+                            int line_marker = _ScrollMarkupAdd(p_window_id, p_line, c->getScrollMarkerIndex(), 1);
+                            #endif
                             dbgsay("3");
                         }
                         if (def_sym_highlight_use_scrollmarkers)
@@ -405,6 +446,7 @@ void sym_symtag_update_window()
 static void symTagResetWindow()
 {
     _StreamMarkerRemoveType(p_window_id, s_markertypeSymHighlight);
+    _LineMarkerRemoveType(p_window_id, s_markertypeSymHighlight);
     sym_color_remove_highlight_markers(p_window_id);
 
     refresh();
@@ -433,6 +475,8 @@ static void DeferredInitSymHighlight()
         if ( s_markertypeSymHighlight == -1 )
         {
             s_markertypeSymHighlight = _MarkerTypeAlloc();
+            _MarkerTypeSetFlags(s_markertypeSymHighlight, VSMARKERTYPEFLAG_AUTO_REMOVE | STREAM_MARKER_TYPE);
+            //MarkerTypeSetFlags(s_markertypeSymHighlight, VSMARKERTYPEFLAG_DRAW_BOX);
             initsay("DeferredInitSymHighlight 2.5 s_markertypeSymHighlight:"s_markertypeSymHighlight);
         }
 
@@ -540,7 +584,7 @@ static void initGlobals()
 }
 
 
-static _str _ModuleName = "SymhighlightJoe";
+static _str _ModuleName = "SymhighlightMain";
 definit()
 {
     if (arg(1) == 'L')

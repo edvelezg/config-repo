@@ -5,7 +5,7 @@
 #pragma strict on
 #pragma strict2 on
 
-static _str gRootPath = "C:\\Users\\joe\\Documents\\Slickedit\\macros\\Highlight\\";
+static _str gRootPath = "C:\\Users\\egutarra\\config-repo2\\trunk\\SlickEdit\\MyMacros\\HighlightsDlg\\HighlightsDlg\\Symhighlight_V2\\";
 static boolean joeLoad(_str moduleName)
 {
     int status = load(gRootPath moduleName);
