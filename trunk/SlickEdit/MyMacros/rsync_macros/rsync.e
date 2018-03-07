@@ -153,6 +153,22 @@ _command void getInfoFromRsync() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_E
 // insert_line(text);
 }
 
+_command void start_primary() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
+{
+   _str machineName, unixHome;
+   int status = LoadRsyncIniFile(machineName, unixHome);
+   _str url = "http://"machineName":8080/livecluster/admin/control/dashboard/dashboardGrid.jsp";
+   goto_url(url);
+}
+
+_command void start_mobaxterm() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
+{
+   _str machineName, unixHome;
+   int status = LoadRsyncIniFile(machineName, unixHome);
+   _str cmd = "\"C:\\Program Files (x86)\\Mobatek\\MobaXterm\\MobaXterm.exe\" -bookmark \""machineName" (qa)\"";
+   concur_command(cmd);
+}
+
 _command void copy_local_to_remote() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
 {
    _str cmdline = "ruby C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\GenerateCopyRemoteCommand.rb " :+ _GetWorkspaceDir() :+ " " :+ p_buf_name;
@@ -179,3 +195,6 @@ def  'A-C' 'u' 'd' = copy_unix_dir_path;
 def  'A-C' 'i' = getInfoFromRsync;
 def  'A-C' 'u' 'f' = copy_unix_path;
 def  'A-C' 'r' 'c' = copy_local_to_remote;
+def  'A-R' 'c' = copy_local_to_remote;
+
+def  'A-R' 'p' = start_primary;
