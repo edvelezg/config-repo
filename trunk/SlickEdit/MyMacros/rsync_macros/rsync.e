@@ -198,3 +198,4 @@ def  'A-C' 'r' 'c' = copy_local_to_remote;
 def  'A-R' 'c' = copy_local_to_remote;
 
 def  'A-R' 'p' = start_primary;
+def  'A-R' 'm' = start_mobaxterm;
