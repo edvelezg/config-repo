@@ -62,7 +62,7 @@ targz ()
 # tailg gridserver log
 tailgslog ()
 {
-    builtin cd /opt/qa/datasynapse/manager-data/logs/server/
-    tail -f gridserver.log
+    builtin cd /opt/qa/
+    find . -name 'gridserver.log' | tail -n 1 | xargs tail -f
 }
 
