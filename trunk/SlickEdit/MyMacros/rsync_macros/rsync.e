@@ -74,13 +74,13 @@ int LoadRsyncIniFile(_str &primaryMachine, _str &primaryDir)
 {
    int status = Rsync_LoadIni("Primary", primaryMachine);
    if (status == 0 && primaryMachine != "NA") {
-      say('Primary='primaryMachine);
+//    say('Primary='primaryMachine);
    } else {
       say("ERROR: You're missing the file " RSYNC_INI " in your directory");
    }
 
    if (Rsync_GetHome(primaryDir) == 0 && primaryDir != "NA") {
-      say('PrimaryDir='primaryDir);
+//    say('PrimaryDir='primaryDir);
    } else {
       say("WARN: status=" :+ status :+ "A Home directory may not have been specified");
       primaryDir = '/opt/qa';
@@ -157,8 +157,7 @@ _command void start_primary() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDIT
 {
    _str machineName, unixHome;
    int status = LoadRsyncIniFile(machineName, unixHome);
-   _str url = "http://"machineName":8080/livecluster/admin/control/dashboard/dashboardGrid.jsp";
-   goto_url(url);
+   goto_url("http://"machineName":8080/livecluster/admin/control/dashboard/dashboardGrid.jsp");
 }
 
 _command void start_mobaxterm() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)

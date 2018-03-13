@@ -94,6 +94,15 @@ end
 # Create the rsync.ini file
 FileUtils.copy_file(File.join(current_dir, "rsync.ini"), "rsync.ini")
 
+def scp_file_to_unix(script_dir, filename, user, primary)
+ orig = "#{File.join(script_dir, filename).to_s}"
+ cyg_orig = `cygpath "#{orig}"`.chomp
+ dest = "#{user}@#{primary}:/home/#{user}"
+
+ puts "scp '#{cyg_orig}' #{dest}"
+ puts `scp '#{cyg_orig}' #{dest}`
+end
+
 # I have not found a good way to copy the key for auto-ssh using a script 
 puts "==========================================================================="
 puts "I have not found a good way to copy the key for auto-ssh using a script_dir"
@@ -101,29 +110,19 @@ puts "Thus, copying the following commands into the clibpoard:"
 cmd = "ssh-copy-id #{user}\@#{primary}"
 puts "#{cmd}"
 Clipboard.copy cmd.chomp
-cmd = "ssh-copy-id #{user}\@#{engine}"
-puts "#{cmd}"
-Clipboard.copy cmd.chomp
-puts "==========================================================================="
-#puts "bash -c \"ssh-copy-id #{user}\@#{primary}\""
-#puts `bash -c \"ssh-copy-id #{user}\@#{primary}\"`
-
-def scp_file_to_unix(script_dir, filename, user, primary)
-  orig = "#{File.join(script_dir, filename).to_s}"
-  cyg_orig = `cygpath "#{orig}"`.chomp
-  dest = "#{user}@#{primary}:/home/#{user}"
-
-  puts "scp '#{cyg_orig}' #{dest}"
-  puts `scp '#{cyg_orig}' #{dest}`
-end
-
 scp_file_to_unix(script_dir, ".bash_profile", user, primary)
 scp_file_to_unix(script_dir, ".aliases"     , user, primary)
 scp_file_to_unix(script_dir, ".functions"   , user, primary)
-
+puts "==========================================================================="
+cmd = "ssh-copy-id #{user}\@#{engine}"
+puts "#{cmd}"
+Clipboard.copy cmd.chomp
 scp_file_to_unix(script_dir, ".bash_profile", user, engine)
 scp_file_to_unix(script_dir, ".aliases"     , user, engine)
 scp_file_to_unix(script_dir, ".functions"   , user, engine)
+puts "==========================================================================="
+#puts "bash -c \"ssh-copy-id #{user}\@#{primary}\""
+#puts `bash -c \"ssh-copy-id #{user}\@#{primary}\"`
 
 def execute_cmd(cmd)
   # Shell execution in ruby
