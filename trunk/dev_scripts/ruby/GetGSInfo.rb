@@ -50,7 +50,9 @@ iniFile["GridServer Information"] = {
   "FullVersion" => "#{full_version}",
   "JREVersion" => "#{jre_version}",
   "LogPath" => "#{fullpath}",
-  "Comment" => "Workflow was run successfully on GS#{full_version} on #{primary} [^Logs_#{full_version}.zip]",
+  "Comment1" => "Workflow was run successfully on GS#{full_version} on #{primary} [^Logs_#{full_version}.zip]",
+  "Comment2" => "Problem was reproduced on GS#{full_version} on #{primary} [^Logs_#{full_version}.zip]",
+  "Comment3" => "Could not reproduce problem on GS#{full_version} on #{primary} (see [^Logs_#{full_version}.zip])",
 }
 iniFile.write( :filename => 'rsync2.ini' )
 

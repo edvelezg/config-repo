@@ -78,6 +78,8 @@ open(".gitignore", "w") do |io|
   io.puts "*.vpwhist"
   io.puts "*.vtg"
   io.puts "*.java"
+  io.puts '/*.vtg'
+  io.puts '/*.vpwhist'
 end
 
 # Create the pull.bat file
@@ -110,6 +112,9 @@ puts "Thus, copying the following commands into the clibpoard:"
 cmd = "ssh-copy-id #{user}\@#{primary}"
 puts "#{cmd}"
 Clipboard.copy cmd.chomp
+print "Go to cygwin and paste ssh-copy-id command then Press any key to continue:"
+k = get_character
+puts k.chr
 scp_file_to_unix(script_dir, ".bash_profile", user, primary)
 scp_file_to_unix(script_dir, ".aliases"     , user, primary)
 scp_file_to_unix(script_dir, ".functions"   , user, primary)
@@ -117,6 +122,9 @@ puts "==========================================================================
 cmd = "ssh-copy-id #{user}\@#{engine}"
 puts "#{cmd}"
 Clipboard.copy cmd.chomp
+print "Go to cygwin and paste ssh-copy-id command then Press any key to continue:"
+k = get_character
+puts k.chr
 scp_file_to_unix(script_dir, ".bash_profile", user, engine)
 scp_file_to_unix(script_dir, ".aliases"     , user, engine)
 scp_file_to_unix(script_dir, ".functions"   , user, engine)
