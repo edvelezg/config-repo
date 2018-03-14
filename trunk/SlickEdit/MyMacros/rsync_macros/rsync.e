@@ -180,6 +180,17 @@ _command void copy_local_to_remote() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIR
 // concur_shell(cmdline);
 }
 
+_command void find_log_warnings_and_errors() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
+{
+   _str cmdline = "ruby C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\FindInFiles.rb " :+ _GetWorkspaceDir();
+   int status = 0;
+// concur_shell(cmdline);
+   concur_command(cmdline, true, false);
+// _str res = _PipeShellResult(cmdline, status, 'A');
+// _insert_text(res);
+// concur_shell(cmdline);
+}
+
 _command cdate2() name_info(','VSARG2_REQUIRES_EDITORCTL)
 {
    _str cmdline = 'bash -c "date +''%Y-%m-%d %H:%M:%S:%3N''"';

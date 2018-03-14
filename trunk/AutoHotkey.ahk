@@ -78,8 +78,8 @@ $^!i::
             Run, "http://confluence.tibco.com/pages/viewpage.action?spaceKey=grid&title=Initial+Information+for+New+Developers"
             Run, "https://jira.tibco.com/projects/GS/issues/GS-14073?filter=myopenissues"
         } Else If (key1 = "l") {
-            Run, "\\EGUTARRA-2\Journal\BlockChain.txt"
-            Run, "\\EGUTARRA-2\Journal\Issues.txt"
+            Run, "E:\Journal\BlockChain.txt"
+            Run, "E:\Journal\Issues.txt"
         } 
      }
      Else {
