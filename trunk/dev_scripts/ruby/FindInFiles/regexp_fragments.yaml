@@ -1,0 +1,4 @@
+---
+- !ruby/regexp /SEVERE/i
+- !ruby/regexp /WARNING/i
+- !ruby/regexp /Exception:/i

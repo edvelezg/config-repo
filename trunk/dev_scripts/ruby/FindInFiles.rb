@@ -24,7 +24,7 @@ file = File.new("#{dirPath}\\Report.process", 'w+')
 Dir.chdir(dirPath) do
   Dir.glob('**/*.log').each do |name|
     # Check if it's in the file
-    regexp_fragments = File.open("#{File.dirname(__FILE__)}/regexp_fragments.yaml") {|f| YAML.load(f)}
+    regexp_fragments = File.open("#{File.dirname(__FILE__)}/FindInFiles/regexp_fragments.yaml") {|f| YAML.load(f)}
     regexp = Regexp.union(*regexp_fragments)
     arr = findInFile(name, regexp)
     if arr.length > 0

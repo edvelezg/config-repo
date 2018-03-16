@@ -38,7 +38,7 @@ def find_file(pwd = Dir.pwd, filename)
   rescue StandardError
     puts 'Error reading files.'
   end
-  if (file == 'NA') then
+  if file == 'NA'
     return ''
   else
     Pathname.new(file).cleanpath.to_s
@@ -57,10 +57,10 @@ if iniFile.nil?
   puts "Requires rsync.ini file in #{cur_dir}"
   iniFile = IniFile.new
   iniFile['Settings'] = {
-      'Primary' => `hostname -f`.chomp,
-      'PrimaryDir' => cur_dir.to_s,
-      'Engine' => `hostname -f`.chomp,
-      'EngineDir' => cur_dir.to_s
+    'Primary' => `hostname -f`.chomp,
+    'PrimaryDir' => cur_dir.to_s,
+    'Engine' => `hostname -f`.chomp,
+    'EngineDir' => cur_dir.to_s
   }
 end
 
@@ -84,14 +84,14 @@ puts "file 'driver.log' not found. " if driver_log == ''
 
 # set properties
 iniFile['GridServer Information'] = {
-    'FullVersion' => full_version.to_s,
-    'JREVersion' => jre_version.to_s,
-    'GSLogPath' => "file://#{fullpath}",
-    'DriverLogPath' => "file://#{driver_log}",
-    'Comment1' => "Setting as Resolved. Workflow was successfully run on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
-    'Comment2' => "Workflow was successfully run on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
-    'Comment3' => "Problem was reproduced on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
-    'Comment4' => "Resolved as not a bug. Could not reproduce problem on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])"
+  'FullVersion' => full_version.to_s,
+  'JREVersion' => jre_version.to_s,
+  'GSLogPath' => "file://#{fullpath}",
+  'DriverLogPath' => "file://#{driver_log}",
+  'Comment1' => "Setting as Resolved. Workflow was successfully run on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
+  'Comment2' => "Workflow was successfully run on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
+  'Comment3' => "Problem was reproduced on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
+  'Comment4' => "Resolved as not a bug. Could not reproduce problem on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])"
 }
 iniFile.write(filename: 'rsync2.ini')
 
