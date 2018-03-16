@@ -1,6 +1,15 @@
+require 'yaml'
+
+# noinspection SpellCheckingInspection
+dirPath = 'C:\dev\lin64vm315.rofa.tibco.com';
+unless ARGV[0].nil?
+  dirPath = ARGV[0]
+end
+
+
 def findInFile (filepath, regexp)
   arr = []
-  fileObj = File.new(filepath, "r")
+  fileObj = File.new(filepath, 'r')
   count = 0
   while (line = fileObj.gets)
     count += 1
@@ -8,20 +17,15 @@ def findInFile (filepath, regexp)
       arr << "#{filepath}:#{count}: #{line}"
     end
   end
-  return arr
+  arr
 end
 
-dirPath = "C:\\dev\\lin64vm315.rofa.tibco.com";
-if !ARGV[0].nil?
-  dirPath = ARGV[0]
-end
-
-file = File.new("#{dirPath}\\Report.txt", 'w+')
-
+file = File.new("#{dirPath}\\Report.process", 'w+')
 Dir.chdir(dirPath) do
-  Dir.glob("**/*.log").each do |name|
+  Dir.glob('**/*.log').each do |name|
     # Check if it's in the file
-    regexp = Regexp.union(/SEVERE/,/WARNING/, /Exception:/)
+    regexp_fragments = File.open("#{File.dirname(__FILE__)}/regexp_fragments.yaml") {|f| YAML.load(f)}
+    regexp = Regexp.union(*regexp_fragments)
     arr = findInFile(name, regexp)
     if arr.length > 0
       arr.each { |e| file.puts e }
@@ -29,8 +33,8 @@ Dir.chdir(dirPath) do
   end
 end
 file.flush
-`vs #{dirPath}/Report.txt`
-
+file.close
+`vs #{dirPath}/Report.process`
 
 # def isInFile(filepath, text)
   # arr = []
