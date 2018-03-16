@@ -30,7 +30,8 @@ def find_file(pwd = Dir.pwd, filename)
     Find.find(pwd) do |path|
       Find.prune if path.include? '.git'
       Find.prune if FileTest.directory?(path)
-      if path.include?(filename)
+      Find.prune if path.include? /\.\w+/
+      if path.include?(/[\/\\]"#{filename}"$/)
         file = path
         puts file
       end
@@ -57,24 +58,26 @@ if iniFile.nil?
   puts "Requires rsync.ini file in #{cur_dir}"
   iniFile = IniFile.new
   iniFile['Settings'] = {
-    'Primary' => `hostname -f`.chomp,
-    'PrimaryDir' => cur_dir.to_s,
-    'Engine' => `hostname -f`.chomp,
-    'EngineDir' => cur_dir.to_s
+      'Primary' => `hostname -f`.chomp,
+      'PrimaryDir' => cur_dir.to_s,
+      'Engine' => `hostname -f`.chomp,
+      'EngineDir' => cur_dir.to_s
   }
 end
 
 fullpath = find_file(cur_dir, 'gridserver.log')
-if fullpath == ''
-  puts "file 'gridserver.log' not found. "
-  exit
-end
+puts "file 'gridserver.log' not found. " if fullpath == ''
 
-text = File.read(fullpath)
-match = text.match(/\[(\d+.\d+.\d+.\d+)\ \(\d+.\d+/)
-full_version = Regexp.last_match(1)
-match = text.match(/\[JRE: (\d+.\d+.\d+_\d+)\//)
-jre_version = Regexp.last_match(1)
+text = File.read(fullpath) unless fullpath == ''
+
+full_version = ''
+jre_version = ''
+unless text.nil?
+  match = text.match(/\[(\d+.\d+.\d+.\d+)\ \(\d+.\d+/)
+  full_version = Regexp.last_match(1)
+  match = text.match(/\[JRE: (\d+.\d+.\d+_\d+)\//)
+  jre_version = Regexp.last_match(1)
+end
 
 settings = iniFile['Settings']
 primary = settings['Primary']
@@ -84,14 +87,14 @@ puts "file 'driver.log' not found. " if driver_log == ''
 
 # set properties
 iniFile['GridServer Information'] = {
-  'FullVersion' => full_version.to_s,
-  'JREVersion' => jre_version.to_s,
-  'GSLogPath' => "file://#{fullpath}",
-  'DriverLogPath' => "file://#{driver_log}",
-  'Comment1' => "Setting as Resolved. Workflow was successfully run on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
-  'Comment2' => "Workflow was successfully run on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
-  'Comment3' => "Problem was reproduced on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
-  'Comment4' => "Resolved as not a bug. Could not reproduce problem on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])"
+    'FullVersion' => full_version.to_s,
+    'JREVersion' => jre_version.to_s,
+    'GSLogPath' => "file://#{fullpath}",
+    'DriverLogPath' => "file://#{driver_log}",
+    'Comment1' => "Setting as Resolved. Workflow was successfully run on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
+    'Comment2' => "Workflow was successfully run on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
+    'Comment3' => "Problem was reproduced on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])",
+    'Comment4' => "Resolved as not a bug. Could not reproduce problem on GS#{full_version} on http://#{primary}:8000 (see [^Logs_#{full_version}.zip])"
 }
 iniFile.write(filename: 'rsync2.ini')
 

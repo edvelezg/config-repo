@@ -1,7 +1,7 @@
 require 'yaml'
 
 # noinspection SpellCheckingInspection
-dirPath = 'C:\dev\lin64vm315.rofa.tibco.com';
+dirPath = 'C:\dev\lin64vm353.rofa.tibco.com'
 unless ARGV[0].nil?
   dirPath = ARGV[0]
 end
@@ -20,7 +20,7 @@ def findInFile (filepath, regexp)
   arr
 end
 
-file = File.new("#{dirPath}\\Report.process", 'w+')
+file = File.new("#{dirPath}\\Report.process", 'w')
 Dir.chdir(dirPath) do
   Dir.glob('**/*.log').each do |name|
     # Check if it's in the file

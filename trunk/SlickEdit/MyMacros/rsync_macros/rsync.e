@@ -3,16 +3,10 @@
 #define RSYNC_INI "rsync.ini"
 #pragma option(strict2, on)
 
-
-_command void run_rsync() name_info(',' VSARG2_REQUIRES_EDITORCTL)
-{
-   display_loadini();
-};
-
-void display_loadini()
+_command void display_rsyncini() name_info(',' VSARG2_REQUIRES_EDITORCTL)
 {
     _str machineName;
-   if (Rsync_LoadIni("Primary", machineName) == 0 && machineName != "NA") 
+   if (Rsync_GetPrimary(machineName) == 0 && machineName != "NA") 
    {
       say('Primary='machineName);
 //    do_run_rsync(rsyncPath, p_buf_name);
@@ -39,13 +33,22 @@ void display_loadini()
       say("ERROR: You're missing the file " RSYNC_INI " in your directory");
    }
 
+   _str iniPath = _GetWorkspaceDir() :+ RSYNC_INI;
+   _str table:[];
+   _ini_get_hashtable_values(iniPath, "Settings", table);
+
+   _str k;
+   foreach (k => auto v in table) {
+      say(k" = "v);
+   }
+   
 };
 
 
-int Rsync_LoadIni(_str SectionName, _str &name)
+int Rsync_GetPrimary(_str &name)
 {
    _str iniPath = _GetWorkspaceDir() :+ RSYNC_INI;
-   int status = _ini_get_value(iniPath, "Settings", SectionName, name, "NA");
+   int status = _ini_get_value(iniPath, "Settings", "Primary", name, "NA");
    return status;
 };
 
@@ -72,11 +75,12 @@ int Rsync_GetEngineMachine(_str &engineHome, _str &engine)
  */
 int LoadRsyncIniFile(_str &primaryMachine, _str &primaryDir)
 {
-   int status = Rsync_LoadIni("Primary", primaryMachine);
+   int status = Rsync_GetPrimary(primaryMachine);
    if (status == 0 && primaryMachine != "NA") {
 //    say('Primary='primaryMachine);
    } else {
       say("ERROR: You're missing the file " RSYNC_INI " in your directory");
+      primaryMachine = "localhost";
    }
 
    if (Rsync_GetHome(primaryDir) == 0 && primaryDir != "NA") {
@@ -180,9 +184,9 @@ _command void copy_local_to_remote() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIR
 // concur_shell(cmdline);
 }
 
-_command void find_log_warnings_and_errors() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
+void find_log_warnings_and_errors() name_info(','VSARG2_READ_ONLY)
 {
-   _str cmdline = "ruby C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\FindInFiles.rb " :+ _GetWorkspaceDir();
+   _str cmdline = 'ruby C:\Users\egutarra\config-repo2\trunk\dev_scripts\ruby\FindInFiles.rb ' :+ _GetWorkspaceDir();
    int status = 0;
 // concur_shell(cmdline);
    concur_command(cmdline, true, false);
@@ -206,6 +210,6 @@ def  'A-C' 'i' = getInfoFromRsync;
 def  'A-C' 'u' 'f' = copy_unix_path;
 def  'A-C' 'r' 'c' = copy_local_to_remote;
 def  'A-R' 'c' = copy_local_to_remote;
-
 def  'A-R' 'p' = start_primary;
 def  'A-R' 'm' = start_mobaxterm;
+
