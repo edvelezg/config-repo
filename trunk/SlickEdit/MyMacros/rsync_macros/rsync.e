@@ -184,7 +184,7 @@ _command void copy_local_to_remote() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIR
 // concur_shell(cmdline);
 }
 
-void find_log_warnings_and_errors() name_info(','VSARG2_READ_ONLY)
+_command void find_log_warnings_and_errors() name_info(','VSARG2_READ_ONLY)
 {
    _str cmdline = 'ruby C:\Users\egutarra\config-repo2\trunk\dev_scripts\ruby\FindInFiles.rb ' :+ _GetWorkspaceDir();
    int status = 0;
