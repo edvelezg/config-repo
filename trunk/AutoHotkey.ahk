@@ -77,6 +77,7 @@ $^!i::
             Run, "http://confluence.tibco.com/display/grid/GridServer+Releases"
             Run, "http://confluence.tibco.com/pages/viewpage.action?spaceKey=grid&title=Initial+Information+for+New+Developers"
             Run, "https://jira.tibco.com/projects/GS/issues/GS-14073?filter=myopenissues"
+            Run, "https://www.bloomberg.com/quote/USDCOP:CUR"
         } Else If (key1 = "l") {
             Run, "E:\Journal\BlockChain.txt"
             Run, "E:\Journal\Issues.txt"

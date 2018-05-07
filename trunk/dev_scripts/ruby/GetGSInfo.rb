@@ -25,13 +25,13 @@ class IniFile
 end
 
 def find_file(pwd = Dir.pwd, filename)
-  file = 'NA'
+  puts filename
   begin
+    file = 'NA'
     Find.find(pwd) do |path|
       Find.prune if path.include? '.git'
-      Find.prune if FileTest.directory?(path)
-      Find.prune if path.include? /\.\w+/
-      if path.include?(/[\/\\]"#{filename}"$/)
+      # Find.prune if path.include? /\.\w+/
+      if path.include?(filename)
         file = path
         puts file
       end
@@ -48,7 +48,7 @@ end
 
 # cur_dir = 'C:\tibco\TIB_gridserver_6.2.0'
 # noinspection SpellCheckingInspection
-cur_dir = 'C:\dev\lin64vm353.rofa.tibco.com'
+cur_dir = 'C:\dev\lin64vm137.rofa.tibco.com'
 cur_dir = ARGV[0] unless ARGV[0].nil?
 
 Dir.chdir(cur_dir)
