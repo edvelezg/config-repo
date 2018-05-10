@@ -81,8 +81,11 @@ open('.gitignore', 'w') do |io|
   io.puts '*.vpwhist'
   io.puts '*.vtg'
   io.puts '*.java'
-  io.puts '/*.vtg'
-  io.puts '/*.vpwhist'
+  io.puts '*.jpg'
+  io.puts '*.dll'
+  io.puts '*.pdb'
+  io.puts '*.zip'
+  io.puts '*.tar.gz'
 end
 
 # Create the pull.bat file
@@ -123,16 +126,18 @@ scp_file_to_unix(script_dir, '.bash_profile', user, primary)
 scp_file_to_unix(script_dir, '.aliases', user, primary)
 scp_file_to_unix(script_dir, '.functions', user, primary)
 puts '==========================================================================='
-cmd = "ssh-copy-id #{user}\@#{engine}"
-puts cmd.to_s
-Clipboard.copy cmd.chomp
-print 'Go to cygwin and paste ssh-copy-id command then Press any key to continue:'
-k = get_character
-puts k.chr
-scp_file_to_unix(script_dir, '.bash_profile', user, engine)
-scp_file_to_unix(script_dir, '.aliases', user, engine)
-scp_file_to_unix(script_dir, '.functions', user, engine)
-puts '==========================================================================='
+unless engineDir.nil?
+  cmd = "ssh-copy-id #{user}\@#{engine}"
+  puts cmd.to_s
+  Clipboard.copy cmd.chomp
+  print 'Go to cygwin and paste ssh-copy-id command then Press any key to continue:'
+  k = get_character
+  puts k.chr
+  scp_file_to_unix(script_dir, '.bash_profile', user, engine)
+  scp_file_to_unix(script_dir, '.aliases', user, engine)
+  scp_file_to_unix(script_dir, '.functions', user, engine)
+  puts '==========================================================================='
+end
 #puts "bash -c \"ssh-copy-id #{user}\@#{primary}\""
 #puts `bash -c \"ssh-copy-id #{user}\@#{primary}\"`
 

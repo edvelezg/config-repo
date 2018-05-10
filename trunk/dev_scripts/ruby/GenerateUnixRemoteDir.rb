@@ -6,16 +6,16 @@ require 'pp'
 require 'pathname'
 require 'clipboard'
 
-def getWinPath(cygpath)
-  cmd = "cygpath -w #{cygpath}"
-  winpath = `#{cmd}`.chomp
-  return winpath
-end
-
 def getCygPath(winPath)
   cmd = "cygpath #{winPath}"
   cygpath = `#{cmd}`.chomp
   return cygpath
+end
+
+def getWinPath(cygpath)
+  cmd = "cygpath -w #{cygpath}"
+  winpath = `#{cmd}`.chomp
+  return winpath
 end
 
 filepath = ARGV[1].to_s     # 'C:\dev\lin64vm200.rofa.tibco.com\qa\datasynapse\manager\webapps\livecluster\WEB-INF\config\director.xml'
@@ -34,6 +34,7 @@ settings   = inifile["Settings"]
 primary    = settings["Primary"]
 primaryDir = settings["PrimaryDir"]
 user = settings["User"]
+os = settings["OS"]
 
 mirror_folder = File.basename(primaryDir)
 mirror_path = File.join(project_path, mirror_folder);
@@ -43,13 +44,9 @@ relpath = cygpath[cyg_mirror_dir_length..-1]
 remotePath = File.join(primaryDir, relpath)
 
 puts remotePath
-cmd = "scp #{cygpath} #{user}@#{primary}:#{remotePath}"
-puts cmd
-File.open(File.join(project_path, "CopyToRemote.bat"), "w") do |f|
-	f.puts cmd
-	f.puts 'pause'
-	f.puts "exit"
+
+if os == "Windows"
+  remotePath = getWinPath(remotePath)
 end
 
-system "start #{project_path}\\CopyToRemote.bat"
-
+Clipboard.copy File.dirname(remotePath)

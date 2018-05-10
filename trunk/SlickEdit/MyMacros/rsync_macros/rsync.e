@@ -145,6 +145,13 @@ _command void copy_unix_dir_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES
    _copy_text_to_clipboard(fullPath);
 }
 
+_command void copy_unix_dir_path2() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
+{
+   _str cmdline = "ruby C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\GenerateUnixRemoteDir.rb " :+ _GetWorkspaceDir() :+ " " :+ p_buf_name;
+   int status = 0;
+   _str res = _PipeShellResult(cmdline, status, 'A');
+}
+
 _command void getInfoFromRsync() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
 {
    _str cmdline = "ruby C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\GetGSInfo.rb " :+ _GetWorkspaceDir();
@@ -205,7 +212,7 @@ _command cdate2() name_info(','VSARG2_REQUIRES_EDITORCTL)
 
 }
 
-def  'A-C' 'u' 'd' = copy_unix_dir_path;
+def  'A-C' 'u' 'd' = copy_unix_dir_path2;
 def  'A-C' 'i' = getInfoFromRsync;
 def  'A-C' 'u' 'f' = copy_unix_path;
 def  'A-C' 'r' 'c' = copy_local_to_remote;
