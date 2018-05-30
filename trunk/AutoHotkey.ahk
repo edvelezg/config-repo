@@ -14,6 +14,7 @@
 ; try out these hotkeys, run AutoHotkey again, which will load this file.
 
 ::w/::with
+::w/o::without
 ::]b::\\netapp01c\Build
 ::]bmp::BuildMirrorProject.rb
 ::b/f::before
@@ -76,8 +77,9 @@ $^!i::
             Run, "http://rofa-nyc.na.tibco.com/request/resources"
             Run, "http://confluence.tibco.com/display/grid/GridServer+Releases"
             Run, "http://confluence.tibco.com/pages/viewpage.action?spaceKey=grid&title=Initial+Information+for+New+Developers"
-            Run, "https://jira.tibco.com/projects/GS/issues/GS-14073?filter=myopenissues"
+            Run, "http://confluence.tibco.com/display/grid/GridServer+Home"
             Run, "https://www.bloomberg.com/quote/USDCOP:CUR"
+            Run, "https://jira.tibco.com/projects/GS/issues/GS-14073?filter=myopenissues"
         } Else If (key1 = "l") {
             Run, "E:\Journal\BlockChain.txt"
             Run, "E:\Journal\Issues.txt"
@@ -144,8 +146,15 @@ return
 	MouseGetPos, xPos, yPos
 	Click Left, 380, 65
 	; Click Left, 242, 158
-        MouseMove %xPos%, %yPos%
-        return
+   MouseMove %xPos%, %yPos%
+   return
+
+;+!f::
+;	 MouseGetPos, xPos, yPos
+;	 Click Left, 140, 82
+;   MouseMove %xPos%, %yPos%
+;   return
+
 
 #IfWinActive ahk_class SunAwtFrame
 !d::
