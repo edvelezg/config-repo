@@ -68,21 +68,22 @@ return
 ;http://stackoverflow.com/questions/34801868/creating-a-time-sensitive-keyboard-shortcut-chord-with-autohotkey
 $^!i::
     Input key1, I L1 T0.8 ;wait 0.8 seconds for a keypress
-    If (key1 = "p" || key1 = "k" || key1 = "m" || key1 = "l") { ;if p, k or u were pressed
+    If (key1 = "p" || key1 = "k" || key1 = "m" || key1 = "l") { ;if p, k m, or l were pressed
         If (key1 = "p") { ;if the first key we waited for was p:
             Run, "E:\Petra\Issues"
         } Else If (key1 = "k") { ;if the first key we waited for was k:
             Run, "E:\Kingdom\Issues"
-        } Else If (key1 = "m") { ;if the first key we waited for was u:
+        } Else If (key1 = "m") { ;if the first key we waited for was m:
             Run, "http://rofa-nyc.na.tibco.com/request/resources"
             Run, "http://confluence.tibco.com/display/grid/GridServer+Releases"
             Run, "http://confluence.tibco.com/pages/viewpage.action?spaceKey=grid&title=Initial+Information+for+New+Developers"
             Run, "http://confluence.tibco.com/display/grid/GridServer+Home"
             Run, "https://www.bloomberg.com/quote/USDCOP:CUR"
-            Run, "https://jira.tibco.com/projects/GS/issues/GS-14073?filter=myopenissues"
+            Run, "https://jira.tibco.com/issues/?filter=79186"
         } Else If (key1 = "l") {
+            Run, "E:\Journal\Issues"
             Run, "E:\Journal\BlockChain.txt"
-            Run, "E:\Journal\Issues.txt"
+            Run, "https://jira.tibco.com/issues/?filter=79186"
         } 
      }
      Else {
