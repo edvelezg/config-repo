@@ -46,6 +46,7 @@ puts remotePath
 cmd = "scp #{cygpath} #{user}@#{primary}:#{remotePath}"
 puts cmd
 File.open(File.join(project_path, "CopyToRemote.bat"), "w") do |f|
+	f.puts "dos2unix #{cygpath}"
 	f.puts cmd
 	f.puts 'pause'
 	f.puts "exit"

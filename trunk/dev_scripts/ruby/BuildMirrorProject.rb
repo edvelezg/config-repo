@@ -100,6 +100,18 @@ open('pull.bat', 'w') do |io|
   end
 end
 
+# Create the push.bat file, I don't use this one but in case I need it.
+open('push.bat', 'w') do |io|
+  orig = "#{cyg_project_dir}/#{mirror_primaryDir}"
+  dest = "#{primary}:#{primaryDir}"
+  io.puts "rsync -avz --exclude '.git' --exclude 'lost+found' --exclude-from '.gitignore' --delete #{orig}/* #{user}@#{dest}"
+  unless engineDir.nil?
+    orig = "#{engine}:#{engineDir}"
+    dest = "#{cyg_project_dir}/#{engine}/#{mirror_engineDir}"
+    io.puts "rsync -avz --exclude '.git' --delete #{user}@#{orig}/* '#{dest}'"
+  end
+end
+
 # Create the rsync.ini file
 FileUtils.copy_file(File.join(current_dir, 'rsync.ini'), 'rsync.ini')
 
