@@ -13,8 +13,10 @@
 ; and it launches a new Notepad window (or activates an existing one).  To
 ; try out these hotkeys, run AutoHotkey again, which will load this file.
 
+::/s f::search for
 ::w/::with
 ::w/o::without
+::w/in::within
 ::]b::\\netapp01c\Build
 ::]bmp::BuildMirrorProject.rb
 ::b/f::before
@@ -83,6 +85,7 @@ $^!i::
         } Else If (key1 = "l") {
             Run, "E:\Journal\Issues"
             Run, "E:\Journal\BlockChain.txt"
+            Run, "E:\Journal\Issues.txt"
             Run, "https://jira.tibco.com/issues/?filter=79186"
         } 
      }
