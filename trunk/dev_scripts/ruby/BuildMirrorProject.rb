@@ -124,7 +124,7 @@ def scp_file_to_unix(script_dir, filename, user, primary)
   puts `scp '#{cyg_orig}' #{dest}`
 end
 
-# I have not found a good way to copy the key for auto-ssh using a script 
+# I have not found a good way to copy the key for auto-ssh using a script
 puts '==========================================================================='
 puts 'I have not found a good way to copy the key for auto-ssh using a script_dir'
 puts 'Thus, copying the following commands into the clibpoard:'
