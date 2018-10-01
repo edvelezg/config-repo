@@ -148,6 +148,7 @@ _command void copy_unix_dir_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES
 _command void copy_unix_dir_path2() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
 {
    _str cmdline = "ruby C:\\Users\\Slark\\Documents\\config-repo\\trunk\\dev_scripts\\ruby\\GenerateUnixRemoteDir.rb " :+ _GetWorkspaceDir() :+ " " :+ p_buf_name;
+   say(cmdline);
    int status = 0;
    _str res = _PipeShellResult(cmdline, status, 'A');
 }

@@ -1094,12 +1094,14 @@
             <F N="SlickEdit/MyMacros/copy_unit_test_diff_file/example.txt"/>
             <F N="Exceed Config/Exceed.xcfg"/>
             <F N="dev_scripts/ruby/FindFiles.rb"/>
+            <F N="dev_scripts/ruby/FindInFiles.rb"/>
             <F N="dev_scripts/FindLatestLog.bat"/>
             <F N="SlickEdit/SEBook/Chapter17/fischer_spassky_19921104.pgn"/>
             <F N="SlickEdit/Forum.txt"/>
             <F N="SlickEdit/MyMacros/rsync_macros/forum.txt"/>
             <F N="Exceed Config/Garnet.xs"/>
             <F N="dev_scripts/ruby/GenerateCopyRemoteCommand.rb"/>
+            <F N="dev_scripts/ruby/GenerateUnixRemoteDir.rb"/>
             <F N="SlickEdit/MyMacros/ruby_macros/ruby_beautify/genInput.rb"/>
             <F N="dev_scripts/GetBuildNumber.ps1"/>
             <F N="dev_scripts/ruby/GetGSInfo.rb"/>
@@ -1167,6 +1169,7 @@
             <F N="SlickEdit/AlignMacro/readme.txt"/>
             <F N="SlickEdit/MyMacros/no_mouse_rtClk/README.txt"/>
             <F N="SlickEdit/MyMacros/ruby_macros/ruby_beautify/README.txt"/>
+            <F N="dev_scripts/ruby/FindInFiles/regexp_fragments.yaml"/>
             <F N="SlickEdit/MyMacros/renumber/renumber.txt"/>
             <F N="dev_scripts/restore.sql"/>
             <F N="SlickEdit/SEBook/Chapter13/rev1.txt"/>

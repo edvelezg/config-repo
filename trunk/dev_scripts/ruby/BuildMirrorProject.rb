@@ -1,6 +1,6 @@
-# Copyright (c) 2018 TIBCO Software Inc. All Rights Reserved.
 # Requires both Cygwin and gem inifile, to install use the command: 'gem install inifile'
 # Requires: 'gem install highline'
+# Requires: 'gem install clipboard'
 # Cygwin found in https://cygwin.com/setup-x86_64.exe
 
 require 'inifile'
