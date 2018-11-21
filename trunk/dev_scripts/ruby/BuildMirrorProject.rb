@@ -165,6 +165,6 @@ ENV['PATH'] += ';C:\PROGRA~1\TortoiseGit\bin'
 
 # Execute git commands to init repo
 # https://ayende.com/blog/4749/executing-tortoisegit-from-the-command-line
-execute_cmd('set Path=%Path%;C:\PROGRA~1\TortoiseGit\bin')
+# execute_cmd('set Path=%Path%;C:\PROGRA~1\TortoiseGit\bin')
 execute_cmd('TortoiseGitProc /command:repocreate')
 execute_cmd('TortoiseGitProc /command:commit /path:. /logmsg:"init files + ignored files" /closeonend:3')
