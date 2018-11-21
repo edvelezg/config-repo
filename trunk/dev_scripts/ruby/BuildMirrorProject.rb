@@ -159,6 +159,10 @@ def execute_cmd(cmd)
   puts `#{cmd}`
 end
 
+# Add path to ruby's environment 
+# https://code-maven.com/ruby-env
+ENV['PATH'] += ';C:\PROGRA~1\TortoiseGit\bin'
+
 # Execute git commands to init repo
 # https://ayende.com/blog/4749/executing-tortoisegit-from-the-command-line
 execute_cmd('set Path=%Path%;C:\PROGRA~1\TortoiseGit\bin')
