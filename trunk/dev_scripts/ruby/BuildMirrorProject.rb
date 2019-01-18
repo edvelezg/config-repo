@@ -134,7 +134,7 @@ Clipboard.copy cmd.chomp
 print 'Go to cygwin and paste ssh-copy-id command then Press any key to continue:'
 k = get_character
 puts k.chr
-scp_file_to_unix(script_dir, '.bash_profile', user, primary)
+scp_file_to_unix(script_dir, 'egutarra.bash_profile', user, primary)
 scp_file_to_unix(script_dir, '.aliases', user, primary)
 scp_file_to_unix(script_dir, '.functions', user, primary)
 puts '==========================================================================='
