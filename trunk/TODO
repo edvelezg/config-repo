@@ -1,37 +1,22 @@
-Thesis
-Need to create a section explaining the Correlation separate from the actual bitmap index stuff.
-Need to rerun scripts and regenerate plots with daniel's fix of the Java code.
-I need to add more content
-short text on the behavior of runcount with correlation
-Run new correlation measure on experiments
-Attempt experiment with other column cardinalities
-Do some experiments with different column cardinalities
+# SDI Guideline
 
-NN
-What if we have more than one output, how many slopes do we have then. Do we have one slope for each output?
-I need to propose to dale to explain to me in a simple neural network. How we can express it in a differential equation.
-AGHH THERE'S AN ERROR IN THE NETWORK.RB FOR ALL THE ARCTANS.
-What am I supposed to do with flat slopes.. 
-Add support for different neuron functions at different layers in the back-propagation code.
+# What are the functional reqs of the system:
 
+    1. Uploading/downloading/viewing files?
+    2. Can search based on titles
+    3. Following other users
+    4. Generate & Display Feed
 
-Ruby
-Need to finish implementing my timer script.
-I need to finish building my script that copies to mirror file on server and then executes the updated code.
-Create a command called propagate that will distribute a copy of a file into a bunch of directories
+# Non-function reqs:
 
-CS course
-
-Bash 
-I am putting the the ssh agent stuff in the .bashrc file, but it 
-seems like it is not touched at all after running the .bash_profile file, 
-It is quite perplexing.  
-
-I need to add my .Profile from my mac to the repository.  I have an idea 
-of keeping the directory structures in svn configuration repo..  and then 
-importing those folders on the operating system..  so that nothing bad may 
- happen 
+    1. High Availability
+    2. Acceptable latency for the system?
+    3. 
 
 
-I probably should mention that the measure correlation depends on the size 
-of the sample as seen in the experiments that we did 
+# Capacity estimation and constraints
+    500M users, with 1M daily active users
+    2M new photos / day, 
+    Avg photo size: 200KB
+    Total space 2*10^6 * 200 *10^3B = 400 GB
+

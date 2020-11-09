@@ -13,10 +13,11 @@
 ; and it launches a new Notepad window (or activates an existing one).  To
 ; try out these hotkeys, run AutoHotkey again, which will load this file.
 
+:*:rat::[n,d] = rat(ans)
 ::w/::with
 ::w/o::without
-::]b::\\netapp01c\Build
-::]bmp::BuildMirrorProject.rb
+; ::]b::\\netapp01c\Build
+; ::]bmp::BuildMirrorProject.rb
 ::b/f::before
 ::chgd::changed
 ::chgs::changes
@@ -49,6 +50,16 @@ return
 ::EGV::
 FormatTime, CurrentDateTime,, M/d/yyyy
 SendInput, EGV %CurrentDateTime%:
+return
+
+:*:..l::
+SendInput v751448{tab}
+SendRaw Gray@Rabbit!
+SendInput {tab}123456
+return 
+
+:*:..p::
+SendRaw Gray@Rabbit!
 return
 
 ;^!i::
