@@ -1,6 +1,6 @@
-# Copyright (c) 2018 TIBCO Software Inc. All Rights Reserved.
 # Requires both Cygwin and gem inifile, to install use the command: 'gem install inifile'
 # Requires: 'gem install highline'
+# Requires: 'gem install clipboard'
 # Cygwin found in https://cygwin.com/setup-x86_64.exe
 
 require 'inifile'
@@ -124,7 +124,7 @@ def scp_file_to_unix(script_dir, filename, user, primary)
   puts `scp '#{cyg_orig}' #{dest}`
 end
 
-# I have not found a good way to copy the key for auto-ssh using a script 
+# I have not found a good way to copy the key for auto-ssh using a script
 puts '==========================================================================='
 puts 'I have not found a good way to copy the key for auto-ssh using a script_dir'
 puts 'Thus, copying the following commands into the clibpoard:'
@@ -134,7 +134,7 @@ Clipboard.copy cmd.chomp
 print 'Go to cygwin and paste ssh-copy-id command then Press any key to continue:'
 k = get_character
 puts k.chr
-scp_file_to_unix(script_dir, '.bash_profile', user, primary)
+scp_file_to_unix(script_dir, 'egutarra.bash_profile', user, primary)
 scp_file_to_unix(script_dir, '.aliases', user, primary)
 scp_file_to_unix(script_dir, '.functions', user, primary)
 puts '==========================================================================='
@@ -159,7 +159,12 @@ def execute_cmd(cmd)
   puts `#{cmd}`
 end
 
+# Add path to ruby's environment 
+# https://code-maven.com/ruby-env
+ENV['PATH'] += ';C:\PROGRA~1\TortoiseGit\bin'
+
 # Execute git commands to init repo
 # https://ayende.com/blog/4749/executing-tortoisegit-from-the-command-line
+# execute_cmd('set Path=%Path%;C:\PROGRA~1\TortoiseGit\bin')
 execute_cmd('TortoiseGitProc /command:repocreate')
 execute_cmd('TortoiseGitProc /command:commit /path:. /logmsg:"init files + ignored files" /closeonend:3')

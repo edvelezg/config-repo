@@ -53,7 +53,7 @@ _command void repeat_n(_str args = null) name_info(','VSARG2_EDITORCTL) {
  * @param args "n" - how many times.
  */
 _command void repeat_n_last_macro(_str args = null) name_info(','VSARG2_EDITORCTL) {
-  wrox_repeat_n(args :+ " last_macro");
+  repeat_n(args :+ " last_macro");
 }
 
 /**

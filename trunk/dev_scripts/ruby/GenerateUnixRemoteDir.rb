@@ -1,3 +1,8 @@
+# Requires both Cygwin and gem inifile, to install use the command: 'gem install inifile'
+# Requires: 'gem install highline'
+# Requires: 'gem install clipboard'
+# Cygwin found in https://cygwin.com/setup-x86_64.exe
+
 #!/usr/bin/env ruby
 require "fileutils"
 require "rubygems"

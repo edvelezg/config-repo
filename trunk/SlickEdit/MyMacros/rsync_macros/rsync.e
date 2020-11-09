@@ -147,14 +147,15 @@ _command void copy_unix_dir_path() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES
 
 _command void copy_unix_dir_path2() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
 {
-   _str cmdline = "ruby C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\GenerateUnixRemoteDir.rb " :+ _GetWorkspaceDir() :+ " " :+ p_buf_name;
+   _str cmdline = "ruby C:\\Users\\Slark\\Documents\\config-repo\\trunk\\dev_scripts\\ruby\\GenerateUnixRemoteDir.rb " :+ _GetWorkspaceDir() :+ " " :+ p_buf_name;
+   say(cmdline);
    int status = 0;
    _str res = _PipeShellResult(cmdline, status, 'A');
 }
 
 _command void getInfoFromRsync() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
 {
-   _str cmdline = "ruby C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\GetGSInfo.rb " :+ _GetWorkspaceDir();
+   _str cmdline = "ruby C:\\Users\\Slark\\Documents\\config-repo\\trunk\\dev_scripts\\ruby\\GetGSInfo.rb " :+ _GetWorkspaceDir();
    say(cmdline);
    int status = 0;
    _str res = _PipeShellResult(cmdline, status, 'C');
@@ -181,7 +182,7 @@ _command void start_mobaxterm() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_ED
 
 _command void copy_local_to_remote() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIRES_EDITORCTL)
 {
-   _str cmdline = "ruby C:\\Users\\egutarra\\config-repo2\\trunk\\dev_scripts\\ruby\\GenerateCopyRemoteCommand.rb " :+ _GetWorkspaceDir() :+ " " :+ p_buf_name;
+   _str cmdline = "ruby C:\\Users\\Slark\\Documents\\config-repo\\trunk\\dev_scripts\\ruby\\GenerateCopyRemoteCommand.rb " :+ _GetWorkspaceDir() :+ " " :+ p_buf_name;
    int status = 0;
 // e(_GetWorkspaceDir() :+ 'Result');
 // concur_shell()
@@ -193,7 +194,7 @@ _command void copy_local_to_remote() name_info(','VSARG2_READ_ONLY|VSARG2_REQUIR
 
 _command void find_log_warnings_and_errors() name_info(','VSARG2_READ_ONLY)
 {
-   _str cmdline = 'ruby C:\Users\egutarra\config-repo2\trunk\dev_scripts\ruby\FindInFiles.rb ' :+ _GetWorkspaceDir();
+   _str cmdline = 'ruby C:\Users\Slark\Documents\config-repo\trunk\dev_scripts\ruby\FindInFiles.rb ' :+ _GetWorkspaceDir();
    int status = 0;
 // concur_shell(cmdline);
    concur_command(cmdline, true, false);
