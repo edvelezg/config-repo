@@ -13,8 +13,27 @@
 ; and it launches a new Notepad window (or activates an existing one).  To
 ; try out these hotkeys, run AutoHotkey again, which will load this file.
 
+; #InstallKeybdHook		;Forces the unconditional installation of the keyboard hook
+; #UseHook On			;might increase responsiveness of hotkeys
+; #MaxThreads 20			;use 20 (the max) instead of 10 threads
+; SetBatchLines, -1		;makes the script run at max speed
+; SetKeyDelay , -1, -1		;faster response (might be better with -1, 0)
+; ;Thread, Interrupt , -1, -1	;not sure what this does, could be bad for timers
+; SetTitleMatchMode, 3 ;title Warcraft III must match exactly
+
+::f/e::for each
+::ea/::each
+::pls::please
+::tbl::table
+::ure::you're
+::ur::your
+::svc::service
+::th::the
+::creds::credentials
+::msg::message
+::u::you
 ::/s f::search for
-:*:rat::[n,d] = rat(ans)
+;:*:rat::[n,d] = rat(ans)
 ::w/::with
 ::w/o::without
 ::w/in::within
@@ -49,6 +68,9 @@ FormatTime, CurrentDateTime,, M/d/yyyy h:mm tt  ; It will look like 9/1/2005 3:5
 SendInput %CurrentDateTime%
 return
 
+!n::
+MouseGetPos, xpos, ypos 
+Msgbox, The cursor is at X%xpos% Y%ypos%. 
 ::EGV::
 FormatTime, CurrentDateTime,, M/d/yyyy
 SendInput, EGV %CurrentDateTime%:
@@ -152,6 +174,9 @@ Return
    Run, "C:\dev\scripts\getLastBuild.rb"
 return
 
+^!m::
+    Run, "C:\Users\edvel\Documents\config-repo\trunk"
+return
 
 ;#IfWinActive ahk_class SunAwtFrame
 ;^u::
