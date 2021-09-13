@@ -20,15 +20,18 @@
 ; SetKeyDelay , -1, -1		;faster response (might be better with -1, 0)
 ; ;Thread, Interrupt , -1, -1	;not sure what this does, could be bad for timers
 ; SetTitleMatchMode, 3 ;title Warcraft III must match exactly
-
+::endpoing::endpoint
+:: r ::are
+::r we::are we
+::r u::are you
+::ty::thank you
 ::f/e::for each
 ::ea/::each
 ::pls::please
 ::tbl::table
-::ure::you're
-::ur::your
+::ure ::you're 
+::ur :: your 
 ::svc::service
-::th::the
 ::creds::credentials
 ::msg::message
 ::u::you
@@ -78,12 +81,12 @@ return
 
 :*:..l::
 SendInput v751448{tab}
-SendRaw Gray@Rabbit!
+SendRaw Magenta@Rabbit!
 SendInput {tab}123456
 return 
 
 :*:..p::
-SendRaw Gray@Rabbit!
+SendRaw Magenta@Rabbit!
 return
 
 ;^!i::
