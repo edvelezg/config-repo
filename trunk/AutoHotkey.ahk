@@ -81,12 +81,12 @@ return
 
 :*:..l::
 SendInput v751448{tab}
-SendRaw Magenta@Rabbit!
+SendRaw Golden@Rabbit!
 SendInput {tab}123456
 return 
 
 :*:..p::
-SendRaw Magenta@Rabbit!
+SendRaw Golden@Rabbit!
 return
 
 ;^!i::
